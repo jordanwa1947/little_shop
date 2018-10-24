@@ -9,6 +9,32 @@
   </head>
 
   <body>
+    <div id="nav_bar">
+      <span class="link" id="welcome_link">
+        <%= link_to "Return to Welcome Page"%>
+      </span>
+      <span class="link" id="browse_items_link">
+        <%= link_to "Browse All Items"%>
+      </span>
+      <span class="link" id="browse_merchants_link">
+        <%= link_to "See Merchants"%>
+      </span>
+      <span class="link" id="view_cart_link">
+        <%= link_to "View Cart"%>
+      </span>
+      <span id="cart_items">Items in Cart: </span>
+      <span class="link" id="login_link">
+        <%= link_to "Log In"%>
+      </span>
+      <span class="link" id="register_link">
+        <%= link_to "Register"%>
+      </span>
+
+
+
+    </div>
+
+
     <%= yield %>
   </body>
 </html>
