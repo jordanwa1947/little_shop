@@ -206,7 +206,6 @@ describe "as an admin user" do
     expect(page).to have_content("My Orders")
     expect(page).to have_content("Log Out")
     expect(page).to have_content("Logged-in as: #{admin.name}")
-    expect(page).to have_content("Merchant Dashboard")
     expect(page).to have_content("Admin Dashboard")
     expect(page).to have_content("View All Users")
 
