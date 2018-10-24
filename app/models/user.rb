@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates_presence_of :zip_code, require: true
   validates_presence_of :password_digest, require: true
   validates :email, presence: true, uniqueness: true
+  validates_confirmation_of :password
 
   has_many :items
   has_many :orders

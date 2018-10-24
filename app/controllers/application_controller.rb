@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-
   helper_method :current_user, :current_merchant?, :current_admin?
 
   def current_user
@@ -15,5 +14,4 @@ class ApplicationController < ActionController::Base
   def current_admin?
     current_user && current_user.admin_user?
   end
-
 end
