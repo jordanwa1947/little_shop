@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  enum role: %w(default, registered_user, merchant_user, admin_user)
-  enum status: %w(active, disabled)
+  enum role: %w(default registered_user merchant_user admin_user)
+  enum status: %w(active disabled)
 
 end
