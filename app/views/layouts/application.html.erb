@@ -9,6 +9,7 @@
   </head>
 
   <body>
+
     <div id="nav_bar">
       <span class="link" id="welcome_link">
         <%= link_to "Return to Welcome Page"%>
@@ -63,6 +64,7 @@
       <div> <%= value %> </div>
     <% end %>
     <p class="flash"><%= flash.notice %></p>
+
     <%= yield %>
   </body>
 </html>
