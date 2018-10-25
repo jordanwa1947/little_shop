@@ -1,0 +1,50 @@
+<div id="nav_bar">
+  <span class="link" id="welcome_link">
+    <%= link_to "Return to Welcome Page", root_path %>
+  </span>
+  <span class="link" id="browse_items_link">
+    <%= link_to "Browse All Items"%>
+  </span>
+  <span class="link" id="browse_merchants_link">
+    <%= link_to "See Merchants"%>
+  </span>
+  <span class="link" id="view_cart_link">
+    <%= link_to "View Cart"%>
+  </span>
+  <span id="cart_items">Items in Cart: </span>
+  <% if current_user == nil %>
+    <span class="link" id="login_link">
+      <%= link_to "Log In"%>
+    </span>
+    <span class="link" id="register_link">
+      <%= link_to "Register", new_user_path %>
+    </span>
+  <% end %>
+  <% if current_user %>
+    <div id="logged_in_as">
+      <p>Logged-in as: <%= current_user.name %> </p>
+    </div>
+    <div class="link" id="profile_link">
+      <%= link_to "My Profile" %>
+    </div>
+    <div class="link" id="orders_link">
+      <%= link_to "My Orders" %>
+    </div>
+    <div class="link" id="logout_link">
+      <%= link_to "Log Out" %>
+    </div>
+  <% end %>
+  <% if current_merchant?%>
+    <div class="link" id="merchant_dashboard_link">
+      <%= link_to "Merchant Dashboard" %>
+    </div>
+  <% end %>
+  <% if current_admin? %>
+    <div class="link" id="admin_dashboard_link">
+      <%= link_to "Admin Dashboard" %>
+    </div>
+    <div class="link" id="all_users_link">
+      <%= link_to "View All Users" %>
+    </div>
+  <% end %>
+</div>

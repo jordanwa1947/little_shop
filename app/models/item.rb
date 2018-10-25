@@ -5,5 +5,5 @@ class Item < ApplicationRecord
 
   validates_presence_of :name, :price, :img_url, :inventory_count, :status, :user_id
 
-  enum status: %w(active, disabled)
+  enum status: %w(active disabled)
 end

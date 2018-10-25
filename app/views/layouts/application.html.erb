@@ -9,6 +9,47 @@
   </head>
 
   <body>
+
+    <div id="nav_bar">
+      <% @num_items = 3 %>
+
+      <li><%= link_to "Return to Welcome Page", class: "link", id:"welcome_link" %></li>
+      <li><%= link_to "Browse Items", class: "link", id: "browse_items_link" %></li>
+      <li><%= link_to "See Merchants", class: "link", id: "browse_merchants_link" %></li>
+      <li><%= link_to "View Cart: #{@num_items}", class: "link", id: "view-cart-link" %></li>
+
+      <% if current_user %>
+        <div id="logged_in_as"> Logged-in as: <%= current_user.name %></div>
+        <li><%= link_to "My Profile", class:"link", id: "profile_link" %></li>
+        <li><%= link_to "My Orders", class: "link", id:"orders_link" %></li>
+        <li><%= link_to "Log Out", class:"link", id: "logout_link" %></li>
+      <% else %>
+        <li><%= link_to "Log In", class:"link", id: "login_link" %></li>
+        <li><%= link_to "Register", class: "link", id: "register_link" %></li>
+      <% end %>
+
+      <% if current_merchant? %>
+        <div class="link" id="merchant_dashboard_link">
+          <%= link_to "Merchant Dashboard" %>
+        </div>
+      <% end %>
+
+      <% if current_admin? %>
+        <div class="link" id="admin_dashboard_link">
+          <%= link_to "Admin Dashboard" %>
+        </div>
+        <div class="link" id="all_users_link">
+          <%= link_to "View All Users" %>
+        </div>
+      <% end %>
+
+    </div> <!-- navbar -->
+
+    <% flash.each do |name, value| %>
+      <div> <%= value %> </div>
+    <% end %>
+    <p class="flash"><%= flash.notice %></p>
+
     <%= yield %>
   </body>
 </html>
