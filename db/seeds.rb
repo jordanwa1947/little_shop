@@ -21,11 +21,11 @@ user_10 = User.create(name:"Margeret Thatcher" , address:"8896 Dev ave." , city:
 
 
 
-item_1 = Item.create(name:"Shovel" , price:16 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:20 , user:user_6 )
-item_2 = Item.create(name:"Kool Aid" , price:3 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:30 ,status:1 , user:user_7 )
-item_3 = Item.create(name:"Possum Sweater" , price:67 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:40 , user:user_8)
-item_4 = Item.create(name:"Beef Jerky" , price:13 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:50 ,status:1 , user:user_9 )
-item_5 = Item.create(name:"Banana Pudding" , price:9 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:60 , user:user_10 )
+item_1 = Item.create(name:"Shovel" ,description:"A good way to get attention. Bring one to parties." ,price:16 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:20 , user:user_6 )
+item_2 = Item.create(name:"Kool Aid" ,description:"Transcend to the next level! Oh Yeah!" , price:3 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:30 ,status:1 , user:user_7 )
+item_3 = Item.create(name:"Possum Sweater" ,description:"Big in New Zealand." , price:67 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:40 , user:user_8)
+item_4 = Item.create(name:"Beef Jerky" ,description:"Good for camping trips and picnics." , price:13 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:50 ,status:1 , user:user_9 )
+item_5 = Item.create(name:"Banana Pudding" ,description:"Banana flavored pudding" , price:9 , img_url:"http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg" , inventory_count:60 , user:user_10 )
 
 order_1 = Order.create(user:user_1 , status:0 )
 order_2 = Order.create(user:user_2 , status:1 )
