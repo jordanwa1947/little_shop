@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-root "welcome#show"
+  root "welcome#show"
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :items, only: [:index]
   resources :users, only: [:new, :create, :show]
 end

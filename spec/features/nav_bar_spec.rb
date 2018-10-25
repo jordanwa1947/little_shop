@@ -34,6 +34,10 @@ describe "as a visitor" do
     click_on "Return to Welcome Page"
 
     expect(current_path).to eq(root_path)
+
+    click_on "Browse All Items"
+
+    expect(current_path).to eq(items_path)
     # Need to build out all these links!
   end
 end
@@ -46,7 +50,7 @@ describe "as a registered user" do
     address = '123 Street'
     city = 'Denver'
     state = 'CO'
-    zip_code = '88888'
+    zip_code = 88888
     email = 'email@mail.com'
 
     reg = User.create(
@@ -90,7 +94,7 @@ describe "as a merchant user" do
     address_1 = '123 Street'
     city_1 = 'Denver'
     state_1 = 'CO'
-    zip_code_1 = '88888'
+    zip_code_1 = 88888
     email_1 = 'email2@mail.com'
 
     reg = User.create(
@@ -110,7 +114,7 @@ describe "as a merchant user" do
     address = '123 Street'
     city = 'Denver'
     state = 'CO'
-    zip_code = '88888'
+    zip_code = 88888
     email = 'email@mail.com'
 
     merch = User.create(
@@ -156,7 +160,7 @@ describe "as an admin user" do
     address_1 = '123 Street'
     city_1 = 'Denver'
     state_1 = 'CO'
-    zip_code_1 = '88888'
+    zip_code_1 = 88888
     email_1 = 'email2@mail.com'
 
     reg = User.create(
@@ -196,7 +200,7 @@ describe "as an admin user" do
     address_2 = '123 Street'
     city_2 = 'Denver'
     state_2 = 'CO'
-    zip_code_2 = '88888'
+    zip_code_2 = 88888
     email_2 = 'email3@mail.com'
 
     admin = User.create(

@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
 
-  validates_presence_of :name, :price, :img_url, :inventory_count, :status, :user_id
+  validates_presence_of :name, :price, :img_url, :inventory_count, :status, :user_id, :description
 
   enum status: %w(active disabled)
 end
