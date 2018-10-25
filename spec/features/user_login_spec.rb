@@ -34,4 +34,5 @@ describe 'login process' do
 
     end
   end
+  describe 'user is redirected to
 end
