@@ -16,14 +16,14 @@ describe 'User visits edit page' do
 
       click_on 'Create User'
       click_link 'Edit Info'
-#test needs to be updated once user can login
-      expect(current_path).to eq(edit_user_path(1))
+
+      expect(current_path).to eq(edit_user_path(User.last))
 
       fill_in 'Name', with: 'Jawesome'
       fill_in 'Email', with: 'new-guy@yahoo.com'
       click_on 'Update User'
 
-      expect(current_path).to eq(user_path(1))
+      expect(current_path).to eq(user_path(User.last))
       expect(page).to have_content('Welcome, Jawesome')
       expect(page).to have_content('new-guy@yahoo.com')
       expect(page).to have_content('Your Info Was Successfully Updated!')

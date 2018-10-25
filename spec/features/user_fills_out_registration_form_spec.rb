@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe 'user visit registration page' do
+describe 'user visits registration page' do
 
   before(:each) do
-    @user_1 = User.create(name: 'Sherlock Holmes', address: '221 Baker street', city: 'London', state: 'opressed',
+    @user_1 = User.create(name: 'Sherlock Holmes', address: '221 Baker street', city: 'London', state: 'oppressed',
     zip_code: '12345', email: 'AwesomeSauce@gmail.com', password: '123123')
 
     @user_2 = User.create(name: "Dan Hutch", address: "654 turing way", city: "Scranton", state: "Pennsylvania",
