@@ -6,6 +6,7 @@ describe Item, type: :model do
     it { should validate_presence_of(:price) }
     it { should validate_presence_of(:img_url) }
     it { should validate_presence_of(:inventory_count) }
+    it { should validate_presence_of(:description) }
     it { should validate_presence_of(:status) }
     it { should validate_presence_of(:user_id) }
   end
