@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "as a visitor" do
   it "I should see a nav bar with visitor links" do
 
-    visit '/'
+    visit root_path
 
     expect(page).to have_content("Return to Welcome Page")
     expect(page).to have_content("Browse All Items")
@@ -36,8 +36,12 @@ describe "as a visitor" do
     expect(current_path).to eq(root_path)
 
     click_on "Browse All Items"
-
     expect(current_path).to eq(items_path)
+
+    visit root_path
+    click_on "Log In"
+    expect(current_path).to eq(login_path)
+
     # Need to build out all these links!
   end
 end
@@ -67,7 +71,7 @@ describe "as a registered user" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(reg)
 
-    visit "/"
+    visit root_path
 
     expect(page).to have_content("Return to Welcome Page")
     expect(page).to have_content("Browse All Items")
@@ -83,6 +87,9 @@ describe "as a registered user" do
     expect(page).to_not have_content("Log In")
     expect(page).to_not have_content("Register")
     # Need to build out all these links!
+    click_on("My Profile")
+    expect(current_path).to eq(profile_path)
+
   end
 end
 
@@ -131,7 +138,7 @@ describe "as a merchant user" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merch)
 
-    visit "/"
+    visit root_path
 
     expect(page).to have_content("Return to Welcome Page")
     expect(page).to have_content("Browse All Items")
@@ -148,6 +155,9 @@ describe "as a merchant user" do
     expect(page).to_not have_content("Log In")
     expect(page).to_not have_content("Register")
     expect(page).to_not have_content("Logged-in as: #{reg.name}")
+
+    click_on "Browse All Items"
+    expect(current_path).to eq(items_path)
     # Need to build out all these links!
   end
 end
@@ -217,7 +227,7 @@ describe "as an admin user" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit "/"
+    visit root_path
 
     expect(page).to have_content("Return to Welcome Page")
     expect(page).to have_content("Browse All Items")

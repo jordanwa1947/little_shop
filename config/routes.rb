@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   #because it's not a resource its being saved in sessions, so we handroll
   post '/login', to: 'sessions#create'
   #trying to follow RESTful conventions
+  delete '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create, :show, :edit, :update]
+  get '/profile', to: 'users#show'
+
+  resources :users, only: [:new, :create, :edit, :update]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
