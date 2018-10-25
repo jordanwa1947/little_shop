@@ -30,6 +30,7 @@ describe 'user visits registration page' do
 
       click_on 'Create User'
 
+      expect(current_path).to eq(profile_path)
       expect(page).to have_content('Welcome, Jordan Whitten')
       expect(page).to have_content('Address: 8008 Awesome street')
       expect(page).to have_content('City: South Park')

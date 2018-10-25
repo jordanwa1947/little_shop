@@ -23,7 +23,7 @@ describe 'User visits edit page' do
       fill_in 'Email', with: 'new-guy@yahoo.com'
       click_on 'Update User'
 
-      expect(current_path).to eq(user_path(User.last))
+      expect(current_path).to eq(profile_path)
       expect(page).to have_content('Welcome, Jawesome')
       expect(page).to have_content('new-guy@yahoo.com')
       expect(page).to have_content('Your Info Was Successfully Updated!')

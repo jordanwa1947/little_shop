@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = 'You are now registered and logged in'
-      redirect_to user_path(@user)
+      redirect_to profile_path
     else
       flash[:error] = 'Email Address already exists'
       redirect_to new_user_path
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def update
     update_info = User.update(update_params)
     flash.notice = 'Your Info Was Successfully Updated!'
-    redirect_to user_path(params[:id])
+    redirect_to profile_path
   end
 
   def show
