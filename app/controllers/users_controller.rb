@@ -8,8 +8,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      flash[:success] = 'You are now registered and logged in'
       redirect_to user_path(@user)
     else
+      flash[:error] = 'Email Address already exists'
       redirect_to new_user_path
     end
   end
