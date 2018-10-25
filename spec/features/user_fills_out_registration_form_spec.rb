@@ -19,6 +19,7 @@ describe 'user visit registration page' do
       click_on 'Create User'
 
       expect(page).to have_content('Welcome, Jordan Whitten')
+      expect(page).to have_content('You are now registered and logged in')
     end
   end
 
@@ -42,6 +43,7 @@ describe 'user visit registration page' do
       click_on 'Create User'
 
       expect(current_path).to eq(new_user_path)
+      expect(page).to have_content('Email Address already exists')
     end
   end
 end
