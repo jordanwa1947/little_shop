@@ -15,6 +15,25 @@ describe "as a visitor" do
     expect(page).to have_content("Register")
 
     expect(page).to_not have_content("My Profile")
+
+    click_on "Register"
+
+    expect(current_path).to eq(new_user_path)
+
+    expect(page).to have_content("Return to Welcome Page")
+    expect(page).to have_content("Browse All Items")
+    expect(page).to have_content("See Merchants")
+    expect(page).to have_content("View Cart")
+    expect(page).to have_content("Items in Cart:")
+    # Next to the shopping cart link I see a count of the items in my cart
+    expect(page).to have_content("Log In")
+    expect(page).to have_content("Register")
+
+    expect(page).to_not have_content("My Profile")
+
+    click_on "Return to Welcome Page"
+
+    expect(current_path).to eq(root_path)
     # Need to build out all these links!
   end
 end
@@ -203,6 +222,7 @@ describe "as an admin user" do
     expect(page).to have_content("Items in Cart:")
     # Next to the shopping cart link I see a count of the items in my cart
     expect(page).to have_content("My Profile")
+
     expect(page).to have_content("My Orders")
     expect(page).to have_content("Log Out")
     expect(page).to have_content("Logged-in as: #{admin.name}")
