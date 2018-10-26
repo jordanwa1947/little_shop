@@ -24,3 +24,12 @@
    margin: 0px;
    background: #25283D;
  }
+
+ .flash::before {
+  content: "*";
+ }
+
+ .flash {
+   font-size: 1em;
+   color: #D34F73;
+ }

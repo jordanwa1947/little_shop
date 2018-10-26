@@ -1,15 +1,25 @@
 <h1> Welcome, <%= user_info = current_user.name %> </h1>
 
-<h2> Your Info: </h2>
-<div class="info-box" id="your-info-box">
-    <span id="email-address"> Username: <%= current_user.email %> </span>
+<h2> Your Info:
+  <% flash.each do |name, value| %>
+  <span class="flash"> <%= value %> </span>
+  <% end %>
+</h2>
 
-    <div>
-      <span> Address: <%= current_user.address %>,&nbsp</span>
-      <span> <%= current_user.city %>,&nbsp </span>
-      <span> <%= current_user.state %>,&nbsp </span>
-      <span> <%= current_user.zip_code %> </span>
-    </div>
+<div class="info-box" id="your-info-box">
+  <span id="email-address"> Username: <%= current_user.email %> </span>
+  <div>
+    <span> Address: <%= current_user.address %>,&nbsp</span>
+    <span> <%= current_user.city %>,&nbsp </span>
+    <span> <%= current_user.state %>,&nbsp </span>
+    <span> <%= current_user.zip_code %> </span>
+  </div>
 
   <%= link_to 'Edit Info', edit_user_path(current_user) %>
+
+</div>
+
+<h2> Your Statistics: </h2>
+<div class="info-box" id="stats-box">
+  Coming Soon!
 </div>
