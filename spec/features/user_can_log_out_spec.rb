@@ -20,5 +20,6 @@ describe 'user signs up and then logs out' do
 
     click_on "Log Out"
     expect(current_path).to eq(root_path)
+    expect(page).to have_content("Thank you! You have been logged out.")
   end
 end
