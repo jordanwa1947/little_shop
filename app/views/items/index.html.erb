@@ -1,16 +1,18 @@
 <h1><u>Items for Sale</u></h1>
 
-<div class="card-deck" id="items-list">
+<div class="grid-container" id="items-list">
 
   <% @items.each do |item| %>
-  <div class="item-card" id="item-<%=item.id%>-card">
-    <div class="item-name"> <%= item.name %> </div>
-    <img src="<%= item.img_url %> " class="item-thumbnail" alt=" <%= item.name %> image">
-    <div class="item-merchant-name"> <%= item.user.name %> </div>
-    <div class="item-count"> <%= item.inventory_count %> </div>
-    <div class="item-price"> <%= item.price %> </div>
-    <div class="item-description"> <%= item.description %> </div>
+  <div class="item-entry", id="item-entry-<%=item.id%>">
+
+    <img src="<%= item.img_url %>" class="item-thumbnail" alt="<%= item.name %>-image">
+    <div class="item-info" id="item-name"> <b><%= item.name %></b> </div>
+    <div class="item-info" id="item-merchant-name"> <em><%= item.user.name %> </em> </div>
+    <div class="item-info" id="item-count"> In Stock: <%= item.inventory_count %> </div>
+    <div class="item-info" id="item-price"> $<%= item.price %>  </div>
+    <br>
+    <div class="item-info" id="item-description"> <%= item.description %> </div>
+
   </div>
   <% end %>
-
 </div>

@@ -1,27 +1,45 @@
 <%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="info-box">
+    <%= f.label :full_name %>
+    <%= f.text_field :name, id: "name-field", placeholder: "Shelly Marsh" %>
+  </div>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
+  <div class="info-box">
+    <div>
+      <%= f.label :address %>
+      <%= f.text_field :address, id: "address-field", placeholder: "Stan's House" %>
+    </div>
+    <span>
+      <%= f.label :city %>
+      <%= f.text_field :city, id: "city-field", placeholder: "South Park"%>
+    </span>
+    <span>
+      <%= f.label :state %>
+      <%= f.text_field :state, id: "state-field", placeholder: "CO"%>
+    </span>
+    <div>
+      <%= f.label :zip_code %>
+      <%= f.number_field :zip_code, id: "zipcode-field", placeholder: "01234" %>
+    </div>
+  </div>
 
-  <%= f.label :city %>
-  <%= f.text_field :city %>
+  <div class="info-box">
+    <%= f.label :email %>
+    <%= f.text_field :email, id: "email-field", placeholder: "shutuptwerp@yahoo.com" %>
+  </div>
+  <% if current_page?(action: 'new')%>
 
-  <%= f.label :state %>
-  <%= f.text_field :state %>
-
-  <%= f.label :zip_code %>
-  <%= f.number_field :zip_code %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+    <div class="info-box">
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div>
+        <%= f.label :confirm %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+    <% end %>
 
   <%= f.submit %>
 <% end %>

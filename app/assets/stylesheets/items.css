@@ -1,0 +1,25 @@
+.item-info {
+  font-size: 2em;
+  color: #38618C;
+}
+
+.item-thumbnail {
+  float: right;
+  margin: 20px;
+  height: 150px;
+  border-radius: 50%;
+  border: solid 5px #BFAE48
+}
+
+#items-list {
+  margin: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.item-entry {
+  margin: 10px;
+  background: white;
+  border-top-right-radius: 100px;
+  height: 100%;
+}
