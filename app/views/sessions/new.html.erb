@@ -1,10 +1,14 @@
 <%= form_tag login_path do %>
 
+  <div class="info-box">
   <%= label_tag :email %>
   <%= text_field_tag :email %>
+  </div>
 
+  <div class="info-box">
   <%= label_tag :password %>
-  <%= password_field_tag :password %>
+  <%= password_field_tag :password, id: "password-field" %>
+  </div>
 
   <%= submit_tag "Log in" %>
 <% end %>

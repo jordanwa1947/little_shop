@@ -30,12 +30,14 @@
   <% if current_page?(action: 'new')%>
 
   <div class="info-box">
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :confirm_password %>
-  <%= f.password_field :password_confirmation %>
-  </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.label :confirm %>
+      <%= f.password_field :password_confirmation %>
+    </div>
 
   <% end %>
   <%= f.submit %>

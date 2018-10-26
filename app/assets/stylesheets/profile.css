@@ -1,0 +1,13 @@
+h2 {
+  margin: 0px 20px;
+  font-size: 2em;
+  color: #EFD9CE;
+}
+
+#your-info-box {
+  padding: 50px;
+}
+
+#email-address {
+  overflow-wrap: break-word;
+}
