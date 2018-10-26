@@ -8,6 +8,7 @@ ul {
 }
 
 li {
+  font-size: 2em;
   flex: 1;
   float: left;
   color: white;
