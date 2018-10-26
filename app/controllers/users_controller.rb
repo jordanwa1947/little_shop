@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
   def new
-    @user = User.new
+    if session[:user]
+      session[:user][:email] = nil
+      @user = User.new(session[:user])
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -11,8 +16,11 @@ class UsersController < ApplicationController
       flash[:success] = 'You are now registered and logged in'
       redirect_to profile_path
     else
+      session[:user] = @user
       flash[:error] = 'Email Address already exists'
-      redirect_to new_user_path
+      redirect_to new_user_path(
+        :name => user_params[:name]
+        )
     end
   end
 
@@ -23,7 +31,6 @@ class UsersController < ApplicationController
       @user = current_user
     end
   end
-
 
   def update
     @user = User.find(params[:id])
