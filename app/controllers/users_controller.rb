@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = 'You are now registered and logged in'
-      redirect_to user_path(@user)
+      redirect_to profile_path
     else
       flash[:error] = 'Email Address already exists'
       redirect_to new_user_path
@@ -17,23 +17,40 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
 
+
   def update
-    update_info = User.update(user_params)
-    flash.notice = 'Your Info Was Successfully Updated!'
-    redirect_to user_path(params[:id])
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    if @user.save
+      flash[:success] = 'Your Info Was Successfully Updated!'
+      redirect_to profile_path
+    else
+      flash[:notice] = "Email address already in use"
+      redirect_to profile_edit_path
+    end
   end
 
   def show
-
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :address, :city, :state,
-                                 :zip_code, :password, :email)
+    params.require(:user).permit(
+      :name,
+      :address,
+      :city,
+      :state,
+      :zip_code,
+      :password,
+      :email
+    )
   end
 end

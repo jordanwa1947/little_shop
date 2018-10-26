@@ -14,7 +14,7 @@
   <span id="cart_items">Items in Cart: </span>
   <% if current_user.nil? %>
     <span class="link" class="link" id="login-link">
-      <%= link_to "Log In"%>
+      <%= link_to "Log In", login_path%>
     </span>
     <span class="link" id="register_link">
       <%= link_to "Register", new_user_path %>
@@ -24,7 +24,7 @@
       <p>Logged-in as: <%= current_user.name %> </p>
     </div>
     <div class="link" id="profile_link">
-      <%= link_to "My Profile" %>
+      <%= link_to "My Profile", profile_path %>
     </div>
     <% if current_user.orders.count > 0 %>
       <div class="link" id="orders_link">
@@ -32,7 +32,7 @@
       </div>
     <% end %>
     <div class="link" id="logout_link">
-      <%= link_to "Log Out" %>
+      <%= link_to "Log Out", logout_path, method: :delete%>
     </div>
     <% if current_merchant?%>
       <div class="link" id="merchant_dashboard_link">
