@@ -28,7 +28,6 @@ describe 'User visits edit page' do
       expect(page).to have_content('new-guy@yahoo.com')
       expect(page).to have_content('Your Info Was Successfully Updated!')
       expect(page).to_not have_content("example@gmail.com")
-      expect(page).to_not have_field('Password')
     end
   end
 end

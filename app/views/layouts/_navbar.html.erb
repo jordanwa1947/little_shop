@@ -26,9 +26,11 @@
     <div class="link" id="profile_link">
       <%= link_to "My Profile" %>
     </div>
-    <div class="link" id="orders_link">
-      <%= link_to "My Orders" %>
-    </div>
+    <% if current_user.orders.count > 0 %>
+      <div class="link" id="orders_link">
+        <%= link_to "My Orders", orders_path %>
+      </div>
+    <% end %>
     <div class="link" id="logout_link">
       <%= link_to "Log Out" %>
     </div>

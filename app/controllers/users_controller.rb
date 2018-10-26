@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    update_info = User.update(update_params)
+    update_info = User.update(user_params)
     flash.notice = 'Your Info Was Successfully Updated!'
     redirect_to user_path(params[:id])
   end
@@ -35,10 +35,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :address, :city, :state,
                                  :zip_code, :password, :email)
-  end
-
-  def update_params
-    params.require(:user).permit(:name, :address, :city, :state,
-                                  :zip_code, :email)
   end
 end
