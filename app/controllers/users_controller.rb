@@ -17,28 +17,40 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
 
+
   def update
-    update_info = User.update(update_params)
-    flash.notice = 'Your Info Was Successfully Updated!'
-    redirect_to profile_path
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    if @user.save
+      flash[:success] = 'Your Info Was Successfully Updated!'
+      redirect_to profile_path
+    else
+      flash[:notice] = "Email address already in use"
+      redirect_to profile_edit_path
+    end
   end
 
   def show
-
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :address, :city, :state,
-                                 :zip_code, :password, :email)
-  end
-
-  def update_params
-    params.require(:user).permit(:name, :address, :city, :state,
-                                  :zip_code, :email)
+    params.require(:user).permit(
+      :name,
+      :address,
+      :city,
+      :state,
+      :zip_code,
+      :password,
+      :email
+    )
   end
 end
