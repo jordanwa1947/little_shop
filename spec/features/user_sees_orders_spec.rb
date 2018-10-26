@@ -18,7 +18,7 @@ describe 'user sees statistics on orders' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
 
-      visit user_path(user_1)
+      visit profile_path
 
       click_link 'My Orders'
 
@@ -41,9 +41,9 @@ describe 'user sees statistics on orders' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
 
-      visit user_path(user_1)
+      visit profile_path
 
-      expect(page).to_not have_link('My Orders')                      
+      expect(page).to_not have_link('My Orders')
     end
   end
 end
