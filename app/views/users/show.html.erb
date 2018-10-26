@@ -1,4 +1,4 @@
-<h1> Welcome, <%= user_info = current_user.name %> </h1>
+<h1> Welcome, <%= current_user.name %> </h1>
 
 <h2> Your Info: </h2>
   <ul>
@@ -8,4 +8,4 @@
     <li> City: <%= current_user.city %> </li>
     <li> Zip Code: <%= current_user.zip_code %> </li>
   </ul>
-  <%= link_to 'Edit Info', edit_user_path(current_user) %>
+  <%= link_to 'Edit Info', profile_edit_path %>

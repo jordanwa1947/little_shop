@@ -17,13 +17,11 @@
   <%= f.label :email %>
   <%= f.text_field :email %>
 
-  <% if current_page?(action: 'new')%>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
 
-  <% end %>
   <%= f.submit %>
 <% end %>
