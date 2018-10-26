@@ -1,14 +1,14 @@
-
-
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  flex: wrap;
 }
 
 li {
+  flex: 1;
   float: left;
   color: white;
 }
@@ -22,10 +22,5 @@ li a {
 }
 
 li a:hover {
-    background-color: #111;
-}
-
-#logged_in_as{
-  float: right;
-  font-size: 30px;
+  background-color: #111;
 }

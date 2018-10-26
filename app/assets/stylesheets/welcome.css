@@ -3,3 +3,9 @@ h1{
   font-size: 6em;
   color: #EFD9CE;
 }
+
+#logged_in_as{
+  float: right;
+  font-size: 30px;
+  color: #EFD9CE;
+}
