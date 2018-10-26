@@ -12,12 +12,8 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
   get '/profile/edit', to: 'users#edit'
-  
+
 
   resources :users, only: [:new, :create, :edit, :update]
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f9beacf9c3603b01adb9101033c1fb04321a6b82
 end

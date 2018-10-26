@@ -26,10 +26,15 @@
  }
 
  .flash::before {
-  content: "*";
+  content: "***";
+ }
+
+ .flash::after {
+  content: "***";
  }
 
  .flash {
-   font-size: 1em;
+   margin: 20px;
+   font-size: 2em;
    color: #D34F73;
  }

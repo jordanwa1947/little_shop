@@ -25,6 +25,7 @@ describe "items index page" do
     )
 
     @item_1 = @user_1.items.create(
+      id: 1,
       name: "First Item",
       price: 100.00,
       img_url: "https://static.grainger.com/rp/s/is/image/Grainger/12N166_AS01?$mdmain$",
@@ -34,6 +35,7 @@ describe "items index page" do
     )
 
     @item_2 = @user_1.items.create(
+      id: 2,
       name: "Second Item",
       price: 200.00,
       img_url: "https://static.grainger.com/rp/s/is/image/Grainger/12N166_AS01?$mdmain$",
@@ -48,7 +50,7 @@ describe "items index page" do
     visit items_path
     expect(page).to have_content("Items for Sale")
 
-    within("#item-1-card") do
+    within("#item-entry-1") do
       expect(page).to have_content(@item_1.name)
       expect(page).to have_content(@item_1.user.name)
       expect(page).to have_content(@item_1.inventory_count)
@@ -57,7 +59,7 @@ describe "items index page" do
       expect(page).to_not have_content(@item_2.name)
     end
 
-    within("#item-2-card") do
+    within("#item-entry-2") do
       expect(page).to have_content(@item_2.name)
       expect(page).to have_content(@item_2.user.name)
       expect(page).to have_content(@item_2.inventory_count)

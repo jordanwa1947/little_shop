@@ -12,13 +12,11 @@
 
     <%= render partial: 'layouts/navbar'  %>
 
-<<<<<<< HEAD
-=======
+
     <% flash.each do |name, value| %>
-      <div> <%= value %> </div>
+      <div class="flash"> <%= value %> </div>
     <% end %>
 
->>>>>>> f9beacf9c3603b01adb9101033c1fb04321a6b82
     <%= yield %>
   </body>
 </html>
