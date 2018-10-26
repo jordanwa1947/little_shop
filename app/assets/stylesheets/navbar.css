@@ -1,12 +1,3 @@
-#nav_bar {
-  margin: 0px;
-  padding: 0px 10px;
-  font-size: 100%;
-  width: 100%;
-  height: 60px;
-  list-style-type: none;
-  background: #8F3985;
-}
 
 
 ul {
@@ -18,17 +9,23 @@ ul {
 }
 
 li {
-    float: left;
+  float: left;
+  color: white;
 }
 
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 li a:hover {
     background-color: #111;
+}
+
+#logged_in_as{
+  float: right;
+  font-size: 30px;
 }
