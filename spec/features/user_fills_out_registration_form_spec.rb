@@ -42,23 +42,40 @@ describe 'user visits registration page' do
   end
 
   describe 'user enters email address already in use' do
-    it "doesn't submit the form but stays on the registration page" do
+    it "doesn't create or log in the user but stays on the registration page and everything but the email and password fields are still filled in" do
 
       visit new_user_path
 
-      fill_in "Name", with: "Jordan Whitten"
-      fill_in "Address", with: "8008 Awesome street"
-      fill_in "City", with: "South Park"
-      fill_in "State", with: "Denver"
-      fill_in "Zip code", with: "00001"
-      fill_in "Email", with: "AwesomeSauce@gmail.com"
-      fill_in "Password", with: "123456"
-      fill_in "Password confirmation", with: "123456"
+      name = "Jordan Whitten"
+      address = "8008 Awesome street"
+      city = "South Park"
+      state = "Denver"
+      zip = 11110
+      email = "AwesomeSauce@gmail.com"
+      password = "123456"
+
+      fill_in "Name", with: name
+      fill_in "Address", with: address
+      fill_in "City", with: city
+      fill_in "State", with: state
+      fill_in "Zip code", with: zip
+      fill_in "Email", with: email
+      fill_in "Password", with: password
+      fill_in "Password confirmation", with: password
 
       click_on 'Create User'
 
       expect(current_path).to eq(new_user_path)
       expect(page).to have_content('Email Address already exists')
+      expect(find_field("user_name").value).to eq(name)
+      expect(find_field("user_address").value).to eq(address)
+      expect(find_field("user_city").value).to eq(city)
+      expect(find_field("user_state").value).to eq(state)
+      expect(find_field("user_zip_code").value).to eq(zip.to_s)
+      expect(find_field("user_email").value).to eq(nil)
+      expect(find_field("user_password").value).to eq(nil)
+      expect(find_field("user_password_confirmation").value).to eq(nil)
+
     end
   end
 end
