@@ -28,12 +28,20 @@ describe 'Admin clicks on users_page' do
       expect(page).to have_content('Email: AwesomeSauce@gmail.com')
     end
 
+    it 'takes the admin to the user profile when clicked on' do
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+      visit admin_users_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
+
     it 'has an enable and disable link for each user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_3)
 
       visit admin_users_path
 
-        click_link('Disable', match: :first)
+      click_link('Disable', match: :first)
 
       expect(current_path).to eq(admin_users_path)
       expect(page).to have_content("#{@user_1.name}'s account is now disabled")
@@ -44,6 +52,19 @@ describe 'Admin clicks on users_page' do
       expect(current_path).to eq(admin_users_path)
       expect(page).to have_content("#{@user_1.name}'s account is now enabled")
       expect(User.first.status).to eq("active")
+    end
+
+    it 'keeps a user from loggin in when their account is disabled' do
+      user_4 = User.create(name: 'Your Mom', address: 'drewry lane', city: 'New Haven', state: 'Conecticut',
+      zip_code: '12345', email: 'demure@gmail.com', password: '10000', status: 'disabled')
+      visit login_path
+
+      fill_in "Email", with: user_4.email
+      fill_in "Password", with: user_4.password
+
+      click_on "Log in"
+
+      expect(current_path).to eq(login_path)
     end
   end
 end
