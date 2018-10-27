@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 
   def new
     if session[:user]
+      # binding.pry
       session[:user][:email] = nil
+      # binding.pry
       @user = User.new(session[:user])
     else
       @user = User.new
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
     else
       session[:user] = @user
       flash[:error] = 'Email Address already exists'
-      render :new
+      redirect_to new_user_path
     end
   end
 
