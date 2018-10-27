@@ -1,12 +1,11 @@
 class CartsController < ApplicationController
 
+
   def create
     cart = session[:cart] || {}
-    cart[params[:item_id]] =+ 1
-    
-    # cart[:item_id] = Item.find(params[:item_id]).name
+    cart[params[:item_id]] ||= 0
+    cart[params[:item_id]] += 1
     session[:cart] = cart
-
     redirect_to items_path
   end
 
