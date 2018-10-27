@@ -1,0 +1,8 @@
+<% if current_admin?%>
+  <h1> Current Users </h1>
+    <% @users.each do |user| %>
+      <%= link_to user.name, admin_user_path(user) %>
+    <% end %>
+<% else %>
+  not_found
+<% end %>

@@ -14,8 +14,11 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
   get '/profile/edit', to: 'users#edit'
-  
+
 
   resources :users, only: [:new, :create, :edit, :update]
 
+  namespace :admin do
+    resources :users, only: [:index, :show]
+  end
 end

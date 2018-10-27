@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       redirect_to profile_path
     else
       flash[:error] = 'Email Address already exists'
-      redirect_to new_user_path
+      render :new
     end
   end
 
@@ -38,6 +38,11 @@ class UsersController < ApplicationController
   end
 
   def show
+
+  end
+
+  def index
+    @users = User.all
   end
 
   private
