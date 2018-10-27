@@ -6,7 +6,8 @@ class CartsController < ApplicationController
   def create
     cart = session[:cart] || {}
     cart[params[:item_id]] = 1
-    redirect_to root_path
+    session[:cart] = cart
+    redirect_to welcome_path
   end
 
   def show
