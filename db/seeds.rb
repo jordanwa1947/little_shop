@@ -117,7 +117,7 @@ item_2 = Item.create(
 item_3 = Item.create(
   name: "Possum Sweater",
   description: "Big in New Zealand.",
-  price: 67
+  price: 67,
   img_url: "http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg",
   inventory_count: 40,
   user: user_8
