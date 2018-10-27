@@ -1,7 +1,9 @@
 .item-info {
   font-size: 2em;
   color: #38618C;
+  margin: 20px;
 }
+
 
 .item-thumbnail {
   float: right;
@@ -15,6 +17,12 @@
   margin: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+#stats-block {
+  background: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .item-entry {

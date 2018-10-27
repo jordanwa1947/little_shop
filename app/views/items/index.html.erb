@@ -1,3 +1,11 @@
+<h1>Leaderboard</h1>
+<div class="item-entry" id="stats-block">
+  <div class="item-info">Best Selling Merchants</div>
+  <div class="item-info">Best Selling Items</div>
+  <div class="item-info">Fastest Fulfillers</div>
+  <div class="item-info">Slowest Shippers</div>
+</div>
+
 <h1><u>Items for Sale</u></h1>
 
 <div class="grid-container" id="items-list">
@@ -5,6 +13,7 @@
   <% @items.each do |item| %>
   <div class="item-entry", id="item-entry-<%=item.id%>">
 
+    <%= link_to "VIEW", item_path(item), class: "item-info", id: "view-link" %>
     <img src="<%= item.img_url %>" class="item-thumbnail" alt="<%= item.name %>-image">
     <div class="item-info" id="item-name"> <b><%= item.name %></b> </div>
     <div class="item-info" id="item-merchant-name"> <em><%= item.user.name %> </em> </div>

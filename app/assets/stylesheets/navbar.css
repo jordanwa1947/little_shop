@@ -7,11 +7,15 @@ ul {
   flex: wrap;
 }
 
-li {
+li, #logged-in-as {
   font-size: 2em;
   flex: 1;
   float: left;
   color: white;
+}
+
+#logged-in-as {
+float: right;
 }
 
 li a {
@@ -24,8 +28,10 @@ li a {
 
 li a:hover {
   background-color: #111;
+  color: #2D936C;
 }
 
-#view-cart-link {
-  color: #2D936C;
+#num-items {
+  float: right;
+  padding: 14px 16px;
 }
