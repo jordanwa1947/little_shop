@@ -1,18 +1,6 @@
 require 'rails_helper'
 
 describe 'user visits registration page' do
-
-  before(:each) do
-    @user_1 = User.create(name: 'Sherlock Holmes', address: '221 Baker street', city: 'London', state: 'oppressed',
-    zip_code: '12345', email: 'AwesomeSauce@gmail.com', password: '123123')
-
-    @user_2 = User.create(name: "Dan Hutch", address: "654 turing way", city: "Scranton", state: "Pennsylvania",
-    zip_code: '50000', email: 'huchley@gmail.com', password: 'pizza@myhouse123', role: 2)
-
-    @user_3 = User.create(name: "Jordan Whitten", address: "8008 Awesome street", city: "South Park", state: "Denver",
-      zip_code: '12465', email: 'jawesome@gmail.com', password: '456123', role: 1)
-  end
-
   describe 'user fills out registration' do
     it 'logs the new user in' do
       visit new_user_path
@@ -43,6 +31,16 @@ describe 'user visits registration page' do
   describe 'user enters email address already in use' do
     it "doesn't create or log in the user but stays on the registration page and everything but the email and password fields are still filled in" do
 
+      User.create(
+        name: 'Sherlock Holmes', 
+        address: '221 Baker street', 
+        city: 'London', 
+        state: 'oppressed',
+        zip_code: '12345', 
+        email: 'AwesomeSauce@gmail.com', 
+        password: '123123'
+      )
+      
       visit new_user_path
 
       name = "Jordan Whitten"
@@ -64,7 +62,7 @@ describe 'user visits registration page' do
 
       click_on 'Create User'
 
-      expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq(users_path)
       expect(page).to have_content('Email Address already exists')
       expect(find_field("name-field").value).to eq(name)
       expect(find_field("address-field").value).to eq(address)

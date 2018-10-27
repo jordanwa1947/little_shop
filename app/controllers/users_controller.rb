@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     else
       session[:user] = @user
       flash[:error] = 'Email Address already exists'
-      redirect_to new_user_path
+      render :new
     end
   end
 
@@ -43,6 +43,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
   end
 
   private
