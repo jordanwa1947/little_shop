@@ -32,15 +32,15 @@ describe 'user visits registration page' do
     it "doesn't create or log in the user but stays on the registration page and everything but the email and password fields are still filled in" do
 
       User.create(
-        name: 'Sherlock Holmes', 
-        address: '221 Baker street', 
-        city: 'London', 
+        name: 'Sherlock Holmes',
+        address: '221 Baker street',
+        city: 'London',
         state: 'oppressed',
-        zip_code: '12345', 
-        email: 'AwesomeSauce@gmail.com', 
+        zip_code: '12345',
+        email: 'AwesomeSauce@gmail.com',
         password: '123123'
       )
-      
+
       visit new_user_path
 
       name = "Jordan Whitten"
@@ -62,7 +62,7 @@ describe 'user visits registration page' do
 
       click_on 'Create User'
 
-      expect(current_path).to eq(users_path)
+      expect(current_path).to eq(new_user_path)
       expect(page).to have_content('Email Address already exists')
       expect(find_field("name-field").value).to eq(name)
       expect(find_field("address-field").value).to eq(address)
