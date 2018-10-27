@@ -1,51 +1,38 @@
-<div id="nav_bar">
-  <span class="link" id="welcome_link">
-    <%= link_to "Return to Welcome Page", root_path%>
-  </span>
-  <span class="link" id="browse_items_link">
-    <%= link_to "Browse All Items", items_path%>
-  </span>
-  <span class="link" id="browse_merchants_link">
-    <%= link_to "See Merchants"%>
-  </span>
-  <span class="link" id="view_cart_link">
-    <%= link_to "View Cart"%>
-  </span>
-  <span id="cart_items">Items in Cart: </span>
-  <% if current_user.nil? %>
-    <span class="link" class="link" id="login-link">
-      <%= link_to "Log In", login_path%>
-    </span>
-    <span class="link" id="register_link">
-      <%= link_to "Register", new_user_path %>
-    </span>
-  <% else %>
-    <div id="logged_in_as">
-      <p>Logged-in as: <%= current_user.name %> </p>
-    </div>
-    <div class="link" id="profile_link">
-      <%= link_to "My Profile", profile_path %>
-    </div>
-    <% if current_user.orders.count > 0 %>
-      <div class="link" id="orders_link">
-        <%= link_to "My Orders", orders_path %>
-      </div>
-    <% end %>
-    <div class="link" id="logout_link">
-      <%= link_to "Log Out", logout_path, method: :delete%>
-    </div>
-    <% if current_merchant?%>
-      <div class="link" id="merchant_dashboard_link">
-        <%= link_to "Merchant Dashboard" %>
-      </div>
-    <% elsif current_admin? %>
-      <div class="link" id="admin_dashboard_link">
-        <%= link_to "Admin Dashboard" %>
-      </div>
-      <div class="link" id="all_users_link">
-        <%= link_to "View All Users" %>
-      </div>
-    <% end %>
-  <% end %>
+<% @num_items = 3 %>
+<div id="nav-bar">
+  <ul>
+    <li><%= link_to "Return to Welcome Page", root_path, class: "link", id: "welcome-link" %></li>
+    <li><%= link_to "Browse All Items", items_path, class: "link", id: "browse-items-link" %></li>
+    <li><%= link_to "See Merchants", class: "link", id: "browse-merchants-link" %></li>
+    <li><%= link_to "View Cart", cart_path, class: "link", id: "view-cart-link" %></li>
 
+    <li id="num-items">Items in Cart: <%= @num_items %></li>
+  <% if current_user.nil? %>
+    <li><%= link_to "Log In", login_path, class: "link", id: "login-link" %></li>
+    <li><%= link_to "Register", new_user_path, class: "link", id: "register-link" %></li>
+  </ul>
+  <% else %>
+
+    <li><%= link_to "My Profile", profile_path, class: "link", id: "profile-link" %></li>
+
+    <% if current_user.orders.count > 0 %>
+        <li><%= link_to "My Orders", orders_path, class: "link", id: "orders-link" %></li>
+    <% end %>
+
+    <li><%= link_to "Log Out", logout_path, method: :delete, class: "link", id: "logout-link" %></li>
+    <% if current_merchant?%>
+      <li><%= link_to "Merchant Dashboard", class: "link", id:"merchant-dashboard-link" %></li>
+    <% elsif current_admin? %>
+      <li><%= link_to "Admin Dashboard", class: "link", id: "admin-dashboard-link" %></li>
+      <li><%= link_to "View All Users", class: "link", id: "all-users-link" %></li>
+    </div>
+    <% end %>
+
+  <% end %>
+</ul>
+<% if !current_user.nil? %>
+<div id="logged-in-as">
+  Logged-in as: <%= current_user.name %>
+</div>
+<% end %>
 </div>

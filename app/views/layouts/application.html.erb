@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="http://example.com/favicon.png">
     <title>LittleShop</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
 
   <body>
 
     <%= render partial: 'layouts/navbar'  %>
 
+
     <% flash.each do |name, value| %>
-      <div> <%= value %> </div>
+      <div class="flash"> <%= value %> </div>
     <% end %>
 
     <%= yield %>

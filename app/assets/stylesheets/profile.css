@@ -1,0 +1,14 @@
+h2 {
+  margin: 0px 20px;
+  font-size: 2em;  color: #EFD9CE;
+}
+
+#your-info-box, #stats-box {
+  margin: 40px;
+  padding: 50px;
+  line-height: 1.6;
+}
+
+#email-address {
+  overflow-wrap: break-word;
+}

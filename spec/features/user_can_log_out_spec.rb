@@ -6,14 +6,14 @@ describe 'user signs up and then logs out' do
 
     expect(current_path).to eq(new_user_path)
 
-    fill_in "Name", with: "Jordan Whitten"
-    fill_in "Address", with: "8008 Awesome street"
-    fill_in "City", with: "South Park"
-    fill_in "State", with: "Denver"
-    fill_in "Zip code", with: "50001"
-    fill_in "Email", with: "example@gmail.com"
-    fill_in "Password", with: "123456"
-    fill_in "Password confirmation", with: "123456"
+    fill_in "user[name]", with: "Jordan Whitten"
+    fill_in "user[address]", with: "8008 Awesome street"
+    fill_in "user[city]", with: "South Park"
+    fill_in "user[state]", with: "CO"
+    fill_in "user[zip_code]", with: "50001"
+    fill_in "user[email]", with: "stan@yahoo.com"
+    fill_in "user[password]", with: "123456"
+    fill_in "user[password_confirmation]", with: "123456"
 
     click_on 'Create User'
     expect(current_path).to eq(profile_path)

@@ -1,0 +1,50 @@
+#item-head {
+  margin: 0px 20px;
+  font-size: 6em;
+  color: #EFD9CE;
+}
+
+#seller-info, #inventory-info, #price-tag {
+  margin: 0px 20px;
+  font-size: 2em;
+  color: #EFD9CE;
+}
+
+#seller-name {
+  text-decoration: none;
+
+}
+
+#add-link-wrapper {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background: darkgreen;
+  width: 180px;
+}
+
+#add-link {
+  /* padding: 10px; */
+  text-decoration: none;
+  font-size: 2em;
+  color: #EFD9CE;
+}
+
+
+#add-link-wrapper:hover {
+  background: green;
+}
+
+.item-big-image {
+  margin: 20px;
+  height: 400px;
+  border-radius: 50%;
+  border: solid 5px #EFD9CE;
+}
+
+#description-text {
+  float: right;
+  margin-right: 20px;
+  font-size: 2em;
+  color: #EFD9CE;
+}
