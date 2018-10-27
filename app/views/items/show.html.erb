@@ -1,10 +1,25 @@
-<div id="item-head"><%= @item.name %></div>
-<div> Brought to you by: <%= @seller.name %></div>
-<div><%= link_to "ADD TO CART", carts_path, id: "add-link" %></div>
+<div id="item-head">
+  <%= @item.name %>
+</div>
+
+<div id="seller-info">
+  Brought to you by <%= link_to "#{@seller.name.upcase}", "#", id: "seller-name" %>
+</div>
+
+<div id="inventory-info">
+  In Stock: <%= @item.inventory_count %>
+</div>
+
+<div id="price-tag">
+  $<%= @item.price %>
+</div>
+
+<div id="add-link-wrapper">
+  <%= link_to "ADD TO CART", carts_path, id: "add-link" %>
+</div>
 
 <img src="<%= @item.img_url %>" class="item-big-image" alt="<%= @item.name %>-image">
 
 <div id="description-text">
-
   <%= @item.description %>
 </div>
