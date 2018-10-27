@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index]
 
-  get '/carts', to: 'carts#show'
+  get '/cart', to: 'carts#show'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

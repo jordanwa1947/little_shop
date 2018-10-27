@@ -4,7 +4,7 @@
     <li><%= link_to "Return to Welcome Page", root_path, class: "link", id: "welcome-link" %></li>
     <li><%= link_to "Browse All Items", items_path, class: "link", id: "browse-items-link" %></li>
     <li><%= link_to "See Merchants", class: "link", id: "browse-merchants-link" %></li>
-    <li><%= link_to "View Cart", carts_path, class: "link", id: "view-cart-link" %></li>
+    <li><%= link_to "View Cart", cart_path, class: "link", id: "view-cart-link" %></li>
 
     <li id="num-items">Items in Cart: <%= @num_items %></li>
   <% if current_user.nil? %>
