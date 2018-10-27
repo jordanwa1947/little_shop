@@ -7,12 +7,10 @@
     <li><%= link_to "View Cart", class: "link", id: "view-cart-link" %></li>
     <li id="num-items">Items in Cart: <%= @num_items %></li>
   <% if current_user.nil? %>
-      <li><%= link_to "Log In", login_path, class: "link", id: "login-link" %></li>
-      <li><%= link_to "Register", new_user_path, class: "link", id: "register-link" %></li>
+    <li><%= link_to "Log In", login_path, class: "link", id: "login-link" %></li>
+    <li><%= link_to "Register", new_user_path, class: "link", id: "register-link" %></li>
+  </ul>
   <% else %>
-    <div id="logged-in-as">
-      <p>Logged-in as: <%= current_user.name %> </p>
-    </div>
 
     <li><%= link_to "My Profile", profile_path, class: "link", id: "profile-link" %></li>
 
@@ -31,4 +29,9 @@
 
   <% end %>
 </ul>
+<% if !current_user.nil? %>
+<div id="logged-in-as">
+  Logged-in as: <%= current_user.name %>
+</div>
+<% end %>
 </div>

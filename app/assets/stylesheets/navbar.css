@@ -7,11 +7,15 @@ ul {
   flex: wrap;
 }
 
-li {
+li, #logged-in-as {
   font-size: 2em;
   flex: 1;
   float: left;
   color: white;
+}
+
+#logged-in-as {
+float: right;
 }
 
 li a {
