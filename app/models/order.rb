@@ -5,4 +5,5 @@ class Order < ApplicationRecord
 
   validates_presence_of :user_id, :status
 
+  enum status: %w(pending complete)
 end

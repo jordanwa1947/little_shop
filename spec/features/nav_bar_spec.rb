@@ -9,7 +9,7 @@ describe "as a visitor" do
     expect(page).to have_content("Browse All Items")
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
-    expect(page).to have_content("Items in Cart:")
+    expect(page).to have_content("Cart:")
     # Next to the shopping cart link I see a count of the items in my cart
     expect(page).to have_content("Log In")
     expect(page).to have_content("Register")
@@ -24,7 +24,7 @@ describe "as a visitor" do
     expect(page).to have_content("Browse All Items")
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
-    expect(page).to have_content("Items in Cart:")
+    expect(page).to have_content("Cart:")
     # Next to the shopping cart link I see a count of the items in my cart
     expect(page).to have_content("Log In")
     expect(page).to have_content("Register")
@@ -77,7 +77,7 @@ describe "as a registered user" do
     expect(page).to have_content("Browse All Items")
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
-    expect(page).to have_content("Items in Cart:")
+    expect(page).to have_content("Cart:")
     # Next to the shopping cart link I see a count of the items in my cart
     expect(page).to have_content("My Profile")
     expect(page).to have_content("Log Out")
@@ -143,7 +143,7 @@ describe "as a merchant user" do
     expect(page).to have_content("Browse All Items")
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
-    expect(page).to have_content("Items in Cart:")
+    expect(page).to have_content("Cart:")
     # Next to the shopping cart link I see a count of the items in my cart
     expect(page).to have_content("My Profile")
     expect(page).to have_content("Log Out")
@@ -231,7 +231,7 @@ describe "as an admin user" do
     expect(page).to have_content("Browse All Items")
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
-    expect(page).to have_content("Items in Cart:")
+    expect(page).to have_content("Cart:")
     # Next to the shopping cart link I see a count of the items in my cart
     expect(page).to have_content("My Profile")
 
