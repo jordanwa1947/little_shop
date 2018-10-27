@@ -2,6 +2,15 @@
   <h1> Current Users </h1>
     <% @users.each do |user| %>
       <%= link_to user.name, admin_user_path(user) %>
+      <% if user.status == 'active'%>
+        <div class="user-#{user.id}" >
+          <%= link_to 'Disable', admin_user_path(user, status: 'disabled'), method: :put %>
+        </div>
+      <% else %>
+        <div class="user-#{user.id}" >
+          <%= link_to 'Enable', admin_user_path(user, status: 'active'), method: :put %>
+        </div>
+      <% end %>
     <% end %>
 <% else %>
   not_found
