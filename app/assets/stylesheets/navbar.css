@@ -29,3 +29,8 @@ li a:hover {
 #view-cart-link {
   color: #2D936C;
 }
+
+#num-items {
+  float: right;
+  padding: 14px 16px;
+}
