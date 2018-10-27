@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index]
 
+  get '/carts', to: 'carts#show'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
   get '/profile/edit', to: 'users#edit'
 
   resources :users, only: [:new, :create, :edit, :update]
-  resources :carts, only: [:create]
 
 
 end
