@@ -1,4 +1,5 @@
 <div id="item-head"><%= @item.name %></div>
+<div> Brought to you by: <%= @seller.name %></div>
 <div><%= link_to "ADD TO CART", carts_path, id: "add-link" %></div>
 
 <img src="<%= @item.img_url %>" class="item-big-image" alt="<%= @item.name %>-image">

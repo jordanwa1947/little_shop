@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @seller = User.find(Item.find(params[:id]).user_id)
   end
 
 end
