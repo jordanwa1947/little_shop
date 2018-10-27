@@ -27,19 +27,18 @@
     <%= f.label :email %>
     <%= f.text_field :email, id: "email-field", placeholder: "shutuptwerp@yahoo.com" %>
   </div>
-  <% if current_page?(action: 'new')%>
 
-    <div class="info-box">
-      <div>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-      </div>
-      <div>
-        <%= f.label :confirm %>
-        <%= f.password_field :password_confirmation %>
-      </div>
+  <div class="info-box">
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password, id: "password-field" %>
     </div>
-    <% end %>
+    <div>
+      <%= f.label :confirm %>
+      <%= f.password_field :password_confirmation, id: "confirm-field" %>
+    </div>
+  </div>
+
 
   <%= f.submit %>
 <% end %>
