@@ -1,1 +1,7 @@
 <h1>Your Shopping Cart</h1>
+<div class="cart">
+  <% @items.each do |item| %>
+  <img src="<%= item.img_url %>" class="item-big-image" alt="<%= item.name %>-image">
+  <%= item.name %>
+  <% end %>
+</div>
