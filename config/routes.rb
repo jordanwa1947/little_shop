@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "welcome#show"
 
-  resources :items, only: [:index]
+  resources :items, only: [:index, :show]
 
   resources :orders, only: [:index]
 
@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
   get '/profile/edit', to: 'users#edit'
 
-
   resources :users, only: [:new, :create, :edit, :update]
+  resources :carts, only: [:create]
+
 
 end

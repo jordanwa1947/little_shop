@@ -3,6 +3,11 @@
   color: #38618C;
 }
 
+
+#add-link:hover {
+  color: orange;
+}
+
 .item-thumbnail {
   float: right;
   margin: 20px;
