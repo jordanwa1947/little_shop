@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
 admin = User.create(
   name: "admin",
   address: "123 street",
@@ -155,10 +146,45 @@ order_3 = user_2.orders.create(status: :pending)
 order_4 = user_2.orders.create(status: :complete)
 order_5 = user_3.orders.create(status: :complete)
 
-order_item_1 = OrderItem.create(order:order_1 , item:item_1 )
-order_item_2 = OrderItem.create(order:order_1 , item:item_4 )
-order_item_3 = OrderItem.create(order:order_2 , item:item_1 )
-order_item_4 = OrderItem.create(order:order_2 , item:item_5 )
-order_item_5 = OrderItem.create(order:order_3 , item:item_3 )
-order_item_6 = OrderItem.create(order:order_4 , item:item_5 )
-order_item_7 = OrderItem.create(order:order_5 , item:item_2 )
+order_item_1 = OrderItem.create(
+  item_id: item_1.id,
+  order_id: order_1.id,
+  item_quantity: 5,
+  item_price: item_1.price
+)
+order_item_2 = OrderItem.create(
+  item_id: item_4.id,
+  order_id: order_1.id,
+  item_quantity: 3,
+  item_price: item_4.price
+)
+order_item_3 = OrderItem.create(
+  item_id: item_2.id,
+  order_id: order_2.id,
+  item_quantity: 7,
+  item_price: item_2.price
+)
+order_item_4 = OrderItem.create(
+  item_id: item_3.id,
+  order_id: order_2.id,
+  item_quantity: 2,
+  item_price: item_3.price
+)
+order_item_5 = OrderItem.create(
+  item_id: item_5.id,
+  order_id: order_3.id,
+  item_quantity: 100,
+  item_price: item_5.price
+)
+order_item_6 = OrderItem.create(
+  item_id: item_5.id,
+  order_id: order_4.id,
+  item_quantity: 10,
+  item_price: item_5.price
+)
+order_item_7 = OrderItem.create(
+  item_id: item_4.id,
+  order_id: order_5.id,
+  item_quantity: 1,
+  item_price: item_4.price
+)
