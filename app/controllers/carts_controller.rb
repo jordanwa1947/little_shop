@@ -15,12 +15,10 @@ class CartsController < ApplicationController
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
     flash[:success] = "Item added to Cart"
-    redirect_to items_path
+    redirect_to carts_path
   end
 
   def show
-
-
   end
 
 end
