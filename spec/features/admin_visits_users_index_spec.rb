@@ -28,7 +28,7 @@ describe 'Admin clicks on users_page' do
       expect(page).to have_content('Email: AwesomeSauce@gmail.com')
     end
 
-    it 'takes the admin to the user profile when clicked on' do
+    it 'non admin users cant visitt the users index' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
       visit admin_users_path
@@ -54,7 +54,7 @@ describe 'Admin clicks on users_page' do
       expect(User.first.status).to eq("active")
     end
 
-    it 'keeps a user from loggin in when their account is disabled' do
+    it 'keeps a user from logging in when their account is disabled' do
       user_4 = User.create(name: 'Your Mom', address: 'drewry lane', city: 'New Haven', state: 'Conecticut',
       zip_code: '12345', email: 'demure@gmail.com', password: '10000', status: 'disabled')
       visit login_path

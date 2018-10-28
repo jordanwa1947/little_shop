@@ -1,0 +1,21 @@
+<h1> All Merchants </h1>
+
+<% @merchants.each do |merchant| %>
+  <% if current_admin? %>
+    <%=link_to merchant.name, admin_user_path(merchant)%>
+  <% else %>
+    <%= merchant.name %>
+  <% end %>
+
+  <% if merchant.status == 'active' && current_admin?%>
+    <div class="merchant-#{merchant.id}" >
+      <%= link_to 'Disable', admin_user_path(merchant, status: 'disabled'), method: :put %>
+    </div>
+    <% elsif  merchant.status == 'disabled' && current_admin?%>
+      <div class="merchant-#{merchant.id}" >
+        <%= link_to 'Enable', admin_user_path(merchant, status: 'active'), method: :put %>
+      </div>
+    <% else %>
+
+    <% end %>
+<% end %>

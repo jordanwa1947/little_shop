@@ -17,8 +17,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
 
+  resources :merchants, only: [:index, :show] 
+
   namespace :admin do
     resources :users, only: [:index, :show, :update]
   end
-  
+
 end
