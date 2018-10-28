@@ -19,8 +19,10 @@ class CartsController < ApplicationController
 
   def show
     @cart = session[:cart]
-    @items = @cart.keys.map do |item_id|
-      Item.find(item_id.to_i)
+    if @cart
+      @items = @cart.keys.map do |item_id|
+        Item.find(item_id.to_i)
+      end
     end
   end
 

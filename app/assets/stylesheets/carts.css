@@ -1,0 +1,21 @@
+.page-title {
+  margin: 30px 10px;
+}
+
+.cart {
+  font-size: 5em;
+  color: white;
+}
+
+.item-cart-image {
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 50%;
+  vertical-align: text-top;
+}
+
+.item-list {
+  text-decoration: none;
+  margin: 5px;
+  padding: 10px;
+}
