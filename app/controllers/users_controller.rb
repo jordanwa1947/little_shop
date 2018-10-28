@@ -2,9 +2,7 @@ class UsersController < ApplicationController
 
   def new
     if session[:user]
-      # binding.pry
       session[:user][:email] = nil
-      # binding.pry
       @user = User.new(session[:user])
     else
       @user = User.new
