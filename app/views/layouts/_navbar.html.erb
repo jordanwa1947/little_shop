@@ -6,7 +6,8 @@
     <li><%= link_to "See Merchants", class: "link", id: "browse-merchants-link" %></li>
     <li><%= link_to "View Cart", carts_path, class: "link", id: "view-cart-link" %></li>
 
-    <li id="num-items">Cart:(<%= @num_items %> items)</li>
+              <!-- TODO: WHAT IS HAPPENING HERE? -->
+    <li id="num-items">Cart:(<%= @cart.count_all %> items)</li>
   <% if current_user.nil? %>
     <li><%= link_to "Log In", login_path, class: "link", id: "login-link" %></li>
     <li><%= link_to "Register", new_user_path, class: "link", id: "register-link" %></li>

@@ -13,6 +13,18 @@
   border-radius: 50%;
   border: solid 5px #BFAE48
 }
+.item-thumbnail:hover{
+  border: solid 5px green;
+}
+
+#item-name {
+  text-decoration: none;
+}
+
+#item-name:hover {
+  color: green;
+  text-decoration: underline;
+}
 
 #items-list {
   margin: 50px;
