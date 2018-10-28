@@ -44,4 +44,9 @@
   background: white;
   border-top-right-radius: 100px;
   height: 100%;
+  border-left: 6px solid red;
+}
+
+.item-entry:hover {
+  border-left: 12px solid green;
 }
