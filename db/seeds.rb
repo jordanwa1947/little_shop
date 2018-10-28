@@ -5,7 +5,8 @@ admin = User.create(
   state: "CO",
   zip_code: 80000,
   password: "admin",
-  email: "admin@admin.com"
+  email: "admin@admin.com",
+  role: :admin_user
 )
 user_1 = User.create(
   name: "Jim Jones",
@@ -59,7 +60,8 @@ user_6 = User.create(
   state: "WA",
   zip_code: 68927,
   password: "password34",
-  email: "ruffnbuff@example.com"
+  email: "ruffnbuff@example.com",
+  role: :merchant_user
 )
 user_7 = User.create(
   name: "Sally Field",
@@ -68,7 +70,8 @@ user_7 = User.create(
   state: "NV",
   zip_code: 76542,
   password: "password99",
-  email: "applepie@example.com"
+  email: "applepie@example.com",
+  role: :merchant_user
 )
 user_8 = User.create(
   name: "Bette White",
@@ -77,7 +80,8 @@ user_8 = User.create(
   state: "NM",
   zip_code: 98537,
   password: "qwer67",
-  email: "cute_for_you@example.com"
+  email: "cute_for_you@example.com",
+  role: :merchant_user
 )
 user_9 = User.create(
   name: "Jennifer Lawerence",
@@ -86,7 +90,8 @@ user_9 = User.create(
   state: "MO",
   zip_code: 76678,
   password: "jlaw98",
-  email: "livin_loca889@example.com"
+  email: "livin_loca889@example.com",
+  role: :merchant_user
 )
 user_10 = User.create(
   name: "Margeret Thatcher",
@@ -95,7 +100,8 @@ user_10 = User.create(
   state: "NY",
   zip_code: 99876,
   password: "password99",
-  email: "dream_gal@example.com"
+  email: "dream_gal@example.com",
+  role: :merchant_user
 )
 
 item_1 = Item.create(

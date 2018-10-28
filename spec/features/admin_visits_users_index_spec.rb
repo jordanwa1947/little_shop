@@ -28,7 +28,34 @@ describe 'Admin clicks on users_page' do
       expect(page).to have_content('Email: AwesomeSauce@gmail.com')
     end
 
-    it 'non admin users cant visitt the users index' do
+    it "allows an admin to edit any user's info from the user's show page" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+      visit admin_users_path
+
+
+      expect(page).to have_link(@user_1.name)
+      expect(page).to have_link(@user_2.name)
+      click_link(@user_1.name)
+
+      expect(current_path).to eq(admin_user_path(@user_1))
+      expect(page).to have_content('Sherlock Holmes')
+      expect(page).to have_content('registered_user')
+      expect(page).to have_content('Address: 221 Baker street')
+
+      click_link "Edit Info"
+      expect(current_path).to eq(edit_user_path(@user_1))
+
+      expect(find_field("name-field").value).to eq(@user_1.name)
+      fill_in 'address-field', with: 'A new fake address'
+      click_on 'Update User'
+
+      expect(current_path).to eq(admin_user_path(@user_1))
+      expect(page).to have_content('Sherlock Holmes')
+      expect(page).to have_content('A new fake address')
+      expect(page).to_not have_content('Address: 221 Baker street')
+    end
+
+    it 'non admin users cannot visit the users index' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
       visit admin_users_path

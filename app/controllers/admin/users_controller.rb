@@ -21,7 +21,7 @@ class Admin::UsersController < ApplicationController
       redirect_admin
     end
   end
-#maybe this shouldn't be here? Need feedback
+
   def redirect_admin
     if @user.role == 'merchant_user'
       redirect_to merchants_path
