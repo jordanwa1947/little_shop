@@ -21,4 +21,10 @@ class Cart
     contents[item_id.to_s]
   end
 
+  def total_price
+    items.inject(0) do |sum, item|
+      sum + item.price
+    end
+  end
+
 end
