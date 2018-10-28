@@ -1,0 +1,23 @@
+.order-info > td {
+  border-bottom: 2px solid grey;
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  padding: 20px;
+  width: 100%;
+  line-height: 30px;
+  background: white;
+  text-align: center;
+}
+
+#headers {
+  font-size: 1em;
+}
+
+th {
+  font-size: 2em;
+  margin-top: 50px;
+  text-decoration: underline;
+}

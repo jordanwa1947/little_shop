@@ -5,7 +5,8 @@ admin = User.create(
   state: "CO",
   zip_code: 80000,
   password: "admin",
-  email: "admin@admin.com"
+  email: "admin@admin.com",
+  role: "admin_user"
 )
 user_1 = User.create(
   name: "Jim Jones",
@@ -14,7 +15,8 @@ user_1 = User.create(
   state: "PA",
   zip_code: 66667,
   password: "password77",
-  email: "livin_to_die@example.com"
+  email: "livin_to_die@example.com",
+  role: "merchant_user"
 )
 user_2 = User.create(
   name: "Jefferey Dahmer",
