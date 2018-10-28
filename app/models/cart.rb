@@ -23,7 +23,7 @@ class Cart
 
   def total_price
     items.inject(0) do |sum, item|
-      sum + item.price
+      sum + (item.price * quantity(item.id) )
     end
   end
 
