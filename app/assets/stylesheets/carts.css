@@ -3,19 +3,36 @@
 }
 
 .cart {
-  font-size: 5em;
+  font-size: 3em;
   color: white;
+  margin-bottom: 100px;
+}
+
+#all-items-list {
+  background-color: aliceblue;
 }
 
 .item-cart-image {
-  height: 1.5em;
-  width: 1.5em;
+  height: 1.2em;
+  width: 1.2em;
   border-radius: 50%;
   vertical-align: text-top;
 }
 
 .item-list {
+  background-color: darkgrey;
   text-decoration: none;
-  margin: 5px;
+  margin: 25px;
   padding: 10px;
+  border: grey;
+  border-width: 10px;
+  border-style: outset;
+}
+.item-list:hover {
+  border-width: 10px;
+  border-style: inset;
+}
+
+.price {
+  float: right;
 }

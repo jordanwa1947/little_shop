@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     @cart[params[:item_id]] += 1
     session[:cart] = @cart
 
-    redirect_to items_path
+    redirect_to carts_path
   end
 
   # def create
@@ -23,6 +23,7 @@ class CartsController < ApplicationController
       @items = @cart.keys.map do |item_id|
         Item.find(item_id.to_i)
       end
+      # binding.pry
     end
   end
 
