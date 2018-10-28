@@ -51,6 +51,24 @@ describe 'login process' do
       click_on "Log in"
       expect(current_path).to eq(login_path)
     end
+    it "should redirect from the login path to the profile path if user is logged in" do
+      admin = User.create(
+        name: "admin",
+        address: "admin address",
+        city: "denver",
+        state: "co",
+        zip_code: "80222",
+        email: "admin@admin.com",
+        password: "admin",
+        role: :admin_user,
+        status: :active)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit login_path
+
+      expect(current_path).to eq(profile_path)
+    end
   end
 
 end
