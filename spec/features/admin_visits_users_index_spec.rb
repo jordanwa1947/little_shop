@@ -7,12 +7,12 @@ describe 'Admin clicks on users_page' do
       zip_code: '12345', email: 'AwesomeSauce@gmail.com', password: '123123')
       @user_2 = User.create(name: "Dan Hutch", address: "654 turing way", city: "Scranton", state: "Pennsylvania",
       zip_code: '50000', email: 'huchley@gmail.com', password: 'pizza@myhouse123')
-      @user_3 = User.create(name: "Jordan Whitten", address: "8008 Awesome street", city: "South Park", state: "Denver",
+      @admin = User.create(name: "Jordan Whitten", address: "8008 Awesome street", city: "South Park", state: "Colorado",
       zip_code: '12465', email: 'jawesome@gmail.com', password: '456123', role: 2)
     end
     it 'takes the admin to the user profile when clicked on' do
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_3)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
       visit admin_users_path
 
       expect(page).to have_link(@user_2.name)
@@ -37,7 +37,7 @@ describe 'Admin clicks on users_page' do
     end
 
     it 'has an enable and disable link for each user' do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_3)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
       visit admin_users_path
 
