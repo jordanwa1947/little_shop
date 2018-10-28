@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :require_admin
 
   def index
-    @users = User.all
+    @users = User.where(role: 'registered_user')
   end
 
   def show
@@ -14,10 +14,18 @@ class Admin::UsersController < ApplicationController
     if @user.status == 'active'
       @user.update(disable)
       flash[:success] = "#{@user.name}'s account is now disabled"
-      redirect_to admin_users_path
+      redirect_admin
     else
       @user.update(enable)
       flash[:success] = "#{@user.name}'s account is now enabled"
+      redirect_admin
+    end
+  end
+#maybe this shouldn't be here? Need feedback
+  def redirect_admin
+    if @user.role == 'merchant_user'
+      redirect_to merchants_path
+    else
       redirect_to admin_users_path
     end
   end
