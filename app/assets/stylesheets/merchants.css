@@ -15,15 +15,14 @@
 
 
 .status-link {
-  font-size: 2em;
-  padding: 5px;
+  font-size: 1em;
+  padding: 0px;
   text-decoration: none;
 }
 
 #disable-link {
   background: red;
 }
-
 
 #enable-link {
   background: green;
