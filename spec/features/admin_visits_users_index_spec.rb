@@ -6,7 +6,7 @@ describe 'Admin clicks on users_page' do
       @user_1 = User.create(name: 'Sherlock Holmes', address: '221 Baker street', city: 'London', state: 'oppressed',
       zip_code: '12345', email: 'AwesomeSauce@gmail.com', password: '123123')
       @user_2 = User.create(name: "Dan Hutch", address: "654 turing way", city: "Scranton", state: "Pennsylvania",
-      zip_code: '50000', email: 'huchley@gmail.com', password: 'pizza@myhouse123', role: 1)
+      zip_code: '50000', email: 'huchley@gmail.com', password: 'pizza@myhouse123')
       @user_3 = User.create(name: "Jordan Whitten", address: "8008 Awesome street", city: "South Park", state: "Denver",
       zip_code: '12465', email: 'jawesome@gmail.com', password: '456123', role: 2)
     end
