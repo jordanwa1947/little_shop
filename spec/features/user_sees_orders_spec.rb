@@ -22,7 +22,7 @@ describe 'user sees statistics on orders' do
 
       click_link 'My Orders'
 
-      expect(current_path).to eq(orders_path)
+      expect(current_path).to eq(profile_orders_path)
       expect(page).to have_content('Name: shovel')
       expect(page).to have_content('Price: 2700')
       expect(page).to have_content('Count: 5')

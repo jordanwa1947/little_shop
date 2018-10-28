@@ -11,4 +11,5 @@
   <li>Last Updated: <%= @user.updated_at %> </li>
 </ul>
 
-<%= link_to 'Edit Info', edit_user_path(@user) %> 
+<%= link_to 'View User Orders', admin_user_orders_path(@user) %>
+<%= link_to 'Edit Info', edit_user_path(@user) %>
