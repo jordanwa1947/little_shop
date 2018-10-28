@@ -25,7 +25,7 @@
       <li><%= link_to "Merchant Dashboard", class: "link", id:"merchant-dashboard-link" %></li>
     <% elsif current_admin? %>
       <li><%= link_to "Admin Dashboard", class: "link", id: "admin-dashboard-link" %></li>
-      <li><%= link_to "View All Users", class: "link", id: "all-users-link" %></li>
+      <li><%= link_to "View All Users", admin_users_path, class: "link", id: "all-users-link" %></li>
     </div>
     <% end %>
 
