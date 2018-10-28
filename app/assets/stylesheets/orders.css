@@ -1,3 +1,7 @@
+#headers {
+  font-size: 1em;
+}
+
 .order-info > td {
   border-bottom: 2px solid grey;
   margin: 0;
@@ -12,9 +16,6 @@ table {
   text-align: center;
 }
 
-#headers {
-  font-size: 1em;
-}
 
 th {
   font-size: 2em;

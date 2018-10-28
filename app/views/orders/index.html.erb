@@ -14,7 +14,6 @@
 <% current_user.orders.each do |order| %>
 
   <tr class="order-info">
-    
     <td> <%= order.id %> </td>
 
     <% order.order_items.each do |order_item| %>
@@ -31,10 +30,12 @@
 <% end %>
 
 <tr>
-  <td>num orders</td>
   <td></td>
   <td></td>
-  <td><b>total?</b></td>
+  <td></td>
+  <td>total</td>
+  <td></td>
+  <td></td>
 
 </tr>
 
