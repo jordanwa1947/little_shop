@@ -2,19 +2,15 @@
 
 <% @merchants.each do |merchant| %>
   <% if current_admin? %>
-    <%=link_to merchant.name, admin_user_path(merchant)%>
+    <%=link_to merchant.name, admin_user_path(merchant), class: "merchant-link", id: "merchant-name"%>
   <% else %>
     <%= merchant.name %>
   <% end %>
 
   <% if merchant.status == 'active' && current_admin?%>
-    <div class="merchant-#{merchant.id}" >
-      <%= link_to 'Disable', admin_user_path(merchant, status: 'disabled'), method: :put %>
-    </div>
-    <% elsif  merchant.status == 'disabled' && current_admin?%>
-      <div class="merchant-#{merchant.id}" >
-        <%= link_to 'Enable', admin_user_path(merchant, status: 'active'), method: :put %>
-      </div>
+      <%= link_to 'Disable', admin_user_path(merchant, status: 'disabled'), method: :put, class: "status-link", id: "disable-link" %>
+    <% elsif  merchant.status == 'disabled' && current_admin? %>
+      <%= link_to 'Enable', admin_user_path(merchant, status: 'active'), method: :put, class: "status-link", id: "enable-link" %>
     <% else %>
 
     <% end %>
