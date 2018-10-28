@@ -38,6 +38,7 @@
 .item-big-image {
   margin: 20px;
   height: 400px;
+  width: 400px;
   border-radius: 50%;
   border: solid 5px #EFD9CE;
 }

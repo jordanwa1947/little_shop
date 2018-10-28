@@ -13,12 +13,14 @@
   <% @items.each do |item| %>
   <div class="item-entry", id="item-entry-<%=item.id%>">
 
-    <%= link_to "VIEW", item_path(item), class: "item-info", id: "view-link" %>
-    <img src="<%= item.img_url %>" class="item-thumbnail" alt="<%= item.name %>-image">
-    <div class="item-info" id="item-name"> <b><%= item.name %></b> </div>
+    <%= link_to image_tag(item.img_url, border: 0, class: "item-thumbnail"), item_path(item) %>
+
+    <b><%= link_to item.name, item_path(item), class:"item-info", id:"item-name" %></b>
+
     <div class="item-info" id="item-merchant-name"> <em><%= item.user.name %> </em> </div>
     <div class="item-info" id="item-count"> In Stock: <%= item.inventory_count %> </div>
-    <div class="item-info" id="item-price"> $<%= item.price %>  </div>
+    <!--TODO: convert to currency -->
+    <div class="item-info" id="item-price"> <%= number_to_currency(item.price) %>  </div>
     <br>
     <div class="item-info" id="item-description"> <%= item.description %> </div>
 

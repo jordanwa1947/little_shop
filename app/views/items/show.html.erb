@@ -11,11 +11,11 @@
 </div>
 
 <div id="price-tag">
-  $<%= @item.price %>
+  <%= number_to_currency(@item.price) %>
 </div>
 
 <div id="add-link-wrapper">
-  <%= link_to "ADD TO CART", cart_path, id: "add-link" %>
+  <%= link_to "ADD TO CART", carts_path(@item, item_id: @item.id), method: :post, id: "add-link" %>
 </div>
 
 <img src="<%= @item.img_url %>" class="item-big-image" alt="<%= @item.name %>-image">
