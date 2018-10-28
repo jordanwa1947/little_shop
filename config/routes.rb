@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index]
 
-  resource :carts, only: [:create, :show]
+  resource :carts, only: [:create, :show, :destroy]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
 
-  resources :merchants, only: [:index, :show] 
+  resources :merchants, only: [:index, :show]
 
   namespace :admin do
     resources :users, only: [:index, :show, :update]

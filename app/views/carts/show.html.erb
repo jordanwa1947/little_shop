@@ -1,4 +1,4 @@
-<h1 class="page-title"><u>Your Shopping Cart</u></h1>
+<h1>Your Shopping Cart</h1>
 <div class="cart">
 
   <% if @cart.count_all == 0 %>
@@ -13,6 +13,8 @@
           <%= @cart.quantity(item.id) %>
           <img src="<%= item.img_url %>" class="item-cart-image" alt="<%= item.name %>-image">
           <%= item.name %>
+          <em><%= @cart.merchant(item.id).name %></em>
+
           <span class="price">
             <%= number_to_currency(item.price * @cart.quantity(item.id)) %>
           </span>
@@ -24,5 +26,5 @@
   <% end %>
 
   <div id="cart-total">Total: <%= number_to_currency(@cart.total_price) %> </div>
-
+  <%= link_to "Empty Cart", carts_path, method: :delete, id: "empty-cart-link" %>
 </div>

@@ -21,6 +21,10 @@ class Cart
     contents[item_id.to_s]
   end
 
+  def merchant(item_id)
+    User.find(Item.find(item_id.to_i).user_id)
+  end
+
   def total_price
     items.inject(0) do |sum, item|
       sum + (item.price * quantity(item.id) )

@@ -11,4 +11,10 @@ class CartsController < ApplicationController
   def show
   end
 
+  def destroy
+    session.clear
+    flash[:success] = "Your cart has been emptied."
+    redirect_to carts_path
+  end
+
 end

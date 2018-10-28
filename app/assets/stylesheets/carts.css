@@ -1,9 +1,10 @@
 .page-title {
   margin: 30px 10px;
+
 }
 
 .cart {
-  font-size: 3em;
+  font-size: 2em;
   color: white;
   margin-bottom: 100px;
 }
@@ -38,7 +39,24 @@
   float: right;
 }
 
+#empty-cart-link {
+  font-size: 0.5em;
+  margin: 5px 20px;
+  padding: 5px;
+  border-radius: 10px;
+  float: right;
+  background: darkred;
+  color: white;
+  text-decoration: none;
+}
+
+#empty-cart-link:hover {
+  background: red;
+  color: white;
+}
+
 #cart-total {
   float: right;
+  color: white;
   margin-right: 40px;
 }

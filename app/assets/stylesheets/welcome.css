@@ -1,12 +1,22 @@
-h1{
-  margin: 0px 20px;
-  font-size: 6em;
-  color: #EFD9CE;
-}
-
 #logged_in_as{
   float: right;
   margin-right: 20px;
   font-size: 30px;
   color: #EFD9CE;
+}
+h1{
+  margin: 0px 20px;
+  font-size: 6em;
+  color: black;
+}
+
+
+.element {
+  width: 100%;
+  height: 400px;
+  overflow-y: scroll;
+  background: url(http://www.finzionimagazine.it/wp-content/uploads/2014/05/Annex-Fonda-Henry-Grapes-of-Wrath-The_03.jpg) no-repeat;
+  -webkit-mask-image: linear-gradient(black, transparent);
+  mask-image: linear-gradient(black, transparent);
+  }
 }
