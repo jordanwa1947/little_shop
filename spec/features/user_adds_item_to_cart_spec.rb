@@ -47,6 +47,6 @@ describe "when a user adds an item to their cart" do
 
   visit item_path(@item_1)
   click_link "ADD TO CART"
-  expect(page).to have_content("added to card")
+  expect(page).to have_content("added to Cart")
   end
 end
