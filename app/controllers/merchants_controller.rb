@@ -5,14 +5,6 @@ class MerchantsController < ApplicationController
     @merchants = User.where(role: 'merchant_user')
   end
 
-  def show
-    if current_merchant?
-      @merchant = User.find(current_user.id)
-    else
-      @merchant = User.find(params[:id])
-    end
-  end
-
   private
 
   def require_merchant_or_admin

@@ -15,15 +15,12 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
   get '/profile/edit', to: 'users#edit'
 
-  get '/dashboard', to: 'merchants#show'
-  get '/dashboard/orders', to: 'orders#index'
-
   resources :users, only: [:new, :create, :edit, :update]
 
-  resources :merchants, only: [:index, :show] do
-    resources :orders, only: [:index]
-    get '/dashboard/orders', to: 'orders#index'
-  end
+  resources :merchants, only: [:index]
+
+  get '/dashboard/orders', to: 'dashboard#index'
+  resources :dashboard, only: [:show]
 
   namespace :admin do
     resources :users, only: [:index, :show, :update]

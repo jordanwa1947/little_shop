@@ -11,7 +11,7 @@ describe 'merchant visits their dashboard' do
 
       click_link("Merchant Dashboard")
 
-      expect(current_path).to eq(dashboard_path)
+      expect(current_path).to eq(dashboard_path(merchant))
       expect(page).to have_link('Orders With Your Items')
     end
   end
@@ -34,11 +34,21 @@ describe 'merchant visits their dashboard' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merchant)
 
-      visit dashboard_path
+      visit dashboard_path(merchant)
       expect(page).to have_content("#{merchant.name} Dashboard")
       click_link('Orders With Your Items')
-
-      expect(current_path).to eq(dashboard_orders_path)
+      save_and_open_page
+      expect(current_path).to eq(dashboard_orders_path(merchant))
+      expect(page).to have_content("Created At: #{order_1.created_at}")
+      expect(page).to have_content("Order Status: #{order_1.status}")
+      expect(page).to have_content("User Id: #{order_1.user_id}")
+      expect(page).to have_content("Order Id: #{ order_1.id}")
+      expect(page).to have_content("Item Name: #{item_1.name}")
+      expect(page).to have_content("Item Price: #{item_1.price}")
+      expect(page).to have_content("Inventory Count: #{item_1.inventory_count}")
+      expect(page).to have_content("Item Description: #{item_1.description}")
+      expect(page).to have_content("Item Price: #{order_item_1.item_price}")
+      expect(page).to have_content("Item Quantity: #{order_item_2.item_quantity}")
     end
   end
 end

@@ -22,7 +22,7 @@
 
     <li><%= link_to "Log Out", logout_path, method: :delete, class: "link", id: "logout-link" %></li>
     <% if current_merchant?%>
-      <li><%= link_to "Merchant Dashboard", dashboard_path, class: "link", id:"merchant-dashboard-link" %></li>
+      <li><%= link_to "Merchant Dashboard", dashboard_path(current_user), class: "link", id:"merchant-dashboard-link" %></li>
     <% elsif current_admin? %>
       <li><%= link_to "Admin Dashboard", class: "link", id: "admin-dashboard-link" %></li>
       <li><%= link_to "View All Users", class: "link", id: "all-users-link" %></li>
