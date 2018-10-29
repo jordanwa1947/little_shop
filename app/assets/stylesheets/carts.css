@@ -45,12 +45,15 @@
   float: right;
 }
 
-#empty-cart-link {
+.cart-link{
   font-size: 0.5em;
-  margin: 5px 20px;
+  margin: 5px 20px 5px 10px;
   padding: 5px;
   border-radius: 10px;
   float: right;
+}
+
+#empty-cart-link {
   background: darkred;
   color: white;
   text-decoration: none;
@@ -61,8 +64,24 @@
   color: white;
 }
 
+#checkout-link {
+  background: darkgreen;
+  color: white;
+  text-decoration: none;
+}
+
+#checkout-link:hover {
+  background: green;
+  color: white;
+}
+
 #cart-total {
   float: right;
   color: white;
   margin-right: 40px;
+}
+
+#login-or-register {
+  margin: 20px;
+  float: right;
 }

@@ -3,10 +3,10 @@ class Cart
 
   def initialize(initial_contents)
     @contents = initial_contents || {}
-    # @items = contents.keys.map do |item_id|
-      # Item.find(item_id.to_i)
-    # end
-    @items = Item.all
+    @items = contents.keys.map do |item_id|
+      Item.find(item_id.to_i)
+    end
+
   end
 
   def add_item(item_id)
