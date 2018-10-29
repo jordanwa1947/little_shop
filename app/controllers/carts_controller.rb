@@ -4,7 +4,7 @@ class CartsController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
-    flash[:success] = "Item added to Cart"
+    flash[:success] = "Item added to Cart: you now have #{pluralize(@cart.quantity(item.id), item.name)}"
     redirect_to carts_path
   end
 
