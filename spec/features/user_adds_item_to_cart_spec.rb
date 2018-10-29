@@ -43,39 +43,31 @@ describe "when a user adds an item to their cart" do
     )
   end
 
-  it "shows a flash message when a user adds a song" do
+  it "shows a flash message when a user adds an item" do
 
     visit item_path(@item_1)
     click_on "ADD TO CART"
-    expect(current_path).to eq(carts_path)
-    expect(page).to have_content("Your Shopping Cart")
-    expect(page).to have_content(@item_1.name)
-    expect(page).to have_content(@item_1.price)
-    expect(page).to have_content("You now have 1 First Item")
-    expect(page).to have_content("Cart:(1 items)")
-
-    visit item_path(@item_2)
-    click_on "ADD TO CART"
-    expect(current_path).to eq(carts_path)
-    expect(page).to have_content("Your Shopping Cart")
-    expect(page).to have_content(@item_2.name)
-    expect(page).to have_content(@item_2.price)
-    expect(page).to have_content("You now have 1 Second Item")
-    expect(page).to have_content("Cart:(2 items)")
-
-    visit item_path(@item_1)
-    click_on "ADD TO CART"
-    expect(current_path).to eq(carts_path)
-    expect(page).to have_content("Your Shopping Cart")
-    expect(page).to have_content(@item_1.name)
-    expect(page).to have_content(@item_1.price * 2)
-    expect(page).to have_content("You now have 2 First Item")
-    expect(page).to have_content("Cart:(3 items)")
-    expect(page).to have_content("Total: $400")
+    expect(current_path).to eq(item_path(@item_1))
 
   end
 
   it "can increment items from cart page" do
+    visit item_path(@item_1)
+    click_on "ADD TO CART"
+    expect(current_path).to eq(item_path(@item_1))
+
+    visit cart_path
+    expect(page).to have_content(@item_1.name)
+    expect(page.find("#item-list1")).to have_content("1")
+
+    click_on "+"
+    expect(current_path).to eq(cart_path)
+    expect(page.find("#item-list1")).to have_content("2")
+
+    click_on "-"
+    expect(current_path).to eq(cart_path)
+    expect(page.find("#item-list1")).to have_content("1")
+
 
   end
 

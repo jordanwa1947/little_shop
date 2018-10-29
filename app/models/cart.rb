@@ -3,10 +3,10 @@ class Cart
 
   def initialize(initial_contents)
     @contents = initial_contents || {}
-    # @items = contents.keys.map do |item_id|
-      # Item.find(item_id.to_i)
-    # end
-    @items = Item.all
+    @items = contents.keys.map do |item_id|
+      Item.find(item_id.to_i)
+    end
+
   end
 
   def add_item(item_id)
@@ -15,9 +15,9 @@ class Cart
   end
 
   def subtract_item(item_id)
-    if contents[item_id.to_s] > 0
+    if contents[item_id.to_s] > 1
       contents[item_id.to_s] -= 1
-    elsif contents[item_id.to_s] == 0
+    elsif contents[item_id.to_s] == 1
       contents.delete(item_id.to_s)
     end
   end
