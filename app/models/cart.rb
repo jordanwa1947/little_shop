@@ -3,9 +3,10 @@ class Cart
 
   def initialize(initial_contents)
     @contents = initial_contents || {}
-    @items = contents.keys.map do |item_id|
-      Item.find(item_id.to_i)
-    end
+    # @items = contents.keys.map do |item_id|
+      # Item.find(item_id.to_i)
+    # end
+    @items = Item.all
   end
 
   def add_item(item_id)
@@ -26,7 +27,7 @@ class Cart
   end
 
   def quantity(item_id)
-    contents[item_id.to_s]
+    contents[item_id.to_s].to_i
   end
 
   def merchant(item_id)

@@ -68,9 +68,10 @@ describe "when a user adds an item to their cart" do
     expect(current_path).to eq(carts_path)
     expect(page).to have_content("Your Shopping Cart")
     expect(page).to have_content(@item_1.name)
-    expect(page).to have_content(@item_1.price)
+    expect(page).to have_content(@item_1.price * 2)
     expect(page).to have_content("You now have 2 First Item")
     expect(page).to have_content("Cart:(3 items)")
+    expect(page).to have_content("Total: $400")
 
   end
 

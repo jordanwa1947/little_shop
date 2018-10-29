@@ -45,7 +45,27 @@ RSpec.describe Cart do
   end
 
   it ".count_all" do
+    cart = Cart.new({
+      "1" => 2,
+      "2" => 3})
+    expect(cart.count_all).to eq(5)
+  end
+
+  it ".add_item" do
     cart = Cart.new({"1" => 2, "2" => 3})
+    cart.add_item(1)
+    cart.add_item(2)
+
+    expect(cart.contents).to eq({
+      '1' => 3,
+      '2' => 4})
+  end
+
+  it ".quantity" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+
+    expect(cart.quantity(1)).to eq(2)
+    expect(cart.quantity(2)).to eq(3)
 
   end
 end
