@@ -1,8 +1,8 @@
-<h1 class="page-title"><u>Your Shopping Cart</u></h1>
+<h1>Your Shopping Cart</h1>
 <div class="cart">
 
   <% if @cart.count_all == 0 %>
-  You have no items in your cart
+  <div>You have no items in your cart</div>
 
   <% elsif @cart.items %>
 
@@ -10,9 +10,14 @@
       <% @cart.items.each do |item| %>
 
         <div class="item-list">
+          <%= link_to "-", carts_path(item, item_id: item.id), method: :put, class: "increment-link", id: "drop-one" %>
+          <%= link_to "+", carts_path(item, item_id: item.id), method: :post, class: "increment-link", id: "add-one" %>
           <%= @cart.quantity(item.id) %>
+
           <img src="<%= item.img_url %>" class="item-cart-image" alt="<%= item.name %>-image">
           <%= item.name %>
+          <em><%= @cart.merchant(item.id).name %></em>
+
           <span class="price">
             <%= number_to_currency(item.price * @cart.quantity(item.id)) %>
           </span>
@@ -24,5 +29,5 @@
   <% end %>
 
   <div id="cart-total">Total: <%= number_to_currency(@cart.total_price) %> </div>
-
+  <%= link_to "Empty Cart", carts_path, method: :delete, id: "empty-cart-link" %>
 </div>
