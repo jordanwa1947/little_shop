@@ -1,6 +1,5 @@
 .page-title {
   margin: 30px 10px;
-
 }
 
 .cart {
@@ -9,8 +8,15 @@
   margin-bottom: 100px;
 }
 
-#all-items-list {
-  background-color: aliceblue;
+.increment-link {
+  text-decoration: none;
+  font-size: 0.7em;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.increment-link:hover {
+  color: red;
 }
 
 .item-cart-image {
