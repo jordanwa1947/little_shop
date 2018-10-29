@@ -14,7 +14,11 @@ class Cart
   end
 
   def subtract_item(item_id)
-    contents[item_id.to_s] -= 1
+    if contents[item_id.to_s] > 0
+      contents[item_id.to_s] -= 1
+    elsif contents[item_id.to_s] == 0
+      contents.delete(item_id.to_s)
+    end
   end
 
   def count_all

@@ -18,6 +18,7 @@ class CartsController < ApplicationController
   end
 
   def update
+    # binding.pry
     item = Item.find(params[:item_id])
     @cart.subtract_item(item.id)
     session[:cart] = @cart.contents
