@@ -35,7 +35,11 @@ class UsersController < ApplicationController
     @user.update(user_params)
     if @user.save
       flash[:success] = 'Your Info Was Successfully Updated!'
-      redirect_to profile_path
+      if current_admin?
+        redirect_to merchant_path(@user)
+      else  
+        redirect_to profile_path
+      end
     else
       flash[:notice] = "Email address already in use"
       redirect_to profile_edit_path

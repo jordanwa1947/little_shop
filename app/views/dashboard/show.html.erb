@@ -1,2 +1,2 @@
-<h1> <%= @merchant.name %> Dashboard </h1>
-  <h3> <%= link_to 'Orders With Your Items', dashboard_orders_path(@merchant)%> </h3> 
+<h1> <%= current_user.name %> Dashboard </h1>
+  <%= render partial: 'merchant_dashboard'  %>

@@ -37,7 +37,7 @@ describe 'merchant visits their dashboard' do
       visit dashboard_path(merchant)
       expect(page).to have_content("#{merchant.name} Dashboard")
       click_link('Orders With Your Items')
-      save_and_open_page
+
       expect(current_path).to eq(dashboard_orders_path(merchant))
       expect(page).to have_content("Created At: #{order_1.created_at}")
       expect(page).to have_content("Order Status: #{order_1.status}")
@@ -49,6 +49,18 @@ describe 'merchant visits their dashboard' do
       expect(page).to have_content("Item Description: #{item_1.description}")
       expect(page).to have_content("Item Price: #{order_item_1.item_price}")
       expect(page).to have_content("Item Quantity: #{order_item_2.item_quantity}")
+    end
+  end
+
+  describe 'a merchant trys to visit with the merchant_path uri' do
+    it 'takes them to a 404 page' do
+      merchant = User.create(name: 'Sherlock Holmes', address: '221 Baker street', city: 'London', state: 'oppressed',
+                             zip_code: '12345', email: 'AwesomeSauce@gmail.com', password: '123123', role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merchant)
+
+      visit merchant_path(merchant)
+
+      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
 end

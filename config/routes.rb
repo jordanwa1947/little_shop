@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
 
-  resources :merchants, only: [:index]
+  resources :merchants, only: [:index, :show]
 
   get '/dashboard/orders', to: 'dashboard#index'
   resources :dashboard, only: [:show]
