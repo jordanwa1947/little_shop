@@ -23,11 +23,11 @@ describe 'Admin clicks on users_page' do
       expect(current_path).to eq(admin_user_path(@user_1))
       expect(page).to have_content('Sherlock Holmes')
       expect(page).to have_content('registered_user')
-      expect(page).to have_content('Address: 221 Baker street')
-      expect(page).to have_content('City: London')
-      expect(page).to have_content('State: oppressed')
-      expect(page).to have_content('Zip Code: 12345')
-      expect(page).to have_content('Email: AwesomeSauce@gmail.com')
+      expect(page).to have_content('221 Baker street')
+      expect(page).to have_content('London')
+      expect(page).to have_content('oppressed')
+      expect(page).to have_content('12345')
+      expect(page).to have_content('AwesomeSauce@gmail.com')
     end
 
     it "allows an admin to edit any user's info from the user's show page" do
@@ -42,7 +42,7 @@ describe 'Admin clicks on users_page' do
       expect(current_path).to eq(admin_user_path(@user_1))
       expect(page).to have_content('Sherlock Holmes')
       expect(page).to have_content('registered_user')
-      expect(page).to have_content('Address: 221 Baker street')
+      expect(page).to have_content('221 Baker street')
 
       click_link "Edit Info"
       expect(current_path).to eq(edit_user_path(@user_1))
@@ -138,7 +138,7 @@ describe 'Admin clicks on users_page' do
       expect(page).to have_content('Sherlock Holmes')
 
       expect(page).to have_content('registered_user')
-      expect(page).to have_content('Address: 221 Baker street')
+      expect(page).to have_content('221 Baker street')
 
       click_on "View User Orders"
       expect(current_path).to eq(admin_user_orders_path(@user_1))

@@ -23,14 +23,14 @@ describe 'user sees statistics on orders' do
       click_link 'My Orders'
 
       expect(current_path).to eq(profile_orders_path)
-      expect(page).to have_content('Name: shovel')
-      expect(page).to have_content('Price: 2700')
-      expect(page).to have_content('Count: 5')
-      expect(page).to have_content('Description: we got to go and dig some holes')
-      expect(page).to have_content('Name: rope')
-      expect(page).to have_content('Price: 1000')
-      expect(page).to have_content('Count: 3')
-      expect(page).to have_content('Description: length: 20ft')
+      expect(page).to have_content('shovel')
+      expect(page).to have_content('$2,700.00')
+      expect(page).to have_content('5')
+      expect(page).to have_content('we got to go and dig some holes')
+      expect(page).to have_content('rope')
+      expect(page).to have_content('$1,000.00')
+      expect(page).to have_content('3')
+      expect(page).to have_content('length: 20ft')
     end
   end
 
