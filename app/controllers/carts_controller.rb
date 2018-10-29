@@ -27,7 +27,7 @@ class CartsController < ApplicationController
     end
     session[:cart] = @cart.contents
     flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)}"
-    redirect_to carts_path
+    redirect_to "#item-entry-<%= item.id %>"
   end
 
 end
