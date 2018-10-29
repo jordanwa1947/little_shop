@@ -1,15 +1,42 @@
 <h1> Your Orders </h1>
-<ul>
+
+<table>
+  <tr id="headers">
+    <th>No.</th>
+    <th>Qnty</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>created</th>
+    <th>updated</th>
+  </tr>
+
 <% current_user.orders.each do |order| %>
-  <h3> Order: <%= order.id %> </h3>
-  <p>Created On: <%= order.created_at.strftime('%D') %> </p>
-  <p>Last Upated At: <%= order.updated_at.strftime('%D') %> </p>
-  <% order.order_items.each do |order_item| %>
-    <li>Name: <%= order_item.item.name %> </li>
-    <li>Price: <%= order_item.item_price %> </li>
-    <li>Count: <%= order_item.item_quantity %> </li>
-    <li>Description: <%= order_item.item.description %> </li>
-  <% end %>
+
+  <tr class="order-info">
+    <td> <%= order.id %> </td>
+
+    <% order.order_items.each do |order_item| %>
+      <td><%= order_item.item_quantity %> </td>
+      <td><%= order_item.item.name %> </td>
+      <td><%= number_to_currency(order_item.item_price) %> </td>
+      <td><em><%= order_item.item.description %></em> </td>
+    <% end %>
+
+    <td><%= order.created_at.strftime('%D') %> </td>
+    <td><%= order.updated_at.strftime('%D') %> </td>
+
+  </tr>
 <% end %>
-</ul>
- 
+
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>total</td>
+  <td></td>
+  <td></td>
+
+</tr>
+
+</table>

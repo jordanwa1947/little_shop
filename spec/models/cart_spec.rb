@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe "when a user adds an item to their cart" do
+RSpec.describe Cart do
+
   before(:each) do
     name_1 = "First User"
     address_1 = "123 Street"
@@ -43,32 +44,55 @@ describe "when a user adds an item to their cart" do
     )
   end
 
-  it "shows a flash message when a user adds an item" do
-
-    visit item_path(@item_1)
-    click_on "ADD TO CART"
-    expect(current_path).to eq(item_path(@item_1))
-
+  it ".count_all" do
+    cart = Cart.new({
+      "1" => 2,
+      "2" => 3})
+    expect(cart.count_all).to eq(5)
   end
 
-  it "can increment items from cart page" do
-    visit item_path(@item_1)
-    click_on "ADD TO CART"
-    expect(current_path).to eq(item_path(@item_1))
+  it ".add_item" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+    cart.add_item(1)
+    cart.add_item(2)
 
-    visit cart_path
-    expect(page).to have_content(@item_1.name)
-    expect(page.find("#item-list1")).to have_content("1")
-
-    click_on "+"
-    expect(current_path).to eq(cart_path)
-    expect(page.find("#item-list1")).to have_content("2")
-
-    click_on "-"
-    expect(current_path).to eq(cart_path)
-    expect(page.find("#item-list1")).to have_content("1")
-
-
+    expect(cart.contents).to eq({
+      '1' => 3,
+      '2' => 4})
   end
 
+  it ".subtract_item" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+    cart.subtract_item(1)
+    cart.subtract_item(2)
+
+    expect(cart.contents).to eq({
+      '1' => 1,
+      '2' => 2
+      })
+
+    cart.subtract_item(1)
+
+    expect(cart.contents).to eq({
+      '2' => 2
+      })
+  end
+
+  it ".quantity" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+
+    expect(cart.quantity(1)).to eq(2)
+    expect(cart.quantity(2)).to eq(3)
+  end
+
+  it ".total_price" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+
+    expect(cart.total_price).to eq(800)
+  end
+
+  it ".merchant" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+    expect(cart.merchant(1)).to eq(@user_1)
+  end
 end

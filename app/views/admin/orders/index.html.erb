@@ -1,0 +1,14 @@
+<h1> Your Orders </h1>
+<ul>
+<% @orders.each do |order| %>
+  <h3> Order: <%= order.id %> </h3>
+  <p>Created On: <%= order.created_at.strftime('%D') %> </p>
+  <p>Last Upated At: <%= order.updated_at.strftime('%D') %> </p>
+  <% order.order_items.each do |order_item| %>
+    <li>Name: <%= order_item.item.name %> </li>
+    <li>Price: <%= order_item.item_price %> </li>
+    <li>Count: <%= order_item.item_quantity %> </li>
+    <li>Description: <%= order_item.item.description %> </li>
+  <% end %>
+<% end %>
+</ul>

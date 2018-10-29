@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     elsif current_merchant? || current_admin?
       @items = Item.all
     end
+    @cart = Cart.new(session[:cart])
   end
 
   def show

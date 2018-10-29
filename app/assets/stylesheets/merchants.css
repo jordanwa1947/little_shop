@@ -1,0 +1,29 @@
+.merchant-link{
+  margin: 0px 20px;
+  font-size: 2em;
+  color: #EFD9CE;
+}
+
+#merchant-name {
+  font-size: 4em;
+  text-decoration: none;
+}
+
+#merchant-name:hover {
+  text-decoration: underline;
+}
+
+
+.status-link {
+  font-size: 1em;
+  padding: 0px;
+  text-decoration: none;
+}
+
+#disable-link {
+  background: red;
+}
+
+#enable-link {
+  background: green;
+}

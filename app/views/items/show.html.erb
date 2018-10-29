@@ -1,6 +1,6 @@
-<div id="item-head">
+<h1 id="item-head">
   <%= @item.name %>
-</div>
+</h1>
 
 <div id="seller-info">
   Brought to you by <%= link_to "#{@seller.name.upcase}", "#", id: "seller-name" %>
@@ -15,7 +15,7 @@
 </div>
 
 <div id="add-link-wrapper">
-  <%= link_to "ADD TO CART", carts_path(@item, item_id: @item.id), method: :post, id: "add-link" %>
+  <%= link_to "ADD TO CART", cart_path(@item, item_id: @item.id), method: :post, id: "add-link" %>
 </div>
 
 <img src="<%= @item.img_url %>" class="item-big-image" alt="<%= @item.name %>-image">
