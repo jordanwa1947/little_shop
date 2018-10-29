@@ -61,11 +61,38 @@ RSpec.describe Cart do
       '2' => 4})
   end
 
+  it ".subtract_item" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+    cart.subtract_item(1)
+    cart.subtract_item(2)
+
+    expect(cart.contents).to eq({
+      '1' => 1,
+      '2' => 2
+      })
+
+    cart.subtract_item(1)
+
+    expect(cart.contents).to eq({
+      '2' => 2
+      })
+  end
+
   it ".quantity" do
     cart = Cart.new({"1" => 2, "2" => 3})
 
     expect(cart.quantity(1)).to eq(2)
     expect(cart.quantity(2)).to eq(3)
+  end
 
+  it ".total_price" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+
+    expect(cart.total_price).to eq(800)
+  end
+
+  it ".merchant" do
+    cart = Cart.new({"1" => 2, "2" => 3})
+    expect(cart.merchant(1)).to eq(@user_1)
   end
 end

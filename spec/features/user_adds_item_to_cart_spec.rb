@@ -43,7 +43,7 @@ describe "when a user adds an item to their cart" do
     )
   end
 
-  it "shows a flash message when a user adds a song" do
+  it "shows a flash message when a user adds an item" do
 
     visit item_path(@item_1)
     click_on "ADD TO CART"
@@ -52,6 +52,22 @@ describe "when a user adds an item to their cart" do
   end
 
   it "can increment items from cart page" do
+    visit item_path(@item_1)
+    click_on "ADD TO CART"
+    expect(current_path).to eq(item_path(@item_1))
+
+    visit cart_path
+    expect(page).to have_content(@item_1.name)
+    expect(page.find("#item-list1")).to have_content("1")
+
+    click_on "+"
+    expect(current_path).to eq(cart_path)
+    expect(page.find("#item-list1")).to have_content("2")
+
+    click_on "-"
+    expect(current_path).to eq(cart_path)
+    expect(page.find("#item-list1")).to have_content("1")
+
 
   end
 
