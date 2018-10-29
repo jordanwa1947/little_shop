@@ -19,9 +19,12 @@ class CartsController < ApplicationController
   end
 
   def update
-    # binding.pry
     item = Item.find(params[:item_id])
-    @cart.subtract_item(item.id)
+    if params[:thing] == "increase"
+      @cart.add_item(item.id)
+    elsif params[:thing] == "decrease"
+      @cart.subtract_item(item.id)
+    end
     session[:cart] = @cart.contents
     flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)}"
     redirect_to carts_path
