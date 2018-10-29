@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :require_admin
 
   def index
-    @users = User.where(role: 'registered_user')
+    @users = User.all
   end
 
   def show
