@@ -9,9 +9,9 @@
     <ul id="all-items-box">
       <% @cart.items.each do |item| %>
 
-        <div class="item-list">
-          <%= link_to "-", carts_path(item, item_id: item.id), method: :put, class: "increment-link", id: "drop-one" %>
-          <%= link_to "+", carts_path(item, item_id: item.id), method: :post, class: "increment-link", id: "add-one" %>
+        <div class="item-list" id="item-list<%= item.id %>">
+          <%= link_to "-", carts_path(item_id: item.id, thing: "decrease"), method: :put, class: "increment-link", id: "drop-one" %>
+          <%= link_to "+", carts_path(item_id: item.id, thing: "increase"), method: :post, class: "increment-link", id: "add-one" %>
           <%= @cart.quantity(item.id) %>
 
           <img src="<%= item.img_url %>" class="item-cart-image" alt="<%= item.name %>-image">
