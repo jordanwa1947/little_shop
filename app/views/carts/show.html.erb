@@ -10,7 +10,7 @@
       <% @cart.items.each do |item| %>
 
         <div class="item-list">
-          <%= link_to "-", carts_path(item, item_id: item.id), method: :post, class: "increment-link", id: "drop-one" %>
+          <%= link_to "-", carts_path(item, item_id: item.id), method: :put, class: "increment-link", id: "drop-one" %>
 
           <%= link_to "+", carts_path(item, item_id: item.id), method: :post, class: "increment-link", id: "add-one" %>
           <%= @cart.quantity(item.id) %>
