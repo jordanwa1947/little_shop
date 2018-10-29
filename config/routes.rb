@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
 
-  resources :orders, only: [:index]
+  # resources :orders, only: [:index]
 
   resource :carts
 
@@ -14,13 +14,16 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
   get '/profile/edit', to: 'users#edit'
+  get '/profile/orders', to: 'orders#index'
 
   resources :users, only: [:new, :create, :edit, :update]
 
   resources :merchants, only: [:index, :show]
 
   namespace :admin do
-    resources :users, only: [:index, :show, :update]
+    resources :users, only: [:index, :show, :update] do
+      resources :orders, only: [:index]
+    end
   end
 
 end
