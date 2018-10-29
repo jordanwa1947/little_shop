@@ -5,8 +5,8 @@ class CartsController < ApplicationController
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
 
-    flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)}"
-    redirect_to carts_path
+    flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)} in your cart"
+    redirect_to item_path(item)
   end
 
   def show
@@ -15,7 +15,7 @@ class CartsController < ApplicationController
   def destroy
     session[:cart].clear
     flash[:success] = "Your cart has been emptied."
-    redirect_to carts_path
+    redirect_to cart_path
   end
 
   def update
@@ -26,8 +26,8 @@ class CartsController < ApplicationController
       @cart.subtract_item(item.id)
     end
     session[:cart] = @cart.contents
-    flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)}"
-    redirect_to "#item-entry-<%= item.id %>"
+    flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)} in your cart"
+    redirect_to cart_path
   end
 
 end
