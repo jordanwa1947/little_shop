@@ -36,10 +36,7 @@
   border-width: 10px;
   border-style: outset;
 }
-.item-list:hover {
-  border-width: 10px;
-  border-style: inset;
-}
+
 
 .price {
   float: right;

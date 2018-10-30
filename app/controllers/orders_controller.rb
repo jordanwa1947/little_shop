@@ -8,12 +8,17 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.create(user_id: session[:user_id], status: :pending)
+    if session[:cart] == nil || session[:cart] == {}
+      flash[:sucess] = "You have no items in your cart"
 
-    session[:cart].each do |key, value|
-      item = Item.find(key.to_i)
-      OrderItem.create(order_id: order.id, item_id: key.to_i, item_quantity: value, item_price: item.price)
+    elsif session[:cart] != nil
+      session[:cart].each do |key, value|
+        item = Item.find(key.to_i)
+        order = Order.create(user_id: session[:user_id], status: :pending)
+        OrderItem.create(order_id: order.id, item_id: key.to_i, item_quantity: value, item_price: item.price)
+      end
+      session[:cart].clear
+      redirect_to profile_orders_path(current_user)
     end
-    redirect_to profile_orders_path(current_user)
   end
 end
