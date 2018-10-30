@@ -17,6 +17,9 @@ class Cart
     contents[item_id.to_s] ||= 0
     if contents[item_id.to_s] < inventory_count(item_id)
       contents[item_id.to_s] += 1
+      return "success"
+    else
+      return "failure"
     end
   end
 

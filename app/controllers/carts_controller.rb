@@ -23,7 +23,12 @@ class CartsController < ApplicationController
   def update
     item = Item.find(params[:item_id])
     if params[:thing] == "increase"
-      @cart.add_item(item.id)
+      if @cart.add_item(item.id) == "success"
+        flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)} in your cart"
+      else
+        flash[:success] = "Merchant can't fulfill that"
+      end
+
     elsif params[:thing] == "decrease"
       @cart.subtract_item(item.id)
     end
