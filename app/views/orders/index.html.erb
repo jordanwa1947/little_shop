@@ -1,42 +1,35 @@
 <h1> Your Orders </h1>
 
-<table>
+<table id="container">
   <tr id="headers">
-    <th>No.</th>
+    <th>Order</th>
     <th>Qnty</th>
     <th>Name</th>
-    <th>Price</th>
+    <th>Price per Unit</th>
+    <th>Sub-Total</th>
     <th>Description</th>
     <th>created</th>
     <th>updated</th>
   </tr>
 
-<% current_user.orders.each do |order| %>
+  <% current_user.orders.each do |order| %>
+  <tr class="order-info" id="order-info-<%= order.id %>">
 
-  <tr class="order-info">
-    <td> <%= order.id %> </td>
+    <tr><td> <%= link_to "#{order.id}", "#", class:"order-id" %> </td></tr>
 
-    <% order.order_items.each do |order_item| %>
-      <td><%= order_item.item_quantity %> </td>
-      <td><%= order_item.item.name %> </td>
-      <td><%= number_to_currency(order_item.item_price) %> </td>
-      <td><em><%= order_item.item.description %></em> </td>
-    <% end %>
+      <% order.order_items.each do |order_item| %>
+        <tr class="order-details">
+          <td></td>
+          <td><%= order_item.item_quantity %></td>
+          <td class="order-name"><%= order_item.item.name %></td>
+          <td><%= number_to_currency(order_item.item_price) %></td>
+          <td><%= number_to_currency(order_item.item_price * order_item.item_quantity) %></td>
+          <td class="order-description"><em><%= order_item.item.description %></em></td>
+          <td><%= order.created_at.strftime('%D') %></td>
+          <td><%= order.updated_at.strftime('%D') %></td>
+        </tr>
+      <% end %>
 
-    <td><%= order.created_at.strftime('%D') %> </td>
-    <td><%= order.updated_at.strftime('%D') %> </td>
-
-  </tr>
 <% end %>
-
-<tr>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td>total</td>
-  <td></td>
-  <td></td>
-
-</tr>
 
 </table>
