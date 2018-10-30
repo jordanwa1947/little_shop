@@ -21,6 +21,9 @@ Rails.application.routes.draw do
 
   resources :merchants, only: [:index, :show]
 
+  get '/dashboard/orders', to: 'dashboard#index'
+  resources :dashboard, only: [:show]
+
   namespace :admin do
     resources :users, only: [:index, :show, :update] do
       resources :orders, only: [:index, :new]

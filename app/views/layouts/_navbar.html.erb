@@ -5,6 +5,7 @@
     <li><%= link_to "Browse All Items", items_path, class: "link", id: "browse-items-link" %></li>
 
     <li><%= link_to "See Merchants", merchants_path, class: "link", id: "browse-merchants-link" %></li>
+
     <li><%= link_to "View Cart", cart_path, class: "link", id: "view-cart-link" %></li>
 
     <li id="num-items">Cart:(<%= @cart.count_all %> items)</li>
@@ -22,7 +23,7 @@
 
     <li><%= link_to "Log Out", logout_path, method: :delete, class: "link", id: "logout-link" %></li>
     <% if current_merchant?%>
-      <li><%= link_to "Merchant Dashboard", class: "link", id:"merchant-dashboard-link" %></li>
+      <li><%= link_to "Merchant Dashboard", dashboard_path(current_user), class: "link", id:"merchant-dashboard-link" %></li>
     <% elsif current_admin? %>
       <li><%= link_to "Admin Dashboard", class: "link", id: "admin-dashboard-link" %></li>
       <li><%= link_to "View All Users", admin_users_path, class: "link", id: "all-users-link" %></li>
