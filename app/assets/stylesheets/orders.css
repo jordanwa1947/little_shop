@@ -8,8 +8,9 @@ table {
   width: 100%;
   line-height: 30px;
   background: white;
-  text-align: left;
+  text-align: center;
 }
+
 
 .order-info > td {
   border-bottom: 2px solid grey;
@@ -29,12 +30,11 @@ th {
 }
 
 .order-details {
-  background: red;
-  /* border: 5px solid red; */
+  background: grey;
 }
 
-.order-description {
-  text-align: center;
+.order-description, .order-name {
+  line-height: 1em;
 }
 
 #remove-item-link {

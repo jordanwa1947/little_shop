@@ -18,7 +18,6 @@ class Cart
     if contents[item_id.to_s] < inventory_count(item_id)
       contents[item_id.to_s] += 1
     end
-    # binding.pry
   end
 
   def subtract_item(item_id)
