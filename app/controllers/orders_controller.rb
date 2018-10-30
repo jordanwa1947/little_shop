@@ -14,6 +14,8 @@ class OrdersController < ApplicationController
       item = Item.find(key.to_i)
       OrderItem.create(order_id: order.id, item_id: key.to_i, item_quantity: value, item_price: item.price)
     end
+
+    session[:cart].clear
     redirect_to profile_orders_path(current_user)
   end
 end

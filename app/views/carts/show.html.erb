@@ -10,9 +10,10 @@
       <% @cart.items.each do |item| %>
 
         <div class="item-list" id="item-list<%= item.id %>">
+          <%= link_to "Remove", "#", class: "cart-link", id: "remove-item-link" %>
           <%= link_to "-", cart_path(item_id: item.id, thing: "decrease"), method: :put, class: "increment-link", id: "drop-one" %>
-          <%= link_to "+", cart_path(item_id: item.id, thing: "increase"), method: :put, class: "increment-link", id: "add-one" %>
           <%= @cart.quantity(item.id) %>
+          <%= link_to "+", cart_path(item_id: item.id, thing: "increase"), method: :put, class: "increment-link", id: "add-one" %>
 
           <img src="<%= item.img_url %>" class="item-cart-image" alt="<%= item.name %>-image">
           <%= item.name %>
