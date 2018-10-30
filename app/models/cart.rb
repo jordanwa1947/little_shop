@@ -6,12 +6,19 @@ class Cart
     @items = contents.keys.map do |item_id|
       Item.find(item_id.to_i)
     end
+  end
 
+  def inventory_count(item_id)
+    item = Item.find(item_id.to_s)
+    item.inventory_count
   end
 
   def add_item(item_id)
     contents[item_id.to_s] ||= 0
-    contents[item_id.to_s] += 1
+    if contents[item_id.to_s] < inventory_count(item_id)
+      contents[item_id.to_s] += 1
+    end
+    # binding.pry
   end
 
   def subtract_item(item_id)
