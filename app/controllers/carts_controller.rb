@@ -13,9 +13,11 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    session[:cart].clear
-    flash[:success] = "Your cart has been emptied."
-    redirect_to cart_path
+    if session[:cart] != nil
+      session[:cart].clear
+      flash[:success] = "Your cart has been emptied."
+      redirect_to cart_path
+    end
   end
 
   def update

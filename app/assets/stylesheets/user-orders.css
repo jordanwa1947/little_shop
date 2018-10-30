@@ -1,0 +1,14 @@
+.orders-table {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: white;
+  text-align: left;
+}
+
+.order-header {
+  background: grey;
+}
+
+.order-details {
+  background: transparent;
+}
