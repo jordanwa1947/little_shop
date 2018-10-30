@@ -21,7 +21,6 @@ describe 'admin visits merchant orders page' do
 
     visit dashboard_path(merchant)
     click_link('Orders With Your Items')
-    save_and_open_page
 
     expect(current_path).to eq(merchant_orders_path(merchant))
     expect(page).to have_content("Customer Name: #{user_1.name}")

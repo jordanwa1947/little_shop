@@ -39,7 +39,7 @@ describe 'merchant visits their dashboard' do
       visit dashboard_path(merchant_1)
       expect(page).to have_content("#{merchant_1.name} Dashboard")
       click_link('Orders With Your Items')
-save_and_open_page
+
       expect(current_path).to eq(dashboard_orders_path)
       expect(page).to have_content("Customer Name: #{user_1.name}")
       expect(page).to have_content("Address: #{user_1.address}")
