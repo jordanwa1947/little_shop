@@ -15,9 +15,12 @@
 
 
 .status-link {
-  font-size: 1em;
-  padding: 0px;
+  font-size: 2em;
+  padding: 5px;
+  width: 130px;
+  text-align: center;
   text-decoration: none;
+  float: left;
 }
 
 #disable-link {
