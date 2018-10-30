@@ -31,6 +31,10 @@ class Cart
     end
   end
 
+  def delete_item(item_id)
+    contents.delete(item_id.to_s)
+  end
+
   def count_all
     contents.values.sum
   end

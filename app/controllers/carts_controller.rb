@@ -31,6 +31,9 @@ class CartsController < ApplicationController
 
     elsif params[:thing] == "decrease"
       @cart.subtract_item(item.id)
+
+    elsif params[:thing] == "delete"
+      @cart.delete_item(item.id)
     end
     session[:cart] = @cart.contents
     flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)} in your cart"
