@@ -3,6 +3,11 @@
 <table id="users-table">
 <% @merchants.each do |merchant| %>
 
+  <% if current_admin? %>
+    <%=link_to merchant.name, merchant_path(merchant), class: "merchant-link", id: "merchant-name"%>
+  <% else %>
+    <span id="merchant-name"> merchant.name </span>
+
 <tr>
   <% if merchant.status == 'active' && current_admin?%>
     <td><%= link_to 'Disable', admin_user_path(merchant, status: 'disabled'), method: :put, class: "status-link", id: "disable-link" %></td>

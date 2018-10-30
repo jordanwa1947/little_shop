@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     # get '/profile/orders', to: 'orders#index'
     resources :orders, only: [:create, :index, :show]
   end
-
+  get '/merchants/:merchant_id/orders', to: 'dashboard#index', as: :merchant_orders
   resources :merchants, only: [:index, :show]
 
   get '/dashboard/orders', to: 'dashboard#index'

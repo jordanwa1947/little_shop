@@ -11,23 +11,21 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if params[:status] == 'disabled'
+    if params[:status]
       @user.update(disable_or_enable)
-      flash[:success] = "#{@user.name}'s account is now disabled"
-      redirect_admin
-    elsif params[:status] == 'active'
-      @user.update(disable_or_enable)
-      flash[:success] = "#{@user.name}'s account is now enabled"
+      flash[:success] = "#{@user.name}'s account is now #{params[:status]}"
       redirect_admin
     elsif params[:role] == 'merchant_user'
       @user.update(upgrade_or_down_grade)
       flash[:success] = "#{@user.name}'s account is now a Merchant"
       redirect_to merchant_path(@user)
-    else
+    elsif params[:role] == 'registered_user'
       @user.update(upgrade_or_down_grade)
       flash[:success] = "#{@user.name}'s account is now a Registered User"
       redirect_to admin_user_path(@user)
-    end
+    else
+      render file: "/public/404"
+    end 
   end
 
   def redirect_admin

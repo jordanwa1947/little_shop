@@ -1,2 +1,65 @@
-<h3> <%= link_to 'Orders With Your Items', dashboard_orders_path(@merchant)%> </h3>
+<% if current_admin? %>
+  <h3> <%= link_to 'Orders With Your Items', merchant_orders_path(@merchant)%> </h3>
+<% else %>
+  <h3> <%= link_to 'Orders With Your Items', dashboard_orders_path%> </h3>
+<% end %>
      <%= link_to "Edit Information", edit_user_path(@merchant) %>
+
+<h1> User Information </h1>
+
+<table id="user-info">
+
+ <tr>
+   <th></th>
+   <th><%= @merchant.name %> Info</th>
+ </tr>
+
+ <tr>
+   <td>Role</td>
+   <td><%= @merchant.role %></td>
+ </tr>
+
+ <tr>
+   <td>Status</td>
+   <td><%= @merchant.status %></td>
+ </tr>
+
+ <tr>
+   <td>Email</td>
+   <td><%= @merchant.email %></td>
+ </tr>
+
+ <tr>
+   <td>Address</td>
+   <td><%= @merchant.address %></td>
+ </tr
+
+ <tr>
+   <td>City</td>
+   <td><%= @merchant.city %>, <%= @merchant.state %>, <%= @merchant.zip_code %> </td>
+ </tr>
+
+ <tr>
+   <td>Created</td>
+   <td><%= @merchant.created_at %></td>
+ </tr>
+
+ <tr>
+   <td>Updated</td>
+   <td><%= @merchant.updated_at %></td>
+ </tr>
+<% if current_admin? %>
+ <tr>
+   <td></td>
+   <td><%= link_to 'View User Orders', admin_user_orders_path(@merchant), id: "users-orders-link" %></td>
+ </tr>
+<% end %>
+ <tr>
+   <td></td>
+   <td><%= link_to 'Edit Info', edit_user_path(@merchant), id: "edit-info-link" %></td>
+ </tr>
+</table>
+
+<% if current_admin? %>
+ <%= link_to "Downgrade To Registered User", admin_user_path(@merchant, role: 'registered_user'), method: :put%>
+<% end %>
