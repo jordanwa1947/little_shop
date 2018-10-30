@@ -9,9 +9,8 @@ class OrdersController < ApplicationController
 
   def create
     if session[:cart] == nil || session[:cart] == {}
-      flash[:sucess] = "You have no items in your cart"
-
-    elsif session[:cart] != nil
+      redirect_to cart_path
+    else session[:cart] != nil
       order = Order.create(user_id: session[:user_id], status: :pending)
       session[:cart].each do |key, value|
         item = Item.find(key.to_i)
