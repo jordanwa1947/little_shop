@@ -9,8 +9,7 @@ class OrdersController < ApplicationController
 
   def create
     if session[:cart] == nil || session[:cart] == {}
-      flash[:sucess] = "You have no items in your cart"
-
+      redirect_to cart_path
     elsif session[:cart] != nil
       order = Order.create(user_id: session[:user_id], status: :pending)
 
