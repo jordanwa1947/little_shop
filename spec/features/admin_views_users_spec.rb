@@ -28,6 +28,36 @@ describe 'Admin clicks on users_page' do
       expect(page).to have_content('oppressed')
       expect(page).to have_content('12345')
       expect(page).to have_content('AwesomeSauce@gmail.com')
+      expect(page).to have_link("Upgrade To Merchant")
+    end
+
+    it 'lets an admin upgrade a user' do
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+      visit admin_user_path(@user_1)
+
+      click_link("Upgrade To Merchant")
+
+      upgraded_user = User.find(@user_1.id)
+      expect(current_path).to eq(merchant_path(upgraded_user.id))
+      expect(page).to have_content("#{@user_1.name}'s account is now a Merchant")
+      expect(upgraded_user.role).to eq('merchant_user')
+    end
+
+    it 'lets an admin down grade a user' do
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+      user_1 = User.create(name: 'Sherlock Holmes', address: '221 Baker street', city: 'London', state: 'oppressed',
+      zip_code: '12345', email: 'Sauce@gmail.com', password: '123123', role: 1)
+
+      visit merchant_path(user_1)
+
+      click_link("Downgrade To Registered User")
+
+      downgraded_user = User.find(user_1.id)
+      expect(current_path).to eq(admin_user_path(downgraded_user.id))
+      expect(page).to have_content("#{user_1.name}'s account is now a Registered User")
+      expect(downgraded_user.role).to eq('registered_user')
     end
 
     it "allows an admin to edit any user's info from the user's show page" do

@@ -1,1 +1,2 @@
 <%= render partial: 'dashboard/merchant_dashboard'  %>
+<%= link_to "Downgrade To Registered User", admin_user_path(@merchant, role: 'registered_user'), method: :put %>
