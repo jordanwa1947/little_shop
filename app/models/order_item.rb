@@ -4,5 +4,4 @@ class OrderItem < ApplicationRecord
 
   validates_presence_of :order_id, :item_id, :item_quantity, :item_price
 
-
 end

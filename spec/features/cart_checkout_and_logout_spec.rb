@@ -122,7 +122,7 @@ RSpec.describe 'cart checkout and logout' do
     expect(page).to_not have_content(@item_1.name)
   end
 
-  it "can empty the cart" do
+  it "can empty the cart and won't checkout with an empty cart" do
     visit login_path
 
     fill_in "Email", with: @email_2
@@ -142,6 +142,15 @@ RSpec.describe 'cart checkout and logout' do
 
     expect(current_path).to eq(cart_path)
     expect(page).to_not have_content(@item_1.name)
+    expect(page).to have_content("You have no items in your cart")
+
+    click_on "Checkout"
+
+    expect(current_path).to eq(cart_path)
+    expect(page).to have_content("You have no items in your cart")
+
+
+
 
   end
 
