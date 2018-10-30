@@ -53,7 +53,7 @@ describe 'admin visits merchants page' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
       visit merchants_path
-      save_and_open_page
+
       click_link(@merchant_1.name)
 # in interest of time and security, I bypassed using merchant/show as
 # requested by the user story

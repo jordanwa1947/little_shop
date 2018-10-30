@@ -1,18 +1,10 @@
 <% @orders.each do |order| %>
-<p> Created At: <%= order.created_at %> </p>
-<p> Order Status: <%= order.status %>  </p>
-<p> User Id: <%= order.user_id %>  </p>
-<p> Order Id: <%= order.id %>  </p>
-
-  <% order.items.each do |item| %>
-<p>  Item Name:         <%= item.name %>  </p>
-<p>  Item Price:        <%= item.price %>  </p>
-<p>  Inventory Count:   <%= item.inventory_count %>  </p>
-<p>  Item Description:  <%= item.description %>  </p>
-  <% end %>
-
-  <% order.order_items.each do |order_item| %>
-<p>  Item Price:  <%= order_item.item_price %>  </p>
-<p>  Item Quantity:  <%= order_item.item_quantity %>  </p>
+<p> Customer Name: <%= order.user.name %> </p>
+<p> Address:  <%= order.user.address %> </p>
+  <% order.item_sort(@merchant_id).each do |item| %>
+<p>  Item Name:         <%= link_to item.name, item_path(item) %>  </p>
+<img>                src=<%= item.img_url %>>
+<p>  Item Price:        <%= item.price %> </p>
+<p>  Item Quantity:  <%= item.order_item_sort(order.id).item_quantity %>  </p>
   <% end %>
 <% end %>
