@@ -5,7 +5,8 @@
     <th>Order</th>
     <th>Qnty</th>
     <th>Name</th>
-    <th>Price</th>
+    <th>Price per Unit</th>
+    <th>Sub-Total</th>
     <th>Description</th>
     <th>created</th>
     <th>updated</th>
@@ -22,6 +23,7 @@
           <td><%= order_item.item_quantity %></td>
           <td class="order-name"><%= order_item.item.name %></td>
           <td><%= number_to_currency(order_item.item_price) %></td>
+          <td><%= number_to_currency(order_item.item_price * order_item.item_quantity) %></td>
           <td class="order-description"><em><%= order_item.item.description %></em></td>
           <td><%= order.created_at.strftime('%D') %></td>
           <td><%= order.updated_at.strftime('%D') %></td>

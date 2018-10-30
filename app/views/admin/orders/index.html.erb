@@ -14,6 +14,7 @@
           <%= order_item.item.name %>
           <%= number_to_currency(order_item.item_price) %>
           Qnt: <%= order_item.item_quantity %>
+          <%= number_to_currency(order_item.item_price * order_item.item_quantity) %>
           <%= order_item.item.description %>
         </span>
       </div>
