@@ -56,7 +56,7 @@ describe 'admin visits merchants page' do
       click_link(@merchant_1.name)
 # in interest of time and security, I bypassed using merchant/show as
 # requested by the user story
-      expect(current_path).to eq(admin_user_path(@merchant_1))
+      expect(current_path).to eq(merchant_path(@merchant_1))
       expect(page).to have_content('Sherlock Holmes')
       expect(page).to have_content('merchant_user')
       expect(page).to have_content('221 Baker street')

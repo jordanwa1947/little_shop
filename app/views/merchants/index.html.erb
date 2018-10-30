@@ -2,9 +2,9 @@
 
 <% @merchants.each do |merchant| %>
   <% if current_admin? %>
-    <%=link_to merchant.name, admin_user_path(merchant), class: "merchant-link", id: "merchant-name"%>
+    <%=link_to merchant.name, merchant_path(merchant), class: "merchant-link", id: "merchant-name"%>
   <% else %>
-    <span id="merchant-name"><%= link_to merchant.name, merchant_path(merchant) %></span>
+    <span id="merchant-name"> merchant.name </span>
   <% end %>
 
   <% if merchant.status == 'active' && current_admin?%>

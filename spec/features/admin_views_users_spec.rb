@@ -44,7 +44,7 @@ describe 'Admin clicks on users_page' do
       expect(upgraded_user.role).to eq('merchant_user')
     end
 
-    it 'lets an admin down grade a user' do
+    it 'lets an admin downgrade a user' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
       user_1 = User.create(name: 'Sherlock Holmes', address: '221 Baker street', city: 'London', state: 'oppressed',
@@ -202,7 +202,7 @@ describe 'Admin clicks on users_page' do
       click_link('Enable', match: :first)
 
       expect(current_path).to eq(admin_users_path)
-      expect(page).to have_content("#{@user_1.name}'s account is now enabled")
+      expect(page).to have_content("#{@user_1.name}'s account is now active")
       expect(User.first.status).to eq("active")
     end
 
