@@ -7,6 +7,7 @@
     <%=link_to merchant.name, merchant_path(merchant), class: "merchant-link", id: "merchant-name"%>
   <% else %>
     <span id="merchant-name"> merchant.name </span>
+  <% end %>
 
 <tr>
   <% if merchant.status == 'active' && current_admin?%>
@@ -14,13 +15,6 @@
   <% elsif  merchant.status == 'disabled' && current_admin? %>
     <td><%= link_to 'Enable', admin_user_path(merchant, status: 'active'), method: :put, class: "status-link", id: "enable-link" %></td>
   <% else %>
-  <% end %>
-
-
-  <% if current_admin? %>
-      <td><%=link_to merchant.name, admin_user_path(merchant), class: "merchant-link", id: "merchant-name"%></td>
-  <% else %>
-      <td id="merchant-name"><%= link_to merchant.name, merchant_path(merchant) %></td>
   <% end %>
 </tr>
 
