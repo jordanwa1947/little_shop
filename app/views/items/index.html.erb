@@ -24,7 +24,7 @@
 
 <h2 id="leaderboard-title">Leaderboard</h2>
 <div id="stats-block">
-  <div class="item-info">Best Selling Merchants: <br>
+  <div class="item-info">Top Shoppers: <br>
     <% @three_highest_sellers.each_with_index do |merchant, index| %>
       <div>#<%= index+1 %> <%= merchant.name %></div>
     <% end %>
@@ -36,6 +36,6 @@
     <% end %>
   </div>
 
-  <div class="item-info">Fastest Fulfillers</div>
-  <div class="item-info">Slowest Shippers</div>
+  <div class="item-info">Fastest Fulfillers:</div>
+  <div class="item-info">Slowest Shippers:</div>
 </div>
