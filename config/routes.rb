@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   get '/profile/edit', to: 'users#edit'
   get '/profile/orders', to: 'orders#index'
 
+  put '/dashboard/order_items/:id', to: 'dashboard#update', as: :dashboard_order_item
   get '/orders/:id', to: 'orders#show', as: :order
   resources :users, only: [:new, :create, :edit, :update] do
     # get '/profile/orders', to: 'orders#index'
-    resources :orders, only: [:create, :index, :show, :update]
+    resources :orders , only: [:create, :index, :show, :update]
   end
   get '/merchants/:merchant_id/orders', to: 'dashboard#index', as: :merchant_orders
 
