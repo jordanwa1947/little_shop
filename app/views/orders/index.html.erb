@@ -3,6 +3,7 @@
 <table id="container">
   <tr id="headers">
     <th>Order</th>
+    <th>Status</th>
     <th>Qnty</th>
     <th>Name</th>
     <th>Price per Unit</th>
@@ -16,10 +17,9 @@
   <tr class="order-info" id="order-info-<%= order.id %>">
 
     <tr><td> <%= link_to "#{order.id}", "#", class:"order-id" %> </td></tr>
-
+    <td> <%= order.status %> </td>
       <% order.order_items.each do |order_item| %>
         <tr class="order-details">
-          <td></td>
           <td><%= order_item.item_quantity %></td>
           <td class="order-name"><%= order_item.item.name %></td>
           <td><%= number_to_currency(order_item.item_price) %></td>
@@ -29,7 +29,11 @@
           <td><%= order.updated_at.strftime('%D') %></td>
         </tr>
       <% end %>
-
+      <p>Order Items: <%= order.total_items %> </p>
+      <p>Order Total: <%= number_to_currency(order.total_price) %> </p>
+      <% if order.status == 'pending' || order.status == 'complete' %>
+        <%= link_to "Cancel Order", user_order_path(order.user_id, order, status: 'cancelled'), method: :put %>
+      <% end %>
 <% end %>
 
 </table>

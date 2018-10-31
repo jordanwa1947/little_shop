@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = User.find(current_user.id).orders.all
+    @orders = User.find(current_user.id).orders
   end
 
   def show
@@ -22,4 +22,19 @@ class OrdersController < ApplicationController
       redirect_to profile_orders_path(current_user)
     end
   end
+
+  def update
+    order = Order.find(params[:id])
+    if params[:status] == 'cancelled'
+      order.update(status: 2)
+    end
+    redirect_to profile_orders_path(params[:user_id])
+  end
+
+  private
+
+  def order_params
+    params.permit(:status)
+  end
+
 end

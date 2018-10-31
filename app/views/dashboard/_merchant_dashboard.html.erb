@@ -3,7 +3,13 @@
 <% else %>
   <h3> <%= link_to 'Orders With Your Items', dashboard_orders_path%> </h3>
 <% end %>
-     <%= link_to "Edit Information", edit_user_path(@merchant) %>
+
+ <%= link_to "Edit Information", edit_user_path(@merchant) %>
+
+ <%= link_to "View My Items", dashboard_items_path %>
+
+
+
 
 <h1> User Information </h1>
 
