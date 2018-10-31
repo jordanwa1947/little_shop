@@ -36,13 +36,13 @@ RSpec.describe Order, type: :model do
       expect(array_of_merchant_items.first.name).to eq("shovel")
     end
 
-    xit '.merchant_orders' do
-      merchant_orders = @order_1.merchant_orders(@merchant_1.id)
+    it '.merchant_orders' do
+      merchant_orders = Order.merchant_orders(@merchant_1.id)
       expect(merchant_orders.first.id).to eq(1)
     end
 
-    xit '.merchant_orders_admin' do
-      merchant_orders = @order_2.merchant_orders_admin(@merchant_2.id)
+    it '.merchant_orders_admin' do
+      merchant_orders = Order.merchant_orders_admin(@merchant_2.id)
       expect(merchant_orders.first.id).to eq(2)
     end
   end
