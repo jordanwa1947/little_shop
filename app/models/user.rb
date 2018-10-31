@@ -27,12 +27,6 @@ class User < ApplicationRecord
   end
 
   def self.top_states
-    # select users.state,
-    # sum(order_items.item_price * order_items.item_quantity from users
-    # join items on items.user_id= users.id
-    # join order_items on order_items.item_id = items.id
-    # group by users.state;
-
     select('users.state, sum(order_items.item_price * order_items.item_quantity) as total_sales')
     .joins(items: :order_items)
     .group(:state)
@@ -41,6 +35,11 @@ class User < ApplicationRecord
   end
 
   def self.top_cities
+    # select users.city, sum(order_items.item_price * order_items.item_quantity)
+    # from users
+    # join items on items.user_id= users.id
+    # join order_items on order_items.item_id = items.id
+    # group by users.city;
 
   end
 

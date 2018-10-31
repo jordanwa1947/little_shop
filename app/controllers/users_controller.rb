@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         redirect_to merchant_path(@user) if @user.role == "merchant_user"
         redirect_to admin_user_path(@user) if @user.role == "registered_user"
       else
-        redirect_to profile_path
+        render :new
       end
     else
       flash[:notice] = "Email address already in use"

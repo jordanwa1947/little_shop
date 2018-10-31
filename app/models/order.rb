@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   validates_presence_of :user_id, :status
 
 
-  enum status: %w(pending complete)
+  enum status: %w(pending complete cancelled)
 
   def total_price
     items.inject(0) do |sum, item|
@@ -40,5 +40,5 @@ class Order < ApplicationRecord
     where(status: status)
   end
 
-  
+
 end

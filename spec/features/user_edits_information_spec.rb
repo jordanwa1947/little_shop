@@ -16,8 +16,8 @@ describe 'User visits edit page' do
 
       click_on 'Create User'
       expect(current_path).to eq(profile_path)
-      click_link 'Edit Info'
 
+      click_link 'Edit Info'
       expect(current_path).to eq(profile_edit_path)
 
       expect(find_field("name-field").value).to eq(User.last.name)
