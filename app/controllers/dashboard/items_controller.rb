@@ -6,7 +6,20 @@ class Dashboard::ItemsController < ApplicationController
   end
 
   def new
+    @user = current_user
+    @item = Item.new
+  end
 
+  def create
+    @user = current_user
+    @item = @user.items.new(item_params)
+    if @item.save
+      flash[:success] = 'Item Successfully Created!'
+      redirect_to dashboard_items_path
+    else
+      flash[:notice] = "Error in form"
+      render :new
+    end
   end
 
   def edit
@@ -29,6 +42,19 @@ class Dashboard::ItemsController < ApplicationController
   end
 
   def show
+
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(
+      :name,
+      :price,
+      :img_url,
+      :inventory_count,
+      :description
+    )
   end
 
 end

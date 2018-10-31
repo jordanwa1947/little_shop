@@ -1,30 +1,34 @@
 <h1>My Items</h1>
 
+<div>
 <%= link_to "Add a new item", new_dashboard_item_path %>
+</div>
+
+<div id="dashboard-items-index">
+  <% @items.each do |item| %>
+    <div id="dashboard-item-#{item.id}-card">
+
+      <img src="<%= item.img_url %>" class="item-thumbnail" alt="dashboard-<%= item.name %>-image">
+      ID: <%= item.id %>
+      Name: <%= item.name %>
+      Price: <%= number_to_currency(item.price) %>
+      Inventory: <%= item.inventory_count %>
+      Description: <%= item.description %>
+      Status: <%= item.status %>
+
+      <% if item.status == 'active'%>
+        <td id="enable-link"><%= item.status %></td>
+        <td id="item-#{item.id}" ><%= link_to 'Disable', dashboard_item_path(item, status: 'disable'), method: :put, class: "status-link", id: "disable-link"%>
+        </td>
+      <% else %>
+        <td id="disable-link"><%= item.status %></td>
+        <td id="item-#{item.id}" >
+          <%= link_to 'Enable', dashboard_item_path(item, status: 'enable'), method: :put, class: "status-link", id: "enable-link" %>
+        </td>
+      <% end %>
 
 
-<% @items.each do |item| %>
-
-
-  <img src="<%= item.img_url %>" class="dashboard-item-image" alt="dashboard-<%= item.name %>-image">
-  ID: <%= item.id %>
-  Name: <%= item.name %>
-  Price: <%= number_to_currency(item.price) %>
-  Inventory: <%= item.inventory_count %>
-  Status: <%= item.status %>
-
-  <% if item.status == 'active'%>
-    <td id="enable-link"><%= item.status %></td>
-    <td id="item-#{item.id}" ><%= link_to 'Disable', dashboard_item_path(item, status: 'disable'), method: :put, class: "status-link", id: "disable-link"%>
-    </td>
-  <% else %>
-    <td id="disable-link"><%= item.status %></td>
-    <td id="item-#{item.id}" >
-      <%= link_to 'Enable', dashboard_item_path(item, status: 'enable'), method: :put, class: "status-link", id: "enable-link" %>
-    </td>
+      <%= link_to "Edit this item", edit_dashboard_item_path(item.id) %>
+    </div>
   <% end %>
-
-
-  <%= link_to "Edit this item", edit_dashboard_item_path(item.id) %>
-
-<% end %>
+</div>
