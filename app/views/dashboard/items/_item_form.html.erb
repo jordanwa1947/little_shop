@@ -1,0 +1,39 @@
+
+
+<%= form_for [@user, @item], url: dashboard_items_path do |f| %>
+
+<% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+      <% @item.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="info-box">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: "item-name-field", placeholder: "Item Name" %>
+  </div>
+
+  <div class="info-box">
+    <div>
+      <%= f.label :price %>
+      <%= f.text_field :price, id: "item-price-field", placeholder: "Item Price" %>
+    </div>
+    <span>
+      <%= f.label :img_url %>
+      <%= f.text_field :img_url, id: "item-img-field", placeholder: "URL for item image"%>
+    </span>
+    <span>
+      <%= f.label :inventory_count %>
+      <%= f.text_field :inventory_count, id: "item-inventory-field", placeholder: "quantity in inventory"%>
+    </span>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description, id: "item-description-field", placeholder: "description of item" %>
+    </div>
+  </div>
+
+  <%= f.submit %>
+<% end %>

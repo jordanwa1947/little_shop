@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-#still need to build tests and implement code for links to item show page(s)
 
 describe "items index page" do
   before(:each) do
@@ -69,5 +68,3 @@ describe "items index page" do
     end
   end
 end
-
-# Each item's name and thumbnail image are links to that item's show page
