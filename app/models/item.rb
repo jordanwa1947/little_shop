@@ -8,11 +8,11 @@ class Item < ApplicationRecord
   enum status: %w(active disabled)
 
   def self.three_highest_selling_items
-    items = group(:id).joins(:order_items).sum(:item_quantity)
-    desc = items.sort {|a,b| b[1]<=>a[1]}
-    top_three = desc[0..2].map do |item|
-      Item.find(item.first.to_i)
-    end
+    items = select('items.*, sum(order_items.item_quantity * order_items.item_price) as total')
+      .group(:id)
+      .joins(:order_items)
+      .order('total ASC')
+      .limit(3)
   end
 
   def order_item_sort(order_id)

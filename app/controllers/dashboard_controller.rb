@@ -7,8 +7,11 @@ class DashboardController < ApplicationController
       @merchant = User.find(current_user.id)
     end
 
+<<<<<<< HEAD
     @three_highest_sellers = User.three_highest_sellers
     
+=======
+>>>>>>> tuesday_morning
   end
 
   def index
