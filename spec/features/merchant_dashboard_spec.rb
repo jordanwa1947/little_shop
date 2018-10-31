@@ -31,8 +31,8 @@ describe 'merchant visits their dashboard' do
                                      inventory_count: '5', description: 'we got to go and dig some holes')
       item_2 = merchant_2.items.create(name: 'rope', price: '1000', img_url: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Ferinrope.com%2Fwp-content%2Fuploads%2F2017%2F10%2F3-Strand-White-Nylon-Rope-300x300.jpg&imgrefurl=https%3A%2F%2Ferinrope.com%2Frope-material%2F&docid=QA4bWJwhDBTKYM&tbnid=2IIV_8EXNpM7-M%3A&vet=10ahUKEwjcvIHdzaLeAhVBpoMKHVpxAXwQMwigASgrMCs..i&w=300&h=300&bih=790&biw=1440&q=rope%20images&ved=0ahUKEwjcvIHdzaLeAhVBpoMKHVpxAXwQMwigASgrMCs&iact=mrc&uact=8',
                                      inventory_count: '3', description: 'length: 20ft')
-      order_item_1 = OrderItem.create(item_id: item_1.id, order_id: order_1.id, item_quantity: 5, item_price: 2700, fulfilled?: :false)
-      order_item_2 = OrderItem.create(item_id: item_2.id, order_id: order_2.id, item_quantity: 3, item_price: 1000, fulfilled?: :false)
+      order_item_1 = OrderItem.create(item_id: item_1.id, order_id: order_1.id, item_quantity: 5, item_price: 2700, fulfilled: :false)
+      order_item_2 = OrderItem.create(item_id: item_2.id, order_id: order_2.id, item_quantity: 3, item_price: 1000, fulfilled: :false)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merchant_1)
 

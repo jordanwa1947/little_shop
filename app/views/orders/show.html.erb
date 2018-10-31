@@ -4,5 +4,13 @@
 <p>  Item Name:         <%= link_to item.name, item_path(item) %>  </p>
 <img>                src=<%= item.img_url %>>
 <p>  Item Price:        <%= item.price %> </p>
-<p>  Item Quantity:  <%= item.order_item_sort(@order.id).item_quantity %>  </p>
+        <% order_item = item.order_item_sort(@order.id) %>
+<p>  Item Quantity:  <%= order_item.item_quantity %>  </p>
+   <% if item.inventory_count >= order_item.item_quantity && order_item.fulfilled? == false%>
+     <%= link_to "Fulfill", dashboard_order_item_path(order_item, fulfilled: true, merchant_id: @merchant_id, order_id: @order.id), method: :put %>
+   <% elsif order_item.item_quantity > item.inventory_count %>
+     <p> This Item is Can Not Be Fulfilled </p>
+   <% elsif order_item.fulfilled? == true %>
+     <p> This Item is Fulfilled <p>
+   <% end %>
   <% end %>
