@@ -14,4 +14,8 @@ class Item < ApplicationRecord
       Item.find(item.first.to_i)
     end
   end
+
+  def order_item_sort(order_id)
+    order_items.find(order_id)
+  end
 end

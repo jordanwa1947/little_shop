@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe 'user sees statistics on orders' do
   describe 'registered user clicks on orders' do
-    it 'takes the user to their orders page' do
+    it 'takes the user to their orders page and they can cancel orders' do
       user_1 = User.create(name: 'Jordan', address: '221 Awesome way', city: 'Tampa', state: 'oppressed',
                             zip_code: '12345', email: 'AwesomeSauce@gmail.com', password: '123123')
-      order_1 = user_1.orders.create(status: 'pending')
-      order_2 = user_1.orders.create(status: 'pending')
+      order_1 = user_1.orders.create
+      order_2 = user_1.orders.create
 
       item_1 = user_1.items.create(name: 'shovel', price: '2000', img_url: 'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjhpcSPyqLeAhUU8YMKHVoiD5oQjRx6BAgBEAU&url=https%3A%2F%2Fwww.lowes.com%2Fpd%2FTruper-45-in-Wood-Long-handle-Digging-Shovel%2F3060031&psig=AOvVaw3u-wUjbXiMlHp3iuSEz6Oo&ust=1540590779700815',
         inventory_count: '5', description: 'we got to go and dig some holes')
@@ -31,6 +31,9 @@ describe 'user sees statistics on orders' do
       expect(page).to have_content('$1,000.00')
       expect(page).to have_content('3')
       expect(page).to have_content('length: 20ft')
+
+      click_on("Cancel Order", match: :first)
+      # expect(page).to have_content("cancelled")
     end
   end
 

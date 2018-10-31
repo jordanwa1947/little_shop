@@ -23,7 +23,7 @@ class User < ApplicationRecord
     desc = sellers.sort {|a,b| b[1]<=>a[1]}
     top_three = desc[0..2].map do |seller|
       User.find(seller.first.to_i)
-    end\
+    end
   end
 
   def self.fastest_shippers
