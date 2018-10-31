@@ -41,8 +41,9 @@ describe 'admin visits their dashboard' do
 
     visit root_path
     click_link("Admin Dashboard")
-    save_and_open_page
-    expect(page).to have_content("Top 3 States: ")
+
+    expect(current_path).to eq(dashboard_path(admin))
+    expect(page).to have_content('Admin Dashboard')
 
 #     top 3 states where orders were shipped
 # - top 3 cities in each state where orders were shipped
