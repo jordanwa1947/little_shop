@@ -1,18 +1,30 @@
-<% @orders.each do |order| %>
-<p> Created At: <%= order.created_at %> </p>
-<p> Order Status: <%= order.status %>  </p>
-<p> User Id: <%= order.user_id %>  </p>
-<p> Order Id: <%= order.id %>  </p>
+<table>
+  <tr id="table-headers">
+    <th>Id:</th>
+    <th>Status:</th>
+    <th>Created:</th>
+    <th>User:</th>
+    <th></th>
+    <th></th>
+  </tr>
 
-  <% order.items.each do |item| %>
-<p>  Item Name:         <%= item.name %>  </p>
-<p>  Item Price:        <%= item.price %>  </p>
-<p>  Inventory Count:   <%= item.inventory_count %>  </p>
-<p>  Item Description:  <%= item.description %>  </p>
-  <% end %>
+  <% @orders.each do |order| %>
+  <tr>
+    <td> <%= order.id %>  </td>
+    <td> <%= order.status %>  </td>
+    <td> <%= order.created_at %> </td>
+    <td> <%= order.user_id %>  </td>
 
-  <% order.order_items.each do |order_item| %>
-<p>  Item Price:  <%= order_item.item_price %>  </p>
-<p>  Item Quantity:  <%= order_item.item_quantity %>  </p>
+      <% order.items.each do |item| %>
+    <td><span class="item-details"> <%= item.name %> <br>
+    <%= number_to_currency(item.price) %> <br>
+    Qnty: <%= item.inventory_count %> <br>
+    <%= item.description %></span> </td>
+      <% end %>
+
+    <td> Total Price: <%= number_to_currency(order.total_price) %> </td>
+    <td> Total Quantity: <%= order.total_quantity %> </td>
+
+  </tr>
   <% end %>
-<% end %>
+</table>
