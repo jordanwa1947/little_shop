@@ -123,39 +123,44 @@ describe 'Admin clicks on users_page' do
         status: 1,
         user: @user_2
       )
-      order_1 = @user_1.orders.create(status: :complete)
-      order_2 = @user_1.orders.create(status: :complete)
-      order_3 = @user_2.orders.create(status: :complete)
+      order_1 = @user_1.orders.create(status: :pending)
+      order_2 = @user_1.orders.create(status: :pending)
+      order_3 = @user_2.orders.create(status: :pending)
 
       order_item_10 = OrderItem.create(
         item_id: item_4.id,
         order_id: order_3.id,
         item_quantity: 5,
-        item_price: item_4.price
+        item_price: item_4.price,
+        fulfilled?: :false
       )
       order_item_1 = OrderItem.create(
         item_id: item_1.id,
         order_id: order_1.id,
         item_quantity: 5,
-        item_price: item_1.price
+        item_price: item_1.price,
+        fulfilled?: :false
       )
       order_item_2 = OrderItem.create(
         item_id: item_3.id,
         order_id: order_1.id,
         item_quantity: 3,
-        item_price: item_4.price
+        item_price: item_4.price,
+        fulfilled?: :false
       )
       order_item_3 = OrderItem.create(
         item_id: item_2.id,
         order_id: order_2.id,
         item_quantity: 7,
-        item_price: item_2.price
+        item_price: item_2.price,
+        fulfilled?: :false
       )
       order_item_4 = OrderItem.create(
         item_id: item_3.id,
         order_id: order_2.id,
         item_quantity: 2,
-        item_price: item_3.price
+        item_price: item_3.price,
+        fulfilled?: :false
       )
 
       visit admin_users_path

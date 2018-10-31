@@ -17,6 +17,9 @@ class Cart
     contents[item_id.to_s] ||= 0
     if contents[item_id.to_s] < inventory_count(item_id)
       contents[item_id.to_s] += 1
+      return "success"
+    else
+      return "failure"
     end
   end
 
@@ -26,6 +29,10 @@ class Cart
     elsif contents[item_id.to_s] == 1
       contents.delete(item_id.to_s)
     end
+  end
+
+  def delete_item(item_id)
+    contents.delete(item_id.to_s)
   end
 
   def count_all
