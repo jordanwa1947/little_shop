@@ -87,15 +87,6 @@ describe 'User visits edit page' do
       expect(current_path).to eq(profile_edit_path)
       expect(page).to have_content("Email address already in use")
 
-      # expect(find_field("user_name").value).to eq(User.last.name)
-      # expect(find_field("user_address").value).to eq(User.last.address)
-      # expect(find_field("user_city").value).to eq(User.last.city)
-      # expect(find_field("user_state").value).to eq(User.last.state)
-      # expect(find_field("user_zip_code").value).to eq(User.last.zip_code.to_s)
-      # expect(find_field("user_email").value).to eq(User.last.email)
-      # expect(find_field("user_password").value).to eq(nil)
-      # expect(find_field("user_password_confirmation").value).to eq(nil)
-
       expect(find_field("name-field").value).to eq(User.last.name)
       expect(find_field("address-field").value).to eq(User.last.address)
       expect(find_field("city-field").value).to eq(User.last.city)

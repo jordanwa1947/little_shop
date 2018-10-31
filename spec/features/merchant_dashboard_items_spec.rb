@@ -33,8 +33,6 @@ RSpec.describe 'when a merchant visits their dashboard and clicks on items' do
       fill_in "email", with: "AwesomeSauce@gmail.com"
       fill_in "password", with: '123123'
       click_on "Log in"
-
-    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
   it 'should go to the dashboard items index and show item details' do
@@ -164,11 +162,5 @@ RSpec.describe 'when a merchant visits their dashboard and clicks on items' do
     fill_in "item-description-field", with: "this thing is a new thing"
     click_on "Create Item"
     expect(page).to have_content('Error in form')
-
-    # expect(page).to have_content('Item Successfully Created!')
-    # expect(page.find("#dashboard-items-index")).to have_content(name)
-    # expect(page.find("#dashboard-items-index")).to have_content(number_to_currency(price))
-    # expect(page.find("#dashboard-items-index")).to have_content(inventory_num)
-    # expect(page.find("#dashboard-items-index")).to have_content(description)
   end
 end
