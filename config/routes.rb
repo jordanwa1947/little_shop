@@ -19,9 +19,15 @@ Rails.application.routes.draw do
     resources :orders, only: [:create, :index, :show, :update]
   end
   get '/merchants/:merchant_id/orders', to: 'dashboard#index', as: :merchant_orders
+
   resources :merchants, only: [:index, :show]
 
   get '/dashboard/orders', to: 'dashboard#index'
+
+ namespace :dashboard do
+   resources :items, only: [:index]
+ end
+
   resources :dashboard, only: [:show]
 
   namespace :admin do
