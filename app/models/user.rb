@@ -17,4 +17,13 @@ class User < ApplicationRecord
   enum role: %w(registered_user merchant_user admin_user)
   enum status: %w(active disabled)
 
+
+  def self.three_highest_sellers
+    sellers = group(:id).joins(:order_items).sum(:item_quantity)
+    desc = sellers.sort {|a,b| b[1]<=>a[1]}
+    top_three = desc[0..2].map do |seller|
+      User.find(seller.first.to_i)
+    end
+  end
+
 end

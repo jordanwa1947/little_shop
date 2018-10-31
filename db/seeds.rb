@@ -109,7 +109,7 @@ item_1 = Item.create(
   name: "Shovel",
   description: "A good way to get attention. Bring one to parties.",
   price: 16,
-  img_url:        "http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg",
+  img_url: "http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg",
   inventory_count: 20,
   user: user_6
 )
