@@ -5,6 +5,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @merchant_id = params[:merchant_id]
+    @order = Order.find(params[:id])
   end
 
   def create

@@ -23,10 +23,8 @@ describe 'admin visits merchant orders page' do
     click_link('Orders With Your Items')
 
     expect(current_path).to eq(merchant_orders_path(merchant))
-    expect(page).to have_content("Customer Name: #{user_1.name}")
-    expect(page).to have_content("Address: #{user_1.address}")
-    expect(page).to have_link("#{item_1.name}")
-    expect(page).to have_content("Item Price: #{item_1.price}")
-    expect(page).to have_content("Item Quantity: #{order_item_2.item_quantity}")
+    expect(page).to have_link("#{order_1.id}")
+    expect(page).to have_content("Date Made: #{order_1.created_at}")
+    expect(page).to have_content("Status: #{order_1.status}")
   end
 end
