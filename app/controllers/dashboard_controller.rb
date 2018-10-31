@@ -1,11 +1,14 @@
 class DashboardController < ApplicationController
 
   def show
-    if current_merchant?
-      @merchant = User.find(current_user.id)
-    else
+    if current_admin?
       @merchant = User.find(params[:id])
+    else
+      @merchant = User.find(current_user.id)
     end
+
+    @three_highest_sellers = User.three_highest_sellers
+    
   end
 
   def index

@@ -37,7 +37,7 @@ class Order < ApplicationRecord
   # end
 
   def self.count_by_status(status)
-    group(status).count
-    binding.pry
+    # group(status).count
+    # binding.pry
   end
 end
