@@ -20,6 +20,8 @@ class DashboardController < ApplicationController
 
   def update
     order_item = OrderItem.find(params[:id])
+    item = Item.find(params[:item_id])
+    item.update(inventory_count: (item.inventory_count -= order_item.item_quantity))
     order_item.update(order_item_params)
     flash[:success] = "Your Item is now Fulfilled"
     redirect_to order_path(params[:order_id], params[:merchant_id], merchant_id: params[:merchant_id])
