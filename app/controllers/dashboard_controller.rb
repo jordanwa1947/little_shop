@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
     else
       @merchant = User.find(params[:id])
     end
+
   end
 
   def index
