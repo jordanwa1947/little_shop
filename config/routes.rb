@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/dashboard/orders', to: 'dashboard#index'
 
  namespace :dashboard do
-   resources :items, only: [:index]
+   resources :items, only: [:index, :new, :edit, :update, :show]
  end
 
   resources :dashboard, only: [:show]
