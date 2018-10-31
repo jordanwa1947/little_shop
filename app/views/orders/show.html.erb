@@ -1,0 +1,8 @@
+<p> Customer Name: <%= @order.user.name %> </p>
+<p> Address:  <%= @order.user.address %> </p>
+  <% @order.item_sort(@merchant_id).each do |item| %>
+<p>  Item Name:         <%= link_to item.name, item_path(item) %>  </p>
+<img>                src=<%= item.img_url %>>
+<p>  Item Price:        <%= item.price %> </p>
+<p>  Item Quantity:  <%= item.order_item_sort(@order.id).item_quantity %>  </p>
+  <% end %>
