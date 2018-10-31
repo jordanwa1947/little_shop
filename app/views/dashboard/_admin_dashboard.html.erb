@@ -7,15 +7,9 @@
 
   <tr>
     <td></td>
-    <td>Biggest Spenders:</td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td></td>
-    <td id="top-three-sellers">
-      <% @three_highest_sellers.each_with_index do |seller, index| %>
-        #<%= index+1 %>: <%= seller.name %>
+    <td id="top-three-sellers"> Top Sellers:
+      <% @three_highest_sellers.each do |seller| %>
+        <%= seller.name %>
       <% end %>
     </td>
     <td></td>
@@ -40,15 +34,9 @@
   </tr>
 
   <tr>
-    <td>1st</td>
-    <td>2nd</td>
-    <td>3rd</td>
-  </tr>
-
-  <tr>
-    <td>California</td>
-    <td>Tennessee</td>
-    <td>New York</td>
+    <% @top_selling_states.each_with_index do |user, index| %>
+      <td>#<%= index+1 %>: <%= user.state %></td>
+    <% end %>
   </tr>
 
   <tr>

@@ -36,14 +36,9 @@ class Order < ApplicationRecord
   #   distinct.joins(:items).where('items.user_id = ?', merchant_id)
   # end
 
-<<<<<<< HEAD
-  def self.count_by_status(status)
-    # group(status).count
-    # binding.pry
-=======
   def self.filter_by_status(status)
     where(status: status)
-    binding.pry
->>>>>>> tuesday_morning
   end
+
+  
 end

@@ -38,7 +38,7 @@
       <% end %>
       </table>
     </td>
-    <td>Order Items: <%= order.total_items %></td>
+    <td>Order Items: </td>
     <td>Order Total: <%= number_to_currency(order.total_price) %></td>
     <td>
       <% if order.status == 'pending' || order.status == 'complete' %>

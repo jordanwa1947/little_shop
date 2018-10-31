@@ -19,18 +19,28 @@ class User < ApplicationRecord
 
 
   def self.three_highest_sellers
-    sellers = group(:id).joins(:order_items).sum(:item_quantity)
-    desc = sellers.sort {|a,b| b[1]<=>a[1]}
-    top_three = desc[0..2].map do |seller|
-      User.find(seller.first.to_i)
-    end
+    select('users.*, sum(order_items.item_price * order_items.item_quantity) as total_sales')
+      .joins(items: :order_items)
+      .group('users.id')
+      .order('total_sales DESC')
+      .limit(3)
   end
 
-  def self.fastest_shippers
+  def self.top_states
+    # select users.state,
+    # sum(order_items.item_price * order_items.item_quantity from users
+    # join items on items.user_id= users.id
+    # join order_items on order_items.item_id = items.id
+    # group by users.state;
 
+    select('users.state, sum(order_items.item_price * order_items.item_quantity) as total_sales')
+    .joins(items: :order_items)
+    .group(:state)
+    .order('total_sales DESC')
+    .limit(3)
   end
 
-  def self.slowest_shippers
+  def self.top_cities
 
   end
 

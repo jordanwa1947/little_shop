@@ -132,35 +132,35 @@ describe 'Admin clicks on users_page' do
         order_id: order_3.id,
         item_quantity: 5,
         item_price: item_4.price,
-        fulfilled?: :false
+        fulfilled: :false
       )
       order_item_1 = OrderItem.create(
         item_id: item_1.id,
         order_id: order_1.id,
         item_quantity: 5,
         item_price: item_1.price,
-        fulfilled?: :false
+        fulfilled: :false
       )
       order_item_2 = OrderItem.create(
         item_id: item_3.id,
         order_id: order_1.id,
         item_quantity: 3,
         item_price: item_4.price,
-        fulfilled?: :false
+        fulfilled: :false
       )
       order_item_3 = OrderItem.create(
         item_id: item_2.id,
         order_id: order_2.id,
         item_quantity: 7,
         item_price: item_2.price,
-        fulfilled?: :false
+        fulfilled: :false
       )
       order_item_4 = OrderItem.create(
         item_id: item_3.id,
         order_id: order_2.id,
         item_quantity: 2,
         item_price: item_3.price,
-        fulfilled?: :false
+        fulfilled: :false
       )
 
       visit admin_users_path
