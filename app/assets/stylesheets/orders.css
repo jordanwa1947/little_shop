@@ -24,8 +24,8 @@ th {
 }
 
 .order-id {
-  float: left;
   font-size: 2em;
+  text-decoration: none;
 }
 
 .order-details {

@@ -14,6 +14,9 @@ class Order < ApplicationRecord
   end
 
   def total_quantity
-    
+    order_items.inject(0) do |sum, order_item|
+      sum += order_item.item_quantity
+    end
   end
+
 end

@@ -1,3 +1,7 @@
 .item-details {
-  background: grey;
+  background: lightgrey;
+}
+
+.order, .total-price, .total-qnty {
+  font-size: 2em;
 }

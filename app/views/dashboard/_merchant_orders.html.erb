@@ -1,29 +1,33 @@
 <table>
   <tr id="table-headers">
-    <th>Id:</th>
-    <th>Status:</th>
-    <th>Created:</th>
-    <th>User:</th>
-    <th></th>
-    <th></th>
+    <th>order id</th>
+    <th>User</th>
+    <th>Status</th>
+    <th>Total Price</th>
+    <th>Qnty</th>
+    <th>Created</th>
+    <th>Items</th>
   </tr>
 
-  <% @orders.each do |order| %>
+
   <tr>
-    <td> <%= order.id %>  </td>
-    <td> <%= order.status %>  </td>
-    <td> <%= order.created_at %> </td>
-    <td> <%= order.user_id %>  </td>
+  <% @orders.each do |order| %>
+    <td class="order"> <%= order.id %>  </td>
+    <td class="order", id= "name"> <%= order.user.name %> (id: <%= order.user_id %>) </td>
+    <td class="order"> <%= order.status %>  </td>
+    <td class="total-price"> <%= number_to_currency(order.total_price) %> </td>
+    <td class="total-qnty"> <%= order.total_quantity %> </td>
+    <td class="order"> <%= order.created_at.strftime('%D') %> </td>
 
       <% order.items.each do |item| %>
-    <td><span class="item-details"> <%= item.name %> <br>
+    <td class="item-details">
+      <span> <%= item.name %> <br>
     <%= number_to_currency(item.price) %> <br>
     Qnty: <%= item.inventory_count %> <br>
-    <%= item.description %></span> </td>
+    <%# item.description %></span>
+    </td>
       <% end %>
 
-    <td> Total Price: <%= number_to_currency(order.total_price) %> </td>
-    <td> Total Quantity: <%= order.total_quantity %> </td>
 
   </tr>
   <% end %>
