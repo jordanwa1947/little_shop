@@ -5,12 +5,10 @@
 
 <tr>
   <% if current_admin? %>
-
-    <td><%=link_to merchant.name, merchant_path(merchant), class: "merchant-link", id: "merchant-name"%></td>
-    <% else %>
-    <td><span id="merchant-name"> merchant.name </span></td>
+    <%=link_to merchant.name, merchant_path(merchant), class: "merchant-link", id: "merchant-name"%>
+  <% else %>
+    <span id="merchant-name"> merchant.name </span>
   <% end %>
-</tr>
 
 <tr>
   <% if merchant.status == 'active' && current_admin?%>

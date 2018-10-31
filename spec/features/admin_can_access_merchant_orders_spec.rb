@@ -23,13 +23,8 @@ describe 'admin visits merchant orders page' do
     click_link('Orders With Your Items')
 
     expect(current_path).to eq(merchant_orders_path(merchant))
-    expect(page).to have_content('shovel')
-    expect(page).to have_content('2700')
-    expect(page).to have_content('5')
-    expect(page).to have_content('we got to go and dig some holes')
-    expect(page).to have_content('rope')
-    expect(page).to have_content('1000')
-    expect(page).to have_content('3')
-    expect(page).to have_content('length: 20ft')
+    expect(page).to have_link("#{order_1.id}")
+    expect(page).to have_content("Date Made: #{order_1.created_at}")
+    expect(page).to have_content("Status: #{order_1.status}")
   end
 end
