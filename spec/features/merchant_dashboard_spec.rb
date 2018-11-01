@@ -42,7 +42,7 @@ describe 'merchant visits their dashboard' do
 
       expect(current_path).to eq(dashboard_orders_path)
       expect(page).to have_link("#{order_1.id}")
-      expect(page).to have_content("Date Made: #{order_1.created_at}")
+      expect(page).to have_content("Date Made: #{order_1.created_at.strftime('%D')}")
       expect(page).to have_content("Status: #{order_1.status}")
     end
   end
@@ -79,7 +79,7 @@ describe 'merchant visits their dashboard' do
       click_link('Orders With Your Items')
 
       expect(page).to have_link("#{order_1.id}")
-      expect(page).to have_content("Date Made: #{order_1.created_at}")
+      expect(page).to have_content("Date Made: #{order_1.created_at.strftime('%D')}")
       expect(page).to have_content("Status: complete")
     end
   end

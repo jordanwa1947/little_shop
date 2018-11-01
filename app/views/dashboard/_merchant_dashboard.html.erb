@@ -40,12 +40,12 @@
 
  <tr>
    <td>Created</td>
-   <td><%= @merchant.created_at %></td>
+   <td><%= @merchant.created_at.strftime('%D') %></td>
  </tr>
 
  <tr>
    <td>Updated</td>
-   <td><%= @merchant.updated_at %></td>
+   <td><%= @merchant.updated_at.strftime('%D') %></td>
  </tr>
 <% if current_admin? %>
  <tr>

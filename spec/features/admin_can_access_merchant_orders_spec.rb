@@ -26,7 +26,7 @@ describe 'admin visits merchant orders page' do
 
     expect(current_path).to eq(merchant_orders_path(merchant))
     expect(page).to have_link("#{order_1.id}")
-    expect(page).to have_content("Date Made: #{order_1.created_at}")
+    expect(page).to have_content("Date Made: #{order_1.created_at.strftime('%D')}")
     expect(page).to have_content("Status: #{order_1.status}")
   end
 end

@@ -79,6 +79,8 @@ describe 'Admin clicks on users_page' do
 
       expect(find_field("name-field").value).to eq(@user_1.name)
       fill_in 'address-field', with: 'A new fake address'
+      fill_in 'password-field', with: 'password'
+      fill_in 'confirm-field', with: 'password'
       click_on 'Update User'
 
       expect(current_path).to eq(admin_user_path(@user_1))

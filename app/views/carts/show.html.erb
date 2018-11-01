@@ -13,9 +13,9 @@
           <%= link_to "Remove", cart_path(item_id: item.id, thing: "delete"), method: :put, class: "cart-link", id: "remove-item-link" %>
           <%= link_to "-", cart_path(item_id: item.id, thing: "decrease"), method: :put, class: "increment-link", id: "drop-one" %>
           <%= link_to "+", cart_path(item_id: item.id, thing: "increase"), method: :put, class: "increment-link", id: "add-one" %>
-          <%= @cart.quantity(item.id) %>
-
+          <%= number_to_currency(item.price) %>
           <img src="<%= item.img_url %>" class="item-cart-image" alt="<%= item.name %>-image">
+          <%= @cart.quantity(item.id) %>
           <%= item.name %>
           <em><%= @cart.merchant(item.id).name %></em>
 
