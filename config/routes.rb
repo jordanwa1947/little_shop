@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "welcome#show"
 
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show, :edit, :update]
 
   resource :cart, only: [:create, :show, :destroy, :update]
 
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get '/dashboard/orders', to: 'dashboard#index'
 
  namespace :dashboard do
-   resources :items, only: [:index, :new, :edit, :update, :show]
+   resources :items, only: [:index, :new, :create, :update, :show]
  end
 
   resources :dashboard, only: [:show]

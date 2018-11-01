@@ -1,6 +1,6 @@
-<h1>New Item</h1>
+<h1>Edit <%= @item.name %> </h1>
 
-<%= form_for [@user, @item], url: dashboard_items_path do |f|%>
+<%= form_for @item do |f| %>
 <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
