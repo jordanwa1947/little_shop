@@ -1,9 +1,11 @@
 <p> Customer Name: <%= @order.user.name %> </p>
 <p> Address:  <%= @order.user.address %> </p>
-  <% @order.item_sort(@merchant_id).each do |item| %>
+
+  <% @order.item_sort(@order, @merchant_id).each do |item| %>
 <p>  Item Name:         <%= link_to item.name, item_path(item) %>  </p>
 <img>                src=<%= item.img_url %>>
 <p>  Item Price:        <%= item.price %> </p>
+
         <% order_item = item.order_item_sort(@order.id) %>
 <p>  Item Quantity:  <%= order_item.item_quantity %>  </p>
    <% if item.inventory_count >= order_item.item_quantity && order_item.fulfilled? == false%>

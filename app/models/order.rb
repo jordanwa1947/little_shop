@@ -19,8 +19,8 @@ class Order < ApplicationRecord
     end
   end
 
-  def item_sort(merchant_id)
-    items.where('user_id = ?', merchant_id)
+  def item_sort(order, merchant_id)
+    order.items.where('user_id = ?', merchant_id)
   end
 
   def self.merchant_orders(current_user_id)
@@ -29,5 +29,9 @@ class Order < ApplicationRecord
 
   def self.merchant_orders_admin(merchant_id)
     distinct.joins(:items).where('items.user_id = ?', merchant_id)
+  end
+
+  def complete?
+    return true if order_items.where('fulfilled = ?', false).count == 0
   end
 end
