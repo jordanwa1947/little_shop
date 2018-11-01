@@ -8,6 +8,9 @@
   font-size: 2em;
 }
 
-#headline {
-
+.upgrade-user-status, .downgrade-user-status {
+  margin: 20px;
+  padding-bottom: 50px;
+  font-size: 2em;
+  color: #EFD9CE;
 }
