@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   enum status: %w(active disabled)
 
   def order_item_sort(order_id)
-    order_items.find(order_id)
+    order_items.find_by('order_id = ?', order_id)
   end
 
   def self.three_highest_selling_items
