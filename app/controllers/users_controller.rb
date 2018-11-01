@@ -42,8 +42,7 @@ class UsersController < ApplicationController
         redirect_to profile_path
       end
     else
-      flash[:notice] = "Email address already in use"
-      redirect_to profile_edit_path
+      render :edit
     end
   end
 
@@ -61,6 +60,7 @@ class UsersController < ApplicationController
       :state,
       :zip_code,
       :password,
+      :password_confirmation,
       :email
     )
   end
