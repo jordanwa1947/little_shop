@@ -6,6 +6,10 @@ class DashboardController < ApplicationController
     else
       @merchant = User.find(current_user.id)
     end
+
+    @three_highest_sellers = User.three_highest_sellers
+    @top_selling_states = User.top_states
+    @top_cities_1 = User.top_cities
   end
 
   def index

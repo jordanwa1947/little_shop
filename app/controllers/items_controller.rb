@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
       @items = Item.all
     end
     @cart = Cart.new(session[:cart])
+
+    @three_highest_sellers = User.three_highest_sellers
+    @three_highest_selling_items = Item.three_highest_selling_items
   end
 
   def show

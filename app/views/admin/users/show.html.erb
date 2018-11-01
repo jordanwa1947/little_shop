@@ -1,4 +1,4 @@
-<h1> User Information </h1>
+<h1 id="headline"> User Information </h1>
 
 <table id="user-info">
 
@@ -52,6 +52,7 @@
     <td><%= link_to 'Edit Info', edit_user_path(@user), id: "edit-info-link" %></td>
   </tr>
 </table>
+
 <% if @user.role == 'registered_user' %>
   <%= link_to "Upgrade To Merchant", admin_user_path(@user, role: 'merchant_user'), method: :put%>
 <% elsif @user.role == 'merchant_user' %>

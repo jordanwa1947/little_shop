@@ -1,17 +1,12 @@
 <% if current_admin? %>
-  <h3> <%= link_to 'Orders With Your Items', merchant_orders_path(@merchant)%> </h3>
+  <%= link_to "Orders With #{@merchant.name}'s Items", merchant_orders_path(@merchant), class: "your-orders-links" %>
 <% else %>
-  <h3> <%= link_to 'Orders With Your Items', dashboard_orders_path%> </h3>
+  <%= link_to 'Orders With Your Items', dashboard_orders_path, class: "your-orders-links" %>
 <% end %>
 
  <%= link_to "Edit Information", edit_user_path(@merchant) %>
 
  <%= link_to "View My Items", dashboard_items_path %>
-
-
-
-
-<h1> User Information </h1>
 
 <table id="user-info">
 
@@ -69,3 +64,61 @@
 <% if current_admin? %>
  <%= link_to "Downgrade To Registered User", admin_user_path(@merchant, role: 'registered_user'), method: :put%>
 <% end %>
+
+<table id="user-stats">
+  <tr>
+    <th></th>
+    <th>Stats</th>
+    <th></th>
+  </tr>
+   <tr>
+    <td></td>
+    <td>Biggest Spenders:</td>
+    <td></td>
+  </tr>
+   <tr>
+    <td>Geezy</td>
+    <td>Ursula KL</td>
+    <td>WineBros</td>
+  </tr>
+   <tr>
+    <td></td>
+    <td>Your Single Largest Order was: <%# binding.pry %></td>
+    <td></td>
+  </tr>
+   <tr>
+    <td></td>
+    <td>You have Sold x Items</td>
+    <td></td>
+  </tr>
+   <tr>
+    <td></td>
+    <td>Top Selling Locations</td>
+    <td></td>
+  </tr>
+   <tr>
+    <td>1st</td>
+    <td>2nd</td>
+    <td>3rd</td>
+  </tr>
+   <tr>
+    <td>California</td>
+    <td>Tennessee</td>
+    <td>New York</td>
+  </tr>
+   <tr>
+    <td>1: Fairbanks</td>
+    <td>1: Johnson City</td>
+    <td>1: Utica</td>
+  </tr>
+   <tr>
+    <td>2: Los Angeles</td>
+    <td>2: Nashville</td>
+    <td>2: New York</td>
+  </tr>
+   <tr>
+    <td>3: Oakland</td>
+    <td>3: Cookville</td>
+    <td>3: Rochester</td>
+  </tr>
+</table>
