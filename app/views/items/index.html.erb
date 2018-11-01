@@ -24,8 +24,16 @@
 
 <h2 id="leaderboard-title">Leaderboard</h2>
 <div id="stats-block">
-  <div class="item-info">Best Selling Merchants</div>
-  <div class="item-info">Best Selling Items</div>
-  <div class="item-info">Fastest Fulfillers</div>
-  <div class="item-info">Slowest Shippers</div>
+  <div class="item-info">Top Shoppers: <br>
+    <% @three_highest_sellers.each_with_index do |merchant, index| %>
+      <div>#<%= index+1 %> <%= merchant.name %></div>
+    <% end %>
+  </div>
+   <div class="item-info">Best Selling Items: <br>
+    <% @three_highest_selling_items.each_with_index do |item, index| %>
+      <div>#<%= index+1 %> <%= item.name %></div>
+    <% end %>
+  </div>
+  <div class="item-info">Fastest fulfilled:</div>
+  <div class="item-info">Slowest Shippers:</div>
 </div>

@@ -1,57 +1,5 @@
-<h1> User Information </h1>
+<h1 id="headline"> User Information </h1>
 
-<table id="user-info">
-
-  <tr>
-    <th></th>
-    <th><%= @user.name %> Info</th>
-  </tr>
-
-  <tr>
-    <td>Role</td>
-    <td><%= @user.role %></td>
-  </tr>
-
-  <tr>
-    <td>Status</td>
-    <td><%= @user.status %></td>
-  </tr>
-
-  <tr>
-    <td>Email</td>
-    <td><%= @user.email %></td>
-  </tr>
-
-  <tr>
-    <td>Address</td>
-    <td><%= @user.address %></td>
-  </tr
-
-  <tr>
-    <td>City</td>
-    <td><%= @user.city %>, <%= @user.state %>, <%= @user.zip_code %> </td>
-  </tr>
-
-  <tr>
-    <td>Created</td>
-    <td><%= @user.created_at %></td>
-  </tr>
-
-  <tr>
-    <td>Updated</td>
-    <td><%= @user.updated_at %></td>
-  </tr>
-
-  <tr>
-    <td></td>
-    <td><%= link_to 'View User Orders', admin_user_orders_path(@user), id: "users-orders-link" %></td>
-  </tr>
-
-  <tr>
-    <td></td>
-    <td><%= link_to 'Edit Info', edit_user_path(@user), id: "edit-info-link" %></td>
-  </tr>
-</table>
 <% if @user.role == 'registered_user' %>
   <%= link_to "Upgrade To Merchant", admin_user_path(@user, role: 'merchant_user'), method: :put%>
 <% elsif @user.role == 'merchant_user' %>

@@ -10,4 +10,13 @@ class Item < ApplicationRecord
   def order_item_sort(order_id)
     order_items.find(order_id)
   end
+
+  def self.three_highest_selling_items
+    items = select('items.*, sum(order_items.item_quantity * order_items.item_price) as total')
+    .group(:id)
+    .joins(:order_items)
+    .order('total ASC')
+    .limit(3)
+  end
+
 end

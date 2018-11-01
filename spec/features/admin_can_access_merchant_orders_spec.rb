@@ -20,7 +20,7 @@ describe 'admin visits merchant orders page' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit dashboard_path(merchant)
-    click_link('Orders With Your Items')
+     click_link("Orders With #{merchant.name}'s Items")
 
     expect(current_path).to eq(merchant_orders_path(merchant))
     expect(page).to have_link("#{order_1.id}")
