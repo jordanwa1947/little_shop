@@ -54,7 +54,7 @@
 </table>
 
 <% if @user.role == 'registered_user' %>
-  <%= link_to "Upgrade To Merchant", admin_user_path(@user, role: 'merchant_user'), method: :put%>
+  <%= link_to "Upgrade To Merchant", admin_user_path(@user, role: 'merchant_user'), method: :put, class: "upgrade-user-status" %>
 <% elsif @user.role == 'merchant_user' %>
-  <%= link_to "Downgrade To Registered User", admin_user_path(@user, role: 'registered_user'), method: :put%>
+  <div class: "upgrade-user-status"><%= link_to "Downgrade To Registered User", admin_user_path(@user, role: 'registered_user'), method: :put  %></div>
 <% end %>

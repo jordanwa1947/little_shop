@@ -2,4 +2,9 @@
   color: white;
   text-align: left;
   text-decoration: none;
+  margin: 10px 50px;
+}
+
+.your-orders-links:hover {
+  text-decoration: underline;
 }

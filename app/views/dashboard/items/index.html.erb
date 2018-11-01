@@ -1,34 +1,26 @@
 <h1>My Items</h1>
 
-<div>
-<%= link_to "Add a new item", new_dashboard_item_path %>
-</div>
+<div><%= link_to "Add a new item", new_dashboard_item_path, class: "new-item-link"%></div>
 
-<div id="dashboard-items-index">
-  <% @items.each do |item| %>
-    <div id="dashboard-item-<%=item.id%>-card">
+<% @items.each do |item| %>
 
-      <img src="<%= item.img_url %>" class="item-thumbnail" alt="dashboard-<%= item.name %>-image">
-      ID: <%= item.id %>
-      Name: <%= item.name %>
-      Price: <%= number_to_currency(item.price) %>
-      Inventory: <%= item.inventory_count %>
-      Description: <%= item.description %>
-      Status: <%= item.status %>
+  <div class="item-info">ID: <%= item.id %></div>
+  <div class="item-info">Name: <%= item.name %></div>
+  <div class="item-info">Price: <%= number_to_currency(item.price) %></div>
+  <div class="item-info">Inventory: <%= item.inventory_count %></div>
 
-      <% if item.status == 'active'%>
-        <td id="enable-link"><%= item.status %></td>
-        <td id="item-#{item.id}" ><%= link_to 'Disable', dashboard_item_path(item, status: 'disable'), method: :put, class: "status-link", id: "disable-link"%>
-        </td>
-      <% else %>
-        <td id="disable-link"><%= item.status %></td>
-        <td id="item-#{item.id}" >
-          <%= link_to 'Enable', dashboard_item_path(item, status: 'enable'), method: :put, class: "status-link", id: "enable-link" %>
-        </td>
-      <% end %>
-
-
-      <%= link_to "Edit this item", edit_item_path(item.id) %>
+  <% if item.status == 'active'%>
+    <div class="item-info">Status: <%= item.status %></div>
+    <div id="item-#{item.id}" ><%= link_to 'Disable', dashboard_item_path(item, status: 'disable'), method: :put, class: "status-link", id: "disable-link"%>
+    </div>
+  <% else %>
+    <div class="item-info">Status: <%= item.status %></div>
+    <div id="item-#{item.id}" >
+      <%= link_to 'Enable', dashboard_item_path(item, status: 'enable'), method: :put, class: "status-link", id: "enable-link" %>
     </div>
   <% end %>
-</div>
+
+  <div><%= link_to "Edit this item", edit_dashboard_item_path(item.id), class: "status-link", id: "edit-link"%></div>
+  <img src="<%= item.img_url %>" class="item-big-image" alt="dashboard-<%= item.name %>-image">
+
+<% end %>

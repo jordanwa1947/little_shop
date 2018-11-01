@@ -1,0 +1,27 @@
+.new-item-link {
+  background: darkgreen;
+  color: white;
+  text-decoration: none;
+  float: right;
+  padding: 10px;
+  margin-right: 100px;
+}
+
+.new-item-link:hover {
+  background: green;
+  color: white;
+}
+
+#item-status {
+  color: white;
+}
+
+#edit-link {
+  color: white;
+  text-decoration: none;
+}
+
+#edit-link:hover {
+  color: white;
+  text-decoration: underline;
+}
