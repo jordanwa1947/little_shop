@@ -6,7 +6,7 @@
 
 <div id="dashboard-items-index">
   <% @items.each do |item| %>
-    <div id="dashboard-item-#{item.id}-card">
+    <div id="dashboard-item-<%=item.id%>-card">
 
       <img src="<%= item.img_url %>" class="item-thumbnail" alt="dashboard-<%= item.name %>-image">
       ID: <%= item.id %>
@@ -28,7 +28,7 @@
       <% end %>
 
 
-      <%= link_to "Edit this item", edit_dashboard_item_path(item.id) %>
+      <%= link_to "Edit this item", edit_item_path(item.id) %>
     </div>
   <% end %>
 </div>
