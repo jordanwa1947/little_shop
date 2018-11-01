@@ -11,10 +11,14 @@ describe 'admin visits merchant dashboard' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit merchant_path(merchant)
-    
+
       click_link "Edit Info"
 
       expect(current_path).to eq(edit_user_path(merchant))
+
+      fill_in 'address-field', with: 'A new fake address'
+      fill_in 'password-field', with: 'password'
+      fill_in 'confirm-field', with: 'password'
 
       click_button "Update User"
 

@@ -25,8 +25,6 @@ class CartsController < ApplicationController
     if params[:thing] == "increase"
       if @cart.add_item(item.id) == "success"
         flash[:success] = "You now have #{pluralize(@cart.quantity(item.id), item.name)} in your cart"
-      else
-        flash[:success] = "Merchant can't fulfill that"
       end
 
     elsif params[:thing] == "decrease"
