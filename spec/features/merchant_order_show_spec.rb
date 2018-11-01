@@ -58,6 +58,7 @@ describe 'a merchant clicks on an individual order link' do
 
       expect(current_path).to eq(order_path(@order_1.id, @merchant_1.id))
       expect(OrderItem.find(@order_item_1.id).fulfilled).to eq(true)
+      expect(Item.find(@item_1.id).inventory_count).to eq(0)
       expect(page).to have_content("This Item is Fulfilled")
       expect(page).to have_content("Your Item is now Fulfilled")
       expect(page).to_not have_link("Fulfill")

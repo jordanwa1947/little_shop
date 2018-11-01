@@ -32,7 +32,7 @@ RSpec.describe Order, type: :model do
     end
 
     it '.item_sort' do
-      array_of_merchant_items = @order_1.item_sort(@merchant_1.id)
+      array_of_merchant_items = @order_1.item_sort(@order_1, @merchant_1.id)
       expect(array_of_merchant_items.first.name).to eq("shovel")
     end
 

@@ -28,7 +28,11 @@ RSpec.describe 'when a merchant visits their dashboard and clicks on items' do
       inventory_count: 3,
       description: 'length: 20ft')
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      visit login_path
+      
+      fill_in "email", with: "AwesomeSauce@gmail.com"
+      fill_in "password", with: '123123'
+      click_on "Log in"
   end
 
   it 'should go to the dashboard items index and show item details' do
@@ -41,6 +45,7 @@ RSpec.describe 'when a merchant visits their dashboard and clicks on items' do
     expect(page).to have_content(@item_1.name)
     expect(page).to have_content(number_to_currency(@item_1.price))
     expect(page).to have_content(@item_1.inventory_count)
+    expect(page).to have_content(@item_1.description)
 
     click_on("Add a new item")
 
@@ -52,7 +57,7 @@ RSpec.describe 'when a merchant visits their dashboard and clicks on items' do
 
     click_on("Edit this item", match: :first)
 
-    expect(current_path).to eq(edit_dashboard_item_path(@item_1.id))
+    expect(current_path).to eq(edit_item_path(@item_1.id))
 
     expect(page).to have_content("Edit #{@item_1.name}")
 
@@ -60,13 +65,195 @@ RSpec.describe 'when a merchant visits their dashboard and clicks on items' do
     expect(@item_1.status).to eq('active')
     expect(page).to_not have_content("Enable")
     click_on("Disable", match: :first)
-    # expect(@item_1.status).to eq('disabled')
     expect(page).to have_content("#{@item_1.name} is no longer for sale")
     expect(current_path).to eq(dashboard_items_path)
     expect(page).to have_content("Enable")
     click_on("Enable", match: :first)
     expect(page).to have_content("#{@item_1.name} is now available for sale")
+  end
+
+  it "should create a new item via the new item form" do
+    name = "Test Item"
+    price = 12
+    img_url = "http://www.colourbox.com/preview/7389458-682747-example-stamp.jpg"
+    inventory_num = 4
+    description = "this thing is a new thing"
+
+    visit dashboard_path(@user.id)
+    click_on "View My Items"
+
+    expect("#dashboard-items-index").to_not have_content(name)
+    expect("#dashboard-items-index").to_not have_content(price)
+    expect("#dashboard-items-index").to_not have_content(inventory_num)
+    expect("#dashboard-items-index").to_not have_content(description)
+
+    click_on "Add a new item"
+    expect(current_path).to eq(new_dashboard_item_path)
+
+    fill_in "item-name-field", with: name
+    fill_in "item-price-field", with: price
+    fill_in "item-img-field", with: img_url
+    fill_in "item-inventory-field", with: inventory_num
+    fill_in "item-description-field", with: description
+    click_on "Create Item"
+
+    expect(current_path).to eq(dashboard_items_path)
+    expect(page).to have_content('Item Successfully Created!')
+    expect(page.find("#dashboard-items-index")).to have_content(name)
+    expect(page.find("#dashboard-items-index")).to have_content(number_to_currency(price))
+    expect(page.find("#dashboard-items-index")).to have_content(inventory_num)
+    expect(page.find("#dashboard-items-index")).to have_content(description)
 
   end
 
+  it "should create a new item even without an img" do
+    name = "Test Item"
+    price = 12
+    inventory_num = 4
+    description = "this thing is a new thing"
+
+    visit dashboard_path(@user.id)
+    click_on "View My Items"
+
+    expect("#dashboard-items-index").to_not have_content(name)
+    expect("#dashboard-items-index").to_not have_content(price)
+    expect("#dashboard-items-index").to_not have_content(inventory_num)
+    expect("#dashboard-items-index").to_not have_content(description)
+
+    click_on "Add a new item"
+    expect(current_path).to eq(new_dashboard_item_path)
+
+    fill_in "item-name-field", with: name
+    fill_in "item-price-field", with: price
+    fill_in "item-inventory-field", with: inventory_num
+    fill_in "item-description-field", with: description
+    click_on "Create Item"
+
+    expect(current_path).to eq(dashboard_items_path)
+    expect(page).to have_content('Item Successfully Created!')
+    expect(page.find("#dashboard-items-index")).to have_content(name)
+    expect(page.find("#dashboard-items-index")).to have_content(number_to_currency(price))
+    expect(page.find("#dashboard-items-index")).to have_content(inventory_num)
+    expect(page.find("#dashboard-items-index")).to have_content(description)
+  end
+
+  it "should not create a new item with an invalid price or inventory count" do
+    name = "Test Item"
+    price = "badprice"
+    inventory_num = 4
+    description = "this thing is a new thing"
+
+    visit dashboard_path(@user.id)
+    click_on "View My Items"
+    click_on "Add a new item"
+    expect(current_path).to eq(new_dashboard_item_path)
+
+    fill_in "item-name-field", with: "Test Item"
+    fill_in "item-price-field", with: "badprice"
+    fill_in "item-inventory-field", with: 4
+    fill_in "item-description-field", with: "this thing is a new thing"
+    click_on "Create Item"
+
+    expect(page).to have_content('Error in form')
+
+    fill_in "item-name-field", with: "Test Item"
+    fill_in "item-price-field", with: 11
+    fill_in "item-inventory-field", with: "badinput"
+    fill_in "item-description-field", with: "this thing is a new thing"
+    click_on "Create Item"
+    expect(page).to have_content('Error in form')
+  end
+
+  it "should allow a merchant to edit an existing item" do
+    name = "Test Item"
+    price = 12
+    inventory_num = 4
+    description = "this thing is a new thing"
+
+    visit dashboard_path(@user.id)
+    click_on "View My Items"
+    
+    expect(page.find("#dashboard-item-1-card")).to have_content(@item_1.name)    
+    expect(page.find("#dashboard-item-1-card")).to have_content(number_to_currency(@item_1.price))    
+    expect(page.find("#dashboard-item-1-card")).to have_content(@item_1.inventory_count)    
+    expect(page.find("#dashboard-item-1-card")).to have_content(@item_1.description)    
+
+    click_on("Edit this item", match: :first)
+    expect(current_path).to eq(edit_item_path(1))
+
+    fill_in "item-name-field", with: name
+    fill_in "item-price-field", with: price
+    fill_in "item-inventory-field", with: inventory_num
+    fill_in "item-description-field", with: description
+    click_on "Update Item"
+
+    expect(current_path).to eq(dashboard_items_path)
+    expect(page).to have_content("Item Successfully Updated!")
+
+    expect(page.find("#dashboard-item-1-card")).to have_content(name)    
+    expect(page.find("#dashboard-item-1-card")).to have_content(number_to_currency(price))    
+    expect(page.find("#dashboard-item-1-card")).to have_content(inventory_num)    
+    expect(page.find("#dashboard-item-1-card")).to have_content(description)  
+
+    expect(page.find("#dashboard-item-1-card")).to_not have_content(@item_1.name)    
+    expect(page.find("#dashboard-item-1-card")).to_not have_content(number_to_currency(@item_1.price))    
+    expect(page.find("#dashboard-item-1-card")).to_not have_content(@item_1.inventory_count)    
+    expect(page.find("#dashboard-item-1-card")).to_not have_content(@item_1.description)  
+  end
+
+  it "should not update with bad inputs" do
+    name = "Test Item"
+    price = "badprice"
+    inventory_num = 4
+    description = "this thing is a new thing"
+
+    visit dashboard_path(@user.id)
+    click_on "View My Items"
+    
+    expect(page.find("#dashboard-item-1-card")).to have_content(@item_1.name)    
+    expect(page.find("#dashboard-item-1-card")).to have_content(number_to_currency(@item_1.price))    
+    expect(page.find("#dashboard-item-1-card")).to have_content(@item_1.inventory_count)    
+    expect(page.find("#dashboard-item-1-card")).to have_content(@item_1.description)    
+
+    click_on("Edit this item", match: :first)
+    expect(current_path).to eq(edit_item_path(1))
+
+    fill_in "item-name-field", with: name
+    fill_in "item-price-field", with: price
+    fill_in "item-inventory-field", with: inventory_num
+    fill_in "item-description-field", with: description
+    click_on "Update Item"
+
+    expect(page).to have_content("Error in form")
+
+    expect(find_field("item-name-field").value).to eq(name)    
+    expect(find_field("item-price-field").value).to eq(price)   
+    expect(find_field("item-inventory-field").value).to eq(inventory_num.to_s)    
+    expect(find_field("item-description-field").value).to eq(description)  
+
+    fill_in "item-name-field", with: name
+    fill_in "item-price-field", with: 6
+    fill_in "item-inventory-field", with: "badinput"
+    fill_in "item-description-field", with: description
+    click_on "Update Item"
+
+    expect(page).to have_content("Error in form")
+
+    fill_in "item-name-field", with: ""
+    fill_in "item-price-field", with: 6
+    fill_in "item-inventory-field", with: 7
+    fill_in "item-description-field", with: description
+    click_on "Update Item"
+
+    expect(page).to have_content("Error in form")
+
+    fill_in "item-name-field", with: name
+    fill_in "item-price-field", with: 6
+    fill_in "item-inventory-field", with: 7
+    fill_in "item-description-field", with: ""
+    click_on "Update Item"
+
+    expect(page).to have_content("Error in form")
+
+  end
 end

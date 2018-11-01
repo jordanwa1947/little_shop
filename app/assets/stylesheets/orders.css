@@ -2,7 +2,6 @@
   font-size: 0.5em;
 }
 
-
 table {
   padding: 20px;
   width: 100%;
@@ -10,7 +9,6 @@ table {
   background: white;
   text-align: center;
 }
-
 
 .order-info > td {
   border-bottom: 2px solid grey;
@@ -27,6 +25,7 @@ th {
 .order-id {
   float: left;
   font-size: 2em;
+  text-decoration: none;
 }
 
 .order-details {

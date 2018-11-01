@@ -1,11 +1,16 @@
-
-#user-info {
+#user-info, #user-stats {
   margin: 50px;
   padding: 0px;
-  float: left;
   width: 600px;
 }
 
 #edit-info-link {
   font-size: 2em;
+}
+
+.upgrade-user-status, .downgrade-user-status {
+  margin: 20px;
+  padding-bottom: 50px;
+  font-size: 2em;
+  color: #EFD9CE;
 }

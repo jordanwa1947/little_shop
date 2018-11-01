@@ -10,7 +10,7 @@ describe "as a visitor" do
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
     expect(page).to have_content("Cart:")
-    # Next to the shopping cart link I see a count of the items in my cart
+
     expect(page).to have_content("Log In")
     expect(page).to have_content("Register")
 
@@ -25,7 +25,7 @@ describe "as a visitor" do
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
     expect(page).to have_content("Cart:")
-    # Next to the shopping cart link I see a count of the items in my cart
+
     expect(page).to have_content("Log In")
     expect(page).to have_content("Register")
 
@@ -42,7 +42,6 @@ describe "as a visitor" do
     click_on "Log In"
     expect(current_path).to eq(login_path)
 
-    # Need to build out all these links!
   end
 end
 
@@ -78,14 +77,14 @@ describe "as a registered user" do
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
     expect(page).to have_content("Cart:")
-    # Next to the shopping cart link I see a count of the items in my cart
+
     expect(page).to have_content("My Profile")
     expect(page).to have_content("Log Out")
     expect(page).to have_content("Logged-in as: #{reg.name}")
 
     expect(page).to_not have_content("Log In")
     expect(page).to_not have_content("Register")
-    # Need to build out all these links!
+
     click_on("My Profile")
     expect(current_path).to eq(profile_path)
 
@@ -144,7 +143,7 @@ describe "as a merchant user" do
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
     expect(page).to have_content("Cart:")
-    # Next to the shopping cart link I see a count of the items in my cart
+
     expect(page).to have_content("My Profile")
     expect(page).to have_content("Log Out")
     expect(page).to have_content("Logged-in as: #{merch.name}")
@@ -156,7 +155,6 @@ describe "as a merchant user" do
 
     click_on "Browse All Items"
     expect(current_path).to eq(items_path)
-    # Need to build out all these links!
   end
 end
 
@@ -232,7 +230,6 @@ describe "as an admin user" do
     expect(page).to have_content("See Merchants")
     expect(page).to have_content("View Cart")
     expect(page).to have_content("Cart:")
-    # Next to the shopping cart link I see a count of the items in my cart
     expect(page).to have_content("My Profile")
 
     expect(page).to have_content("Log Out")
@@ -244,7 +241,6 @@ describe "as an admin user" do
     expect(page).to_not have_content("Register")
     expect(page).to_not have_content("Logged-in as: #{reg.name}")
     expect(page).to_not have_content("Logged-in as: #{merch.name}")
-    # Need to build out all these links!
 
   end
 end
