@@ -25,7 +25,7 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_user_path(@user)
     else
       render file: "/public/404"
-    end 
+    end
   end
 
   def redirect_admin

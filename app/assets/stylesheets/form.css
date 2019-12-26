@@ -5,7 +5,7 @@ form {
   width: 700px;
 }
 
-input[type=text], select {
+input, select {
   /* padding: 12px 20px; */
   font-size: 1em;
   margin: 8px 0;
@@ -14,22 +14,6 @@ input[type=text], select {
   border-bottom: 2px;
   border-radius: 4px;
   box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 100%;
-  font-size: 3em;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
 }
 
 .info-box {

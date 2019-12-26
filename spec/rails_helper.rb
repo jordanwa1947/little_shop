@@ -41,6 +41,10 @@ end
 DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
+  # Ensure that if we are running js tests, we are using latest webpack assets
+  # This will use the defaults of :js and :server_rendering meta tags
+  ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -78,6 +82,21 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+
+  Capybara.javascript_driver = :chrome
+
+  Capybara.configure do |config|
+    config.default_max_wait_time = 10 # seconds
+    config.default_driver        = :selenium
+  end
+  # use to configure the browser size
+  # config.before(:each, type: :feature) do
+  #   # Note (Mike Coutermarsh): Make browser huge so that no content is hidden during tests
+  #   Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
+  # end
 
 end
 

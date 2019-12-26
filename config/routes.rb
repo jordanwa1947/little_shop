@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/orders/:id', to: 'orders#show', as: :order
   resources :users, only: [:new, :create, :edit, :update] do
     # get '/profile/orders', to: 'orders#index'
-    resources :orders , only: [:create, :index, :show, :update]
+    resources :orders, only: [:create, :index, :show, :update]
   end
   get '/merchants/:merchant_id/orders', to: 'dashboard#index', as: :merchant_orders
 

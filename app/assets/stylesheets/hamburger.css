@@ -1,0 +1,182 @@
+.hamburger-menu {
+  background-color: #533557;
+  padding-top: 20px;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  width: 0px;
+}
+
+.side-nav {
+  position: absolute;
+  top: 120px;
+  width: 0px;
+  height: 534px;
+  background-color: #533557;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.side-nav > a{
+  display: block;
+  text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:checked ~ .side-nav {
+  animation: open-menu 0.3s 0s 1;
+  animation-fill-mode: both;
+}
+
+#toggle:not(:checked) ~ .side-nav {
+  width: 0px;
+}
+
+.close-menu {
+  animation: close-menu 0.3s 0s 1;
+  animation-fill-mode: both;
+}
+
+.hamburger-icon {
+  position: relative;
+  display: inline-block;
+  top: 68px;
+  left: 60px;
+  width: 60px;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  height: 80px;
+}
+
+.bar {
+	position: relative;
+	background-color: white;
+	width: 60px;
+	height: 8px;
+	border-radius: 3px;
+	box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2), 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+#mid-bar {
+	width: 100%;
+}
+
+#top-bar {
+	bottom: 13px;
+}
+
+#bottom-bar {
+	top: 13px;
+}
+
+.top-animation {
+	animation: move-top 0.3s 0s 1, rotate-top 0.3s 0.3s 1;
+	animation-fill-mode: both;
+}
+
+.bottom-animation {
+	animation: move-bottom 0.3s 0s 1, rotate-bottom 0.3s 0.3s 1;
+	animation-fill-mode: both;
+}
+
+.mid-animation {
+	animation: shrink-middle 0.3s 0s 1;
+	animation-fill-mode: both;
+}
+
+.reverse-top-animation {
+	animation: reverse-rotate-top 0.3s 0s 1, reverse-move-top 0.3s 0.3s 1;
+	animation-fill-mode: both;
+}
+
+.reverse-bottom-animation {
+	animation:
+		reverse-rotate-bottom 0.3s 0s 1,
+		reverse-move-bottom 0.3s 0.3s 1;
+	animation-fill-mode: both;
+}
+
+.reverse-mid-animation {
+	animation: reverse-shrink-middle 0.3s 0.3s 1;
+	animation-fill-mode: both;
+}
+
+@keyframes open-menu {
+  from {width: 0px}
+  to {width: 300px}
+}
+
+@keyframes close-menu {
+  from {width: 300px}
+  to {width: 0px}
+}
+
+@keyframes move-top {
+	from { bottom: 13px; }
+	to { bottom: -8px; }
+}
+
+@keyframes move-bottom {
+	from { top: 13px; }
+	to { top: -8px; }
+}
+
+@keyframes rotate-top {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(45deg); }
+}
+
+@keyframes rotate-bottom {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(135deg); }
+}
+
+@keyframes shrink-middle {
+	from {
+	  width: 100%;
+		opacity: 1;
+	}
+	to {
+		width: 0%;
+		opacity: 0;
+	}
+}
+
+@keyframes reverse-rotate-bottom {
+	from { transform: rotate(135deg); }
+	to { transform: rotate(0deg); }
+}
+
+@keyframes reverse-rotate-top {
+	from { transform: rotate(45deg); }
+	to { transform: rotate(0deg); }
+}
+
+@keyframes reverse-move-top {
+	from { bottom: -8px; }
+	to { bottom: 13px; }
+}
+
+@keyframes reverse-move-bottom {
+	from { top: -8px; }
+	to { top: 13px; }
+}
+
+@keyframes reverse-shrink-middle {
+	from {
+	  width: 0%;
+		opacity: 0
+	}
+	to {
+		width: 100%;
+		opacity: 1;
+	}
+}
