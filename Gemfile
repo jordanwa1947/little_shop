@@ -35,10 +35,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 4.0'
   gem 'launchy'
   gem 'active_designer'
   gem 'shoulda-matchers', '~> 3.1'
-
 end
 
 group :development do
