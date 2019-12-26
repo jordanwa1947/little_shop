@@ -69,10 +69,9 @@ describe 'user visits registration page' do
       expect(find_field("city-field").value).to eq(city)
       expect(find_field("state-field").value).to eq(state)
       expect(find_field("zipcode-field").value).to eq(zip.to_s)
-      expect(find_field("email-field").value).to eq(nil)
-      expect(find_field("password-field").value).to eq(nil)
-      expect(find_field("confirm-field").value).to eq(nil)
-
+      expect(find_field("email-field").value).to eq('')
+      expect(find_field("password-field").value).to eq('')
+      expect(find_field("confirm-field").value).to eq('')
     end
   end
 end

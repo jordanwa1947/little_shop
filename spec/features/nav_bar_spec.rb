@@ -5,11 +5,12 @@ describe "as a visitor" do
 
     visit root_path
 
-    expect(page).to have_content("Return to Welcome Page")
-    expect(page).to have_content("Browse All Items")
-    expect(page).to have_content("See Merchants")
-    expect(page).to have_content("View Cart")
-    expect(page).to have_content("Cart:")
+    find('.toggle-container').click
+
+    expect(page).to have_content("Home")
+    expect(page).to have_content("All Items")
+    expect(page).to have_content("Merchants")
+    expect(page).to have_content("Cart")
 
     expect(page).to have_content("Log In")
     expect(page).to have_content("Register")
@@ -20,28 +21,30 @@ describe "as a visitor" do
 
     expect(current_path).to eq(new_user_path)
 
-    expect(page).to have_content("Return to Welcome Page")
-    expect(page).to have_content("Browse All Items")
-    expect(page).to have_content("See Merchants")
-    expect(page).to have_content("View Cart")
-    expect(page).to have_content("Cart:")
+    find('.toggle-container').click
+
+    expect(page).to have_content("Home")
+    expect(page).to have_content("All Items")
+    expect(page).to have_content("Merchants")
+    expect(page).to have_content("Cart")
 
     expect(page).to have_content("Log In")
     expect(page).to have_content("Register")
 
     expect(page).to_not have_content("My Profile")
 
-    click_on "Return to Welcome Page"
+    click_on "Home"
 
     expect(current_path).to eq(root_path)
 
-    click_on "Browse All Items"
+    find('.toggle-container').click
+
+    click_on "All Items"
     expect(current_path).to eq(items_path)
 
     visit root_path
     click_on "Log In"
     expect(current_path).to eq(login_path)
-
   end
 end
 
@@ -72,11 +75,12 @@ describe "as a registered user" do
 
     visit root_path
 
-    expect(page).to have_content("Return to Welcome Page")
-    expect(page).to have_content("Browse All Items")
-    expect(page).to have_content("See Merchants")
-    expect(page).to have_content("View Cart")
-    expect(page).to have_content("Cart:")
+    find('.toggle-container').click
+
+    expect(page).to have_content("Home")
+    expect(page).to have_content("All Items")
+    expect(page).to have_content("Merchants")
+    expect(page).to have_content("Cart")
 
     expect(page).to have_content("My Profile")
     expect(page).to have_content("Log Out")
@@ -138,11 +142,12 @@ describe "as a merchant user" do
 
     visit root_path
 
-    expect(page).to have_content("Return to Welcome Page")
-    expect(page).to have_content("Browse All Items")
-    expect(page).to have_content("See Merchants")
-    expect(page).to have_content("View Cart")
-    expect(page).to have_content("Cart:")
+    find('.toggle-container').click
+
+    expect(page).to have_content("Home")
+    expect(page).to have_content("All Items")
+    expect(page).to have_content("Merchants")
+    expect(page).to have_content("Cart")
 
     expect(page).to have_content("My Profile")
     expect(page).to have_content("Log Out")
@@ -153,7 +158,7 @@ describe "as a merchant user" do
     expect(page).to_not have_content("Register")
     expect(page).to_not have_content("Logged-in as: #{reg.name}")
 
-    click_on "Browse All Items"
+    click_on "All Items"
     expect(current_path).to eq(items_path)
   end
 end
@@ -224,12 +229,12 @@ describe "as an admin user" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit root_path
+    find('.toggle-container').click
 
-    expect(page).to have_content("Return to Welcome Page")
-    expect(page).to have_content("Browse All Items")
-    expect(page).to have_content("See Merchants")
-    expect(page).to have_content("View Cart")
-    expect(page).to have_content("Cart:")
+    expect(page).to have_content("Home")
+    expect(page).to have_content("All Items")
+    expect(page).to have_content("Merchants")
+    expect(page).to have_content("Cart")
     expect(page).to have_content("My Profile")
 
     expect(page).to have_content("Log Out")
@@ -241,6 +246,5 @@ describe "as an admin user" do
     expect(page).to_not have_content("Register")
     expect(page).to_not have_content("Logged-in as: #{reg.name}")
     expect(page).to_not have_content("Logged-in as: #{merch.name}")
-
   end
 end

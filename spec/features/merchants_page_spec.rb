@@ -13,8 +13,9 @@ describe 'admin visits merchants page' do
   it 'displays all merchants' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit root_path
+    find('.toggle-container').click
 
-    click_link "See Merchants"
+    click_link "Merchants"
 
     expect(current_path).to eq(merchants_path)
     expect(page).to have_link(@merchant_1.name)
