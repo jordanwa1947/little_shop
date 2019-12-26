@@ -2,13 +2,16 @@ header {
   background-color: #5E9CFE;
 }
 
-.top-header {
+.page-header {
   display: flex;
+  height: 90px;
 }
 
 .item-nav-search {
   height: 40px;
   width: 40%;
+  min-width: 300px;
+  max-width: 700px;
   margin: 40px 3%;
   font-size: 1.2em;
   padding: 7px;
@@ -21,14 +24,14 @@ header {
   background-size: 26px;
   border: none;
   height: 40px;
-  width: 40px;
+  width: 50px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   position: relative;
   top: 32px;
-  right: 38px;
+  right: 70px;
 }
 
 .nav-search-button:hover {
@@ -54,11 +57,14 @@ header {
   color: white;
 }
 
-#logged_in_as{
+.logged-in-as{
   float: right;
   margin-right: 20px;
-  font-size: 30px;
-  color: #EFD9CE;
+  font-size: 1.3em;
+}
+
+.user-name {
+  color: white;
 }
 
 .welcome-header {
@@ -68,6 +74,11 @@ header {
   filter: opacity(.9);
   overflow-wrap: normal;
   display: inline;
+  min-width: 211px;
+}
+
+.user-links {
+  min-width: 130px;
 }
 
 ul {
@@ -92,6 +103,13 @@ li {
   background-color: black;
 }
 
+.lower-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
 .link {
   display: block;
   color: white;
@@ -107,6 +125,7 @@ li {
   width: 100px;
   height: 52px;
   padding-top: 10px;
+  min-width: 100px;
 }
 
 .side-nav > a:hover {
@@ -119,5 +138,9 @@ a:hover {
 }
 
 .login-link {
+  margin-top: 26px;
+}
+
+.profile-link {
   margin-top: 26px;
 }
