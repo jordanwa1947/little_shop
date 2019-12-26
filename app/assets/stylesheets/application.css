@@ -37,6 +37,15 @@
    background: #25283D;
  }
 
+ main {
+   width: 70%;
+   margin: 0px auto;
+   margin-top: 30px;
+   background-color: white;
+   overflow: hidden;
+   border-radius: 4px;
+ }
+
  .flash::before {
   content: "***";
  }
@@ -52,7 +61,7 @@
  }
 
  h1 {
-   font: 400 100px/1.3 'Lobster Two', Helvetica, sans-serif;
+   font: 400 3em 'Lobster Two', Helvetica, sans-serif;
    color: black;
    text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
    margin: 0;
