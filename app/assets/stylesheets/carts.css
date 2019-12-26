@@ -1,5 +1,11 @@
+.cart {
+  background-color: white;
+  overflow: hidden;
+  padding: 20px;
+}
+
 .page-title {
-  margin: 30px 10px;
+  margin-bottom: 15px;
 }
 
 .increment-link {
@@ -44,35 +50,50 @@
   float: right;
 }
 
-#empty-cart-link {
-  background: darkred;
-  color: white;
-  text-decoration: none;
+.right-text {
+  margin-left: 40px;
 }
 
-#empty-cart-link:hover {
+.empty-cart-link {
+  background: darkred;
+  color: white !important;
+  text-decoration: none;
+  margin-top: 0px !important;
+}
+
+.empty-cart-link:hover {
   background: red;
   color: white;
+  border: none;
 }
 
-#checkout-link {
+.checkout-link {
   background: darkgreen;
   color: white;
   text-decoration: none;
 }
 
-#checkout-link:hover {
+.checkout-link:hover {
   background: green;
   color: white;
 }
 
-#cart-total {
+.cart-total {
   float: right;
-  color: white;
   margin-right: 40px;
 }
 
-#login-or-register {
-  margin: 20px;
-  float: right;
+.login-or-register {
+  margin-top: 20px;
+  padding-top: 10px;
+  width: 100%;
+  height: 32px;
+  color: white;
+  background-color: #533557;
+}
+
+.login-or-register > a {
+  text-decoration: none;
+  color: #5E9CFE;
+  margin: 4px;
 }
