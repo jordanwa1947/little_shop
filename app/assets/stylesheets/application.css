@@ -39,6 +39,7 @@
 
  main {
    width: 70%;
+   padding: 25px;
  }
 
  .main-container {
@@ -51,6 +52,7 @@
 
  .page-title {
    margin-bottom: 15px;
+   margin-left: 20px;
  }
 
  .flash::before {
@@ -77,4 +79,12 @@
  h2 {
    margin: 20px 0px;
    font-size: 2em;
+ }
+
+ table {
+   padding: 20px;
+   padding-top: 0px;
+   width: 100%;
+   line-height: 30px;
+   background: white;
  }
