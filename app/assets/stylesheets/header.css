@@ -24,7 +24,8 @@ header {
   background-size: 26px;
   border: none;
   height: 40px;
-  width: 50px;
+  max-width: 50px;
+  min-width: 50px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   border-top-right-radius: 4px;

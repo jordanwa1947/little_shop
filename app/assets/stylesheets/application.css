@@ -39,11 +39,18 @@
 
  main {
    width: 70%;
+ }
+
+ .main-container {
    margin: 0px auto;
    margin-top: 30px;
    background-color: white;
    overflow: hidden;
    border-radius: 4px;
+ }
+
+ .page-title {
+   margin-bottom: 15px;
  }
 
  .flash::before {
@@ -65,4 +72,9 @@
    color: black;
    text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
    margin: 0;
+ }
+
+ h2 {
+   margin: 20px;
+   font-size: 2em;
  }
