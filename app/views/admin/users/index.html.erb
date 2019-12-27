@@ -1,30 +1,28 @@
-<h1> Current Users </h1>
-<table id="users-table">
-  <tr>
-    <th>name</th>
-    <th>role</th>
-    <th>status</th>
-    <th>update</th>
-  </tr>
-
-  <!-- TODO: Refactor the enable disable link to a toggle -->
-
-  <% @users.each do |user| %>
-
+<main class="main-container">
+  <h1> Current Users </h1>
+  <table id="users-table">
     <tr>
-      <td><%= link_to user.name, admin_user_path(user), id: "user-name" %></td>
-      <td><%= user.role %></td>
-      <% if user.status == 'active'%>
-        <td id="enable-link"><%= user.status %></td>
-        <td id="user-#{user.id}" ><%= link_to 'Disable', admin_user_path(user, status: 'disabled'), method: :put, class: "status-link", id: "disable-link"%>
-        </td>
-      <% else %>
-        <td id="disable-link"><%= user.status %></td>
-        <td id="user-#{user.id}" >
-          <%= link_to 'Enable', admin_user_path(user, status: 'active'), method: :put, class: "status-link", id: "enable-link" %>
-        </td>
-      <% end %>
+      <th>name</th>
+      <th>role</th>
+      <th>status</th>
+      <th>update</th>
     </tr>
-  <% end %>
-
-</table>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, admin_user_path(user), id: "user-name" %></td>
+        <td><%= user.role %></td>
+        <% if user.status == 'active'%>
+          <td id="enable-link"><%= user.status %></td>
+          <td id="user-#{user.id}" >
+            <%= link_to 'Disable', admin_user_path(user, status: 'disabled'), method: :put, class: "status-link", id: "disable-link"%>
+          </td>
+        <% else %>
+          <td id="disable-link"><%= user.status %></td>
+          <td id="user-#{user.id}" >
+            <%= link_to 'Enable', admin_user_path(user, status: 'active'), method: :put, class: "status-link", id: "enable-link" %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</main>

@@ -3,60 +3,50 @@
 <% else %>
   <%= link_to 'Orders With Your Items', dashboard_orders_path, class: "your-orders-links" %>
 <% end %>
-
- <%= link_to "View My Items", dashboard_items_path, class:"your-orders-links" %>
-
+<%= link_to "View My Items", dashboard_items_path, class:"your-orders-links" %>
 <table id="user-info">
-
  <tr>
    <th></th>
    <th><%= @merchant.name %> Info</th>
  </tr>
-
  <tr>
    <td>Role</td>
    <td><%= @merchant.role %></td>
  </tr>
-
  <tr>
    <td>Status</td>
    <td><%= @merchant.status %></td>
  </tr>
-
  <tr>
    <td>Email</td>
    <td><%= @merchant.email %></td>
  </tr>
-
  <tr>
    <td>Address</td>
    <td><%= @merchant.address %></td>
  </tr
-
  <tr>
    <td>City</td>
    <td><%= @merchant.city %>, <%= @merchant.state %>, <%= @merchant.zip_code %> </td>
  </tr>
-
  <tr>
    <td>Created</td>
    <td><%= @merchant.created_at.strftime('%D') %></td>
  </tr>
-
  <tr>
    <td>Updated</td>
    <td><%= @merchant.updated_at.strftime('%D') %></td>
  </tr>
-<% if current_admin? %>
- <tr>
-   <td></td>
-   <td><%= link_to 'View User Orders', admin_user_orders_path(@merchant), id: "users-orders-link" %></td>
- </tr>
-<% end %>
- <tr>
+  <% if current_admin? %>
+   <tr>
+     <td></td>
+     <td><%= link_to 'View User Orders', admin_user_orders_path(@merchant), id: "users-orders-link" %></td>
+   </tr>
+  <% end %>
+  <tr>
    <td></td>
    <td><%= link_to 'Edit Info', edit_user_path(@merchant), id: "edit-info-link" %></td>
- </tr>
+  </tr>
 </table>
 
 <% if current_admin? %>
@@ -69,47 +59,47 @@
     <th>Stats</th>
     <th></th>
   </tr>
-   <tr>
+  <tr>
     <td></td>
     <td>Biggest Spenders:</td>
     <td></td>
   </tr>
-   <tr>
+  <tr>
     <td>Geezy</td>
     <td>Ursula KL</td>
     <td>WineBros</td>
   </tr>
-   <tr>
+  <tr>
     <td></td>
     <td>Your Single Largest Order was: <%# binding.pry %></td>
     <td></td>
   </tr>
-   <tr>
+  <tr>
     <td></td>
     <td>You have Sold x Items</td>
     <td></td>
   </tr>
-   <tr>
+  <tr>
     <td></td>
     <td>Top Selling Locations</td>
     <td></td>
   </tr>
-   <tr>
+  <tr>
     <td>1st</td>
     <td>2nd</td>
     <td>3rd</td>
   </tr>
-   <tr>
+  <tr>
     <td>California</td>
     <td>Tennessee</td>
     <td>New York</td>
   </tr>
-   <tr>
+  <tr>
     <td>1: Fairbanks</td>
     <td>1: Johnson City</td>
     <td>1: Utica</td>
   </tr>
-   <tr>
+  <tr>
     <td>2: Los Angeles</td>
     <td>2: Nashville</td>
     <td>2: New York</td>

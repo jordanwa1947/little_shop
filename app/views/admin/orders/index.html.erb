@@ -1,23 +1,24 @@
-<h1> Your Orders </h1>
-<div class="orders-table">
-
-<% @orders.each do |order| %>
-  <div class="order-header">
-    <div> Order: <%= order.id %>
-    Created On: <%= order.created_at.strftime('%D') %>
-    Last Upated At: <%= order.updated_at.strftime('%D') %> </div>
-  </div>
-
-    <% order.order_items.each do |order_item| %>
-      <div class="order-details">
-        <span>
-          <%= order_item.item.name %>
-          <%= number_to_currency(order_item.item_price) %>
-          Qnt: <%= order_item.item_quantity %>
-          <%= number_to_currency(order_item.item_price * order_item.item_quantity) %>
-          <%= order_item.item.description %>
-        </span>
+<main class="main-container">
+  <h1> Your Orders </h1>
+  <div class="orders-table">
+    <% @orders.each do |order| %>
+      <div class="order-header">
+        <div> Order: <%= order.id %>
+        Created On: <%= order.created_at.strftime('%D') %>
+        Last Upated At: <%= order.updated_at.strftime('%D') %> </div>
       </div>
+
+      <% order.order_items.each do |order_item| %>
+        <div class="order-details">
+          <span>
+            <%= order_item.item.name %>
+            <%= number_to_currency(order_item.item_price) %>
+            Qnt: <%= order_item.item_quantity %>
+            <%= number_to_currency(order_item.item_price * order_item.item_quantity) %>
+            <%= order_item.item.description %>
+          </span>
+        </div>
+      <% end %>
     <% end %>
-<% end %>
-</div>
+  </div>
+</main>

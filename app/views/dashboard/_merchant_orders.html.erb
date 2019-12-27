@@ -1,6 +1,6 @@
 <% @orders.each do |order| %>
   <div class="item-info"> Order Id: <%=link_to order.id, order_path(order, merchant_id: @merchant_id) %> </div>
-  <div class="item-info">> Date Made:  <%= order.created_at.strftime('%D') %> </div>
-  <div class="item-info">> Date Updated:  <%= order.updated_at.strftime('%D') %> </div>
-  <div class="item-info">> Status:  <%= order.status %> </div>
+  <div class="item-info"> Date Made:  <%= order.created_at.strftime('%D') %> </div>
+  <div class="item-info"> Date Updated:  <%= order.updated_at.strftime('%D') %> </div>
+  <div class="item-info"> Status:  <%= order.status %> </div>
 <% end %>
