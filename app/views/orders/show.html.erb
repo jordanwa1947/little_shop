@@ -1,20 +1,28 @@
-<div class="item-info"> Customer Name: <%= @order.user.name %> </div>
-<div class="item-info"> Address:  <%= @order.user.address %> </div>
-
+<main class="main-container">
+  <div class="item-info">
+    Customer Name: <%= @order.user.name %>
+  </div>
+  <div class="item-info">
+    Address:  <%= @order.user.address %>
+  </div>
   <% @order.item_sort(@order, @merchant_id).each do |item| %>
-<div class="item-info">  Item Name:         <%= link_to item.name, item_path(item) %>  </div>
-
-<img src="<%= item.img_url %>" class="item-big-image" alt="dashboard-<%= item.name %>-image">
-
-<div class="item-info">  Item Price:        <%= item.price %> </div>
-
-        <% order_item = item.order_item_sort(@order.id) %>
-<div class="item-info">  Item Quantity:  <%= order_item.item_quantity %>  </div>
-   <% if item.inventory_count >= order_item.item_quantity && order_item.fulfilled? == false%>
-     <%= link_to "Fulfill", dashboard_order_item_path(order_item, fulfilled: true, merchant_id: @merchant_id, order_id: @order.id, item_id: item.id), method: :put %>
-   <% elsif order_item.item_quantity > item.inventory_count && order_item.fulfilled? == false%>
-     <div class="item-info"> This Item is Can Not Be Fulfilled </div>
-   <% elsif order_item.fulfilled? == true %>
-     <div class="item-info"> This Item is Fulfilled <p>
-   <% end %>
+    <div class="item-info">
+      Item Name: <%= link_to item.name, item_path(item) %>
+    </div>
+    <img src="<%= item.img_url %>" class="item-big-image" alt="dashboard-<%= item.name %>-image">
+    <div class="item-info">
+      Item Price: <%= item.price %>
+    </div>
+    <% order_item = item.order_item_sort(@order.id) %>
+    <div class="item-info">
+      Item Quantity: <%= order_item.item_quantity %>
+    </div>
+    <% if item.inventory_count >= order_item.item_quantity && order_item.fulfilled? == false%>
+      <%= link_to "Fulfill", dashboard_order_item_path(order_item, fulfilled: true, merchant_id: @merchant_id, order_id: @order.id, item_id: item.id), method: :put %>
+    <% elsif order_item.item_quantity > item.inventory_count && order_item.fulfilled? == false%>
+      <div class="item-info"> This Item is Can Not Be Fulfilled </div>
+    <% elsif order_item.fulfilled? == true %>
+      <div class="item-info"> This Item is Fulfilled <p>
+    <% end %>
   <% end %>
+</main>

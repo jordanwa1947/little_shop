@@ -69,7 +69,7 @@ RSpec.describe 'cart checkout and logout' do
     visit login_path
 
     fill_in "Email", with: @email_2
-    fill_in "Password", with: @password_2
+    fill_in "password-field", with: @password_2
 
     click_on "Log in"
     expect(current_path).to eq(profile_path)
@@ -93,7 +93,7 @@ RSpec.describe 'cart checkout and logout' do
     visit login_path
 
     fill_in "Email", with: @email_2
-    fill_in "Password", with: @password_2
+    fill_in "password-field", with: @password_2
 
     click_on "Log in"
     expect(current_path).to eq(profile_path)
@@ -112,7 +112,7 @@ RSpec.describe 'cart checkout and logout' do
     click_on "Log In"
 
     fill_in "Email", with: @email_2
-    fill_in "Password", with: @password_2
+    fill_in "password-field", with: @password_2
 
     click_on "Log in"
     expect(current_path).to eq(profile_path)
@@ -125,8 +125,8 @@ RSpec.describe 'cart checkout and logout' do
   it "can empty the cart and won't checkout with an empty cart" do
     visit login_path
 
-    fill_in "Email", with: @email_2
-    fill_in "Password", with: @password_2
+    fill_in "email", with: @email_2
+    fill_in "password-field", with: @password_2
 
     click_on "Log in"
     expect(current_path).to eq(profile_path)
@@ -148,10 +148,6 @@ RSpec.describe 'cart checkout and logout' do
 
     expect(current_path).to eq(cart_path)
     expect(page).to have_content("You have no items in your cart")
-
-
-
-
   end
 
 end

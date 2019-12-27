@@ -20,19 +20,19 @@ describe 'User visits edit page' do
 
       expect(current_path).to eq(profile_edit_path)
 
-      expect(find_field("name-field").value).to eq(User.last.name)
-      expect(find_field("address-field").value).to eq(User.last.address)
-      expect(find_field("city-field").value).to eq(User.last.city)
-      expect(find_field("state-field").value).to eq(User.last.state)
-      expect(find_field("zipcode-field").value).to eq(User.last.zip_code.to_s)
-      expect(find_field("email-field").value).to eq(User.last.email)
-      expect(find_field("password-field").value).to eq('')
-      expect(find_field("confirm-field").value).to eq('')
+      expect(find_field("user[name]").value).to eq(User.last.name)
+      expect(find_field("user[address]").value).to eq(User.last.address)
+      expect(find_field("user[city]").value).to eq(User.last.city)
+      expect(find_field("user[state]").value).to eq(User.last.state)
+      expect(find_field("user[zip_code]").value).to eq(User.last.zip_code.to_s)
+      expect(find_field("user[email]").value).to eq(User.last.email)
+      expect(find_field("user[password]").value).to eq('')
+      expect(find_field("user[password_confirmation]").value).to eq('')
 
-      fill_in 'name-field', with: 'Jawesome'
-      fill_in 'email-field', with: 'new-guy@yahoo.com'
-      fill_in 'password-field', with: 'password5'
-      fill_in 'confirm-field', with: 'password5'
+      fill_in 'user[name]', with: 'Jawesome'
+      fill_in 'user[email]', with: 'new-guy@yahoo.com'
+      fill_in 'user[password]', with: 'password5'
+      fill_in 'user[password_confirmation]', with: 'password5'
       click_on 'Update User'
 
       expect(current_path).to eq(profile_path)
@@ -71,35 +71,35 @@ describe 'User visits edit page' do
       click_link 'Edit Info'
 
       expect(current_path).to eq(profile_edit_path)
-      expect(find_field("name-field").value).to eq(User.last.name)
-      expect(find_field("address-field").value).to eq(User.last.address)
-      expect(find_field("city-field").value).to eq(User.last.city)
-      expect(find_field("state-field").value).to eq(User.last.state)
-      expect(find_field("zipcode-field").value).to eq(User.last.zip_code.to_s)
-      expect(find_field("email-field").value).to eq(User.last.email)
-      expect(find_field("password-field").value).to eq('')
-      expect(find_field("confirm-field").value).to eq('')
+      expect(find_field("user[name]").value).to eq(User.last.name)
+      expect(find_field("user[address]").value).to eq(User.last.address)
+      expect(find_field("user[city]").value).to eq(User.last.city)
+      expect(find_field("user[state]").value).to eq(User.last.state)
+      expect(find_field("user[zip_code]").value).to eq(User.last.zip_code.to_s)
+      expect(find_field("user[email]").value).to eq(User.last.email)
+      expect(find_field("user[password]").value).to eq('')
+      expect(find_field("user[password_confirmation]").value).to eq('')
 
       new_name = 'Jawesome'
       new_email = 'email@email.com'
       password = 'password'
 
-      fill_in 'name-field', with: new_name
-      fill_in 'email-field', with: new_email
-      fill_in 'password-field', with: password
-      fill_in 'confirm-field', with: password
+      fill_in 'user[name]', with: new_name
+      fill_in 'user[email]', with: new_email
+      fill_in 'user[password]', with: password
+      fill_in 'user[password_confirmation]', with: password
       click_on 'Update User'
 
       expect(page).to have_content("Email has already been taken")
 
-      expect(find_field("name-field").value).to eq(new_name)
-      expect(find_field("address-field").value).to eq(User.last.address)
-      expect(find_field("city-field").value).to eq(User.last.city)
-      expect(find_field("state-field").value).to eq(User.last.state)
-      expect(find_field("zipcode-field").value).to eq(User.last.zip_code.to_s)
-      expect(find_field("email-field").value).to eq(new_email)
-      expect(find_field("password-field").value).to eq('')
-      expect(find_field("confirm-field").value).to eq('')
+      expect(find_field("user[name]").value).to eq(new_name)
+      expect(find_field("user[address]").value).to eq(User.last.address)
+      expect(find_field("user[city]").value).to eq(User.last.city)
+      expect(find_field("user[state]").value).to eq(User.last.state)
+      expect(find_field("user[zip_code]").value).to eq(User.last.zip_code.to_s)
+      expect(find_field("user[email]").value).to eq(new_email)
+      expect(find_field("user[password]").value).to eq('')
+      expect(find_field("user[password_confirmation]").value).to eq('')
     end
   end
 end

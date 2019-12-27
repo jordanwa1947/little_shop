@@ -240,7 +240,7 @@ describe "as an admin user" do
     expect(page).to have_content("Log Out")
     expect(page).to have_content("Logged-in as: #{admin.name}")
     expect(page).to have_content("Admin Dashboard")
-    expect(page).to have_content("View All Users")
+    expect(page).to have_content("All Users")
 
     expect(page).to_not have_content("Log In")
     expect(page).to_not have_content("Register")

@@ -1,9 +1,13 @@
 <% if current_merchant? || current_admin? && params[:admin_page] != 'true' %>
-<h1> <%= current_user.name %> Dashboard </h1>
-<%= render partial: 'merchant_dashboard'  %>
+  <main class="main-container">
+    <h1> <%= current_user.name %> Dashboard </h1>
+    <%= render partial: 'merchant_dashboard'  %>
+  </main>
 <% elsif current_admin?%>
-<h1> Admin Dashboard </h1>
-<%= render partial: 'admin_dashboard' %>
+  <main class="main-container">
+    <h1> Admin Dashboard </h1>
+    <%= render partial: 'admin_dashboard' %>
+  </main>
 <% else %>
   <%= render file: "/public/404" %>
 <% end %>

@@ -1,56 +1,47 @@
 <%= form_for @user do |f| %>
-
-<% if @user.errors.any? %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this item from being saved:</h2>
       <% @user.errors.full_messages.each do |message| %>
         <div><%= message %></div>
       <% end %>
     </div>
-
-<% end %>
-
-
+  <% end %>
   <div class="info-box">
     <%= f.label :full_name %>
-    <%= f.text_field :name, id: "name-field", placeholder: "Shelly Marsh" %>
+    <%= f.text_field :name, placeholder: "Shelly Marsh" %>
   </div>
-
   <div class="info-box">
-    <div>
-      <%= f.label :address %>
-      <%= f.text_field :address, id: "address-field", placeholder: "Stan's House" %>
-    </div>
-    <span>
-      <%= f.label :city %>
-      <%= f.text_field :city, id: "city-field", placeholder: "South Park"%>
-    </span>
-    <span>
-      <%= f.label :state %>
-      <%= f.text_field :state, id: "state-field", placeholder: "CO"%>
-    </span>
-    <div>
-      <%= f.label :zip_code %>
-      <%= f.number_field :zip_code, id: "zipcode-field", placeholder: "01234" %>
-    </div>
+    <%= f.label :address %>
+    <%= f.text_field :address, placeholder: "Stan's House" %>
   </div>
-
+  <div class="address-info">
+    <span class="info-box">
+      <%= f.label :city %>
+      <%= f.text_field :city, placeholder: "South Park"%>
+    </span>
+    <span class="info-box">
+      <%= f.label :state %>
+      <%= f.text_field :state, class: "state-field", placeholder: "CO"%>
+    </span>
+    <span class="info-box">
+      <%= f.label :zip_code %>
+      <%= f.number_field :zip_code, class: "zipcode-field", placeholder: "01234" %>
+    </span>
+  </div>
   <div class="info-box">
     <%= f.label :email %>
-    <%= f.text_field :email, id: "email-field", placeholder: "shutuptwerp@yahoo.com" %>
+    <%= f.text_field :email, placeholder: "shutuptwerp@yahoo.com" %>
   </div>
-
   <div class="info-box">
-    <div>
-      <%= f.label :password %>
-      <%= f.password_field :password, id: "password-field" %>
-    </div>
-    <div>
-      <%= f.label :confirm %>
-      <%= f.password_field :password_confirmation, id: "confirm-field" %>
-    </div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
   </div>
-
-
-  <%= f.submit %>
+  <div class="info-box">
+    <%= f.label :confirm %>
+    <%= f.password_field :password_confirmation, id: "confirm-field" %>
+  </div>
+  <span class="form-button">
+    <%= f.submit %>
+  </span>
 <% end %>

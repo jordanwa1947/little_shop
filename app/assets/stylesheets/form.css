@@ -1,12 +1,4 @@
-form {
-  background: #AAAAAA;
-  margin: 50px 10%;
-  padding: 50px 40px;
-  width: 700px;
-}
-
 input, select {
-  /* padding: 12px 20px; */
   font-size: 1em;
   margin: 8px 0;
   display: inline-block;
@@ -17,26 +9,86 @@ input, select {
 }
 
 .info-box {
-  font-size: 2em;
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 10px;
+  padding-top: 0px;
   margin: 10px;
+  margin-right: 0px;
 }
 
-#address-field {
-  width: 450px;
+.register-form > form > .info-box {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 10px;
 }
 
-#state-field {
-  width: 50px;
+.info-box > input {
+  display: block;
+  height: 35px;
+  padding: 5px;
+  border: silver inset 1px;
+  font-size: 1.2em;
+  width: 90%;
 }
 
-#zipcode-field{
-  font-size: 1em;
-  width: 100px;
+.info-box > label {
+  font-size: 1.2em;
 }
 
-#email-field {
-  width: 450px;
+.sign-in-form {
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.user-info-form {
+  min-width: 500px;
+  max-width: 600px;
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+.edit-form {
+  min-width: 500px;
+  max-width: 600px;
+}
+
+.login-button {
+  text-align: center;
+}
+
+.form-button {
+  margin-top: 20px;
+}
+
+.form-button > input {
+  margin: 0px auto;
+  margin-top: 20px;
+  display: block;
+  width: 50%;
+  margin-bottom: 20px;
+  height: 46px;
+  background-image: linear-gradient(#5E9CFE 60%, white 80%, #5E9CFE 100%);
+  font-size: 1.4em;
+  cursor: pointer;
+  color: white;
+  padding-bottom: 12px;
+}
+
+.form-button > input:hover {
+  background-image: linear-gradient(#5E9CFE 80%, white 95%, #5E9CFE 100%);
+}
+
+.address-info {
+  display: flex;
+  width: 85%;
+  padding-left: 20px;
+}
+
+.address-info > span {
+  margin: 0px;
+  padding: 0px;
+}
+
+.zipcode-field{
+  width: 130px !important;
 }

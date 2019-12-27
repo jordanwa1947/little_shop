@@ -1,23 +1,26 @@
+.all-merchants-header {
+  margin: 20px 0px;
+}
+
 .users-table td {
-  height: 80px;
+  height: 55px;
 }
 
 .merchant-link{
   margin: 0px 20px;
   font-size: 2em;
   color: black;
-}
-
-#merchant-name {
-  font-size: 4em;
   text-decoration: none;
 }
 
-#merchant-name:hover {
-  /* text-decoration: underline; */
-  color: blue;
+.merchant-name {
+  font-size: 2em;
+  text-decoration: none;
 }
 
+.merchant-name:hover {
+  color: blue;
+}
 
 .status-link {
   font-size: 2em;
@@ -27,18 +30,20 @@
   text-decoration: none;
 }
 
-#disable-link {
+.disable-link {
   background: darkred;
   color: white;
 }
-#disable-link:hover {
+
+.disable-link:hover {
   background: red;
 }
 
-#enable-link {
+.enable-link {
   background: darkgreen;
   color: white;
 }
-#enable-link:hover {
+
+.enable-link:hover {
   background: green;
 }

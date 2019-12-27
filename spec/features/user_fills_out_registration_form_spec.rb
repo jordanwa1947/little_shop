@@ -51,27 +51,27 @@ describe 'user visits registration page' do
       email = "AwesomeSauce@gmail.com"
       password = "123456"
 
-      fill_in "name-field", with: name
-      fill_in "address-field", with: address
-      fill_in "city-field", with: city
-      fill_in "state-field", with: state
-      fill_in "zipcode-field", with: zip
-      fill_in "email-field", with: email
-      fill_in "password-field", with: password
-      fill_in "confirm-field", with: password
+      fill_in "user[name]", with: name
+      fill_in "user[address]", with: address
+      fill_in "user[city]", with: city
+      fill_in "user[state]", with: state
+      fill_in "user[zip_code]", with: zip
+      fill_in "user[email]", with: email
+      fill_in "user[password]", with: password
+      fill_in "user[password_confirmation]", with: password
 
       click_on 'Create User'
 
       expect(current_path).to eq(new_user_path)
       expect(page).to have_content('Email Address already exists')
-      expect(find_field("name-field").value).to eq(name)
-      expect(find_field("address-field").value).to eq(address)
-      expect(find_field("city-field").value).to eq(city)
-      expect(find_field("state-field").value).to eq(state)
-      expect(find_field("zipcode-field").value).to eq(zip.to_s)
-      expect(find_field("email-field").value).to eq('')
-      expect(find_field("password-field").value).to eq('')
-      expect(find_field("confirm-field").value).to eq('')
+      expect(find_field("user[name]").value).to eq(name)
+      expect(find_field("user[address]").value).to eq(address)
+      expect(find_field("user[city]").value).to eq(city)
+      expect(find_field("user[state]").value).to eq(state)
+      expect(find_field("user[zip_code]").value).to eq(zip.to_s)
+      expect(find_field("user[email]").value).to eq('')
+      expect(find_field("user[password]").value).to eq('')
+      expect(find_field("user[password_confirmation]").value).to eq('')
     end
   end
 end

@@ -1,25 +1,21 @@
-<h1 id="item-head">
-  <%= @item.name %>
-</h1>
-
-<div id="seller-info">
-  Brought to you by <%= link_to "#{@seller.name.upcase}", "#", id: "seller-name" %>
-</div>
-
-<div id="inventory-info">
-  In Stock: <%= @item.inventory_count %>
-</div>
-
-<div id="price-tag">
-  <%= number_to_currency(@item.price) %>
-</div>
-
-<div id="add-link-wrapper">
-  <%= link_to "ADD TO CART", cart_path(@item, item_id: @item.id), method: :post, id: "add-link" %>
-</div>
-
-<img src="<%= @item.img_url %>" class="item-big-image" alt="<%= @item.name %>-image">
-
-<div id="description-text">
-  <%= @item.description %>
-</div>
+<main class="main-container">
+  <h1 id="item-head">
+    <%= @item.name %>
+  </h1>
+  <div id="seller-info">
+    Brought to you by <%= link_to "#{@seller.name.upcase}", "#", id: "seller-name" %>
+  </div>
+  <div id="inventory-info">
+    In Stock: <%= @item.inventory_count %>
+  </div>
+  <div id="price-tag">
+    <%= number_to_currency(@item.price) %>
+  </div>
+  <div id="add-link-wrapper">
+    <%= link_to "ADD TO CART", cart_path(@item, item_id: @item.id), method: :post, id: "add-link" %>
+  </div>
+  <img src="<%= @item.img_url %>" class="item-big-image" alt="<%= @item.name %>-image">
+  <div id="description-text">
+    <%= @item.description %>
+  </div>
+</main>

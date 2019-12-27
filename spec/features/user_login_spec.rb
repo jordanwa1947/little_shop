@@ -28,7 +28,7 @@ describe 'login process' do
       visit login_path
 
       fill_in "Email", with: @email
-      fill_in "Password", with: @password
+      fill_in "password-field", with: @password
 
       click_on "Log in"
       expect(current_path).to eq(profile_path)
@@ -38,7 +38,7 @@ describe 'login process' do
       visit login_path
 
       fill_in "Email", with: @email
-      fill_in "Password", with: "incorrect"
+      fill_in "password-field", with: "incorrect"
       click_on "Log in"
       expect(current_path).to eq(login_path)
     end
@@ -47,7 +47,7 @@ describe 'login process' do
       visit login_path
 
       fill_in "Email", with: "wrong@email.com"
-      fill_in "Password", with: @password
+      fill_in "password-field", with: @password
       click_on "Log in"
       expect(current_path).to eq(login_path)
     end
