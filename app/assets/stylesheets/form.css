@@ -2,7 +2,6 @@ form {
   background: #AAAAAA;
   margin: 50px 10%;
   padding: 50px 40px;
-  width: 700px;
 }
 
 input, select {
@@ -19,9 +18,47 @@ input, select {
 .info-box {
   font-size: 2em;
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 10px;
+  padding-top: 0px;
   margin: 10px;
+  margin-right: 0px;
+}
+
+.info-box > input {
+  display: block;
+  height: 35px;
+  padding: 5px;
+  border: silver inset 1px;
+  font-size: .7em;
+  width: 90%;
+}
+
+.info-box > label {
+  font-size: .7em
+}
+
+.sign-in-form {
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.login-button {
+  text-align: center;
+}
+
+.login-button > input {
+  margin: 0px auto;
+  display: block;
+  width: 50%;
+  margin-bottom: 20px;
+  height: 40px;
+  background-image: linear-gradient(#5E9CFE 60%, white 80%, #5E9CFE 100%);
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.login-button > input:hover {
+  background-image: linear-gradient(#5E9CFE 80%, white 95%, #5E9CFE 100%);
 }
 
 #address-field {

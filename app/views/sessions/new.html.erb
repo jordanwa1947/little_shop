@@ -1,14 +1,16 @@
-<%= form_tag login_path do %>
-
-  <div class="info-box">
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-  </div>
-
-  <div class="info-box">
-  <%= label_tag :password %>
-  <%= password_field_tag :password, id: "password-field" %>
-  </div>
-
-  <%= submit_tag "Log in" %>
-<% end %>
+<section class="sign-in-form main-container">
+  <h2 class="page-title">Sign-In</h2>
+  <%= form_tag login_path do %>
+    <div class="info-box">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="info-box">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, "", placeholder: "", id: "password-field" %>
+    </div>
+    <span class="login-button">
+      <%= submit_tag "Log in" %>
+    </span>
+  <% end %>
+</section>
