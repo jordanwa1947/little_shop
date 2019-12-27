@@ -16,9 +16,9 @@ describe 'admin visits merchant dashboard' do
 
       expect(current_path).to eq(edit_user_path(merchant))
 
-      fill_in 'address-field', with: 'A new fake address'
-      fill_in 'password-field', with: 'password'
-      fill_in 'confirm-field', with: 'password'
+      fill_in 'user[address]', with: 'A new fake address'
+      fill_in 'user[password]', with: 'password'
+      fill_in 'user[password_confirmation]', with: 'password'
 
       click_button "Update User"
 

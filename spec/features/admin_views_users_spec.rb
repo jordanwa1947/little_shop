@@ -77,10 +77,10 @@ describe 'Admin clicks on users_page' do
       click_link "Edit Info"
       expect(current_path).to eq(edit_user_path(@user_1))
 
-      expect(find_field("name-field").value).to eq(@user_1.name)
-      fill_in 'address-field', with: 'A new fake address'
-      fill_in 'password-field', with: 'password'
-      fill_in 'confirm-field', with: 'password'
+      expect(find_field("user[name]").value).to eq(@user_1.name)
+      fill_in 'user[address]', with: 'A new fake address'
+      fill_in 'user[password]', with: 'password'
+      fill_in 'user[password_confirmation]', with: 'password'
       click_on 'Update User'
 
       expect(current_path).to eq(admin_user_path(@user_1))
@@ -219,7 +219,7 @@ describe 'Admin clicks on users_page' do
       visit login_path
 
       fill_in "Email", with: user_4.email
-      fill_in "Password", with: user_4.password
+      fill_in "password-field", with: user_4.password
 
       click_on "Log in"
 
