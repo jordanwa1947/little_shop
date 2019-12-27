@@ -1,22 +1,22 @@
+<main class="main-container">
   <h1> Welcome, <%= current_user.name %> </h1>
+  <hr />
+  <h2> Your Info:</h2>
 
-<h2> Your Info:</h2>
-
-<div class="info-box" id="your-info-box">
-  <div> Role: <%= current_user.role %></div>
-  <div id="email-address"> Username: <%= current_user.email %> </div>
-  <div>
-    <span> Address: <%= current_user.address %>,&nbsp</span>
-    <span> <%= current_user.city %>,&nbsp </span>
-    <span> <%= current_user.state %>,&nbsp </span>
-    <span> <%= current_user.zip_code %> </span>
+  <div class="info-box your-info-box">
+    <div> Role: <%= current_user.role %></div>
+    <div id="email-address"> Username: <%= current_user.email %> </div>
+    <div>
+      <span> Address: <%= current_user.address %>,&nbsp</span>
+      <span> <%= current_user.city %>,&nbsp </span>
+      <span> <%= current_user.state %>,&nbsp </span>
+      <span> <%= current_user.zip_code %> </span>
+    </div>
+    <%= link_to 'Edit Info', profile_edit_path %>
   </div>
 
-  <%= link_to 'Edit Info', profile_edit_path %>
-
-</div>
-
-<h2> Your Statistics: </h2>
-<div class="info-box" id="stats-box">
-  Coming Soonly!
-</div>
+  <h2> Your Statistics: </h2>
+  <div class="info-box stats-box">
+    Coming Soonly!
+  </div>
+<main>

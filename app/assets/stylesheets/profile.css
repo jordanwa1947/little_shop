@@ -1,9 +1,10 @@
-#your-info-box, #stats-box {
-  margin: 40px;
-  padding: 50px;
+.your-info-box, .stats-box {
+  /* margin: 40px;
+  padding: 50px; */
   line-height: 1.6;
+  font-size: 1.6em;
 }
 
-#email-address {
+.email-address {
   overflow-wrap: break-word;
 }
