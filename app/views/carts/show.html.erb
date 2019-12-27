@@ -1,37 +1,39 @@
-<div class="cart">
-  <h1 class="page-title">Your Shopping Cart</h1>
-  <% if @cart.count_all == 0 %>
-    <p>You have no items in your cart</p>
-  <% elsif @cart.items %>
-    <ul id="all-items-box">
-      <% @cart.items.each do |item| %>
-        <div class="item-list" id="item-list<%= item.id %>">
-          <%= link_to "Remove", cart_path(item_id: item.id, thing: "delete"), method: :put, class: "cart-link", id: "remove-item-link" %>
-          <%= link_to "-", cart_path(item_id: item.id, thing: "decrease"), method: :put, class: "increment-link", id: "drop-one" %>
-          <%= link_to "+", cart_path(item_id: item.id, thing: "increase"), method: :put, class: "increment-link", id: "add-one" %>
-          <%= number_to_currency(item.price) %>
-          <img src="<%= item.img_url %>" class="item-cart-image" alt="<%= item.name %>-image">
-          <%= @cart.quantity(item.id) %>
-          <%= item.name %>
-          <em><%= @cart.merchant(item.id).name %></em>
-          <span class="price">
-            <%= number_to_currency(item.price * @cart.quantity(item.id)) %>
-          </span>
-        </div>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
-<div class="login-or-register">
-  <span class="cart-total">Total: <%= number_to_currency(@cart.total_price) %> </span>
-  <%= link_to "Empty Cart", cart_path, method: :delete, class: "cart-link empty-cart-link" %>
-  <% unless current_user %>
-  <span class="right-text"> You must </span>
-  <%= link_to "Register", new_user_path %> or
-  <%= link_to "Login", login_path %>
-  <span> to checkout </span>
-  <% end %>
-  <% if current_user %>
-  <%= link_to "Checkout", user_orders_path(current_user), method: :post, class: "cart-link checkout-link" %>
-  <% end %>
-</div>
+<main class="main-container">
+  <div class="cart">
+    <h1 class="page-title">Your Shopping Cart</h1>
+    <% if @cart.count_all == 0 %>
+      <p>You have no items in your cart</p>
+    <% elsif @cart.items %>
+      <ul id="all-items-box">
+        <% @cart.items.each do |item| %>
+          <div class="item-list" id="item-list<%= item.id %>">
+            <%= link_to "Remove", cart_path(item_id: item.id, thing: "delete"), method: :put, class: "cart-link", id: "remove-item-link" %>
+            <%= link_to "-", cart_path(item_id: item.id, thing: "decrease"), method: :put, class: "increment-link", id: "drop-one" %>
+            <%= link_to "+", cart_path(item_id: item.id, thing: "increase"), method: :put, class: "increment-link", id: "add-one" %>
+            <%= number_to_currency(item.price) %>
+            <img src="<%= item.img_url %>" class="item-cart-image" alt="<%= item.name %>-image">
+            <%= @cart.quantity(item.id) %>
+            <%= item.name %>
+            <em><%= @cart.merchant(item.id).name %></em>
+            <span class="price">
+              <%= number_to_currency(item.price * @cart.quantity(item.id)) %>
+            </span>
+          </div>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <div class="login-or-register">
+    <span class="cart-total">Total: <%= number_to_currency(@cart.total_price) %> </span>
+    <%= link_to "Empty Cart", cart_path, method: :delete, class: "cart-link empty-cart-link" %>
+    <% unless current_user %>
+    <span class="right-text"> You must </span>
+    <%= link_to "Register", new_user_path %> or
+    <%= link_to "Login", login_path %>
+    <span> to checkout </span>
+    <% end %>
+    <% if current_user %>
+    <%= link_to "Checkout", user_orders_path(current_user), method: :post, class: "cart-link checkout-link" %>
+    <% end %>
+  </div>
+</main>
