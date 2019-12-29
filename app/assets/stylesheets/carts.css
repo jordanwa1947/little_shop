@@ -4,6 +4,15 @@
   padding: 20px;
 }
 
+.items-index {
+  padding: 0px;
+}
+
+.cart-title {
+  margin-left: 0px;
+  margin-bottom: 15px
+}
+
 .increment-link {
   text-decoration: none;
   font-size: 0.7em;
@@ -65,8 +74,9 @@
 
 .checkout-link {
   background: darkgreen;
-  color: white;
+  color: white !important;
   text-decoration: none;
+  margin-top: 0px !important;
 }
 
 .checkout-link:hover {
