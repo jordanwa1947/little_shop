@@ -2,12 +2,11 @@ class ItemsController < ApplicationController
 
   def index
     if customer?
-      @items = Item.where(status: :active)
+      @items = Item.search(params[:search], true)
     elsif current_merchant? || current_admin?
-      @items = Item.all
+      @items = Item.search(params[:search], false)
     end
     @cart = Cart.new(session[:cart])
-
     @three_highest_sellers = User.three_highest_sellers
     @three_highest_selling_items = Item.three_highest_selling_items
   end
