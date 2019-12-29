@@ -1,40 +1,40 @@
 <main class="main-container">
   <h1>Items for Sale</h1>
-  <div class="grid-container" id="items-list">
+  <hr />
+  <div class="grid-container items-list">
     <% @items.each do |item| %>
       <div class="item-entry", id="item-entry-<%=item.id%>">
-        <%= link_to image_tag(item.img_url, border: 0, class: "item-thumbnail"), item_path(item) %>
-        <b>
-          <%= link_to item.name, item_path(item), class:"item-info", id:"item-name" %>
-        </b>
-        <div class="item-info" id="item-merchant-name">
-          <em><%= item.user.name %> </em>
+        <%= link_to image_tag(item.img_url, border: 0, class: "item-thumbnail"), item_path(item), class: 'item-image-link' %>
+        <%= link_to item.name, item_path(item), class:"item-info item-name" %>
+        <div class="item-info item-merchant-name">
+          By <%= item.user.name %>
         </div>
-        <div class="item-info" id="item-count">
-          In Stock: <%= item.inventory_count %>
+        <div class="item-info">
+          <%= item.inventory_count %> In Stock
         </div>
-        <div class="item-info" id="item-price">
+        <div class="item-info">
           <%= number_to_currency(item.price) %>
         </div>
-        <br>
-        <div class="item-info" id="item-description"> <%= item.description %> </div>
-
+        <div class="item-info item-description"> <%= item.description %> </div>
       </div>
     <% end %>
   </div>
-  <h2 id="leaderboard-title">Leaderboard</h2>
-  <div id="stats-block">
-    <div class="item-info">Top Shoppers: <br>
+  <h2 class="leaderboard-title">Leaderboard</h2>
+  <hr />
+  <div class="stats-block">
+    <div>
+      <h2 class="stats-header"> Top Shoppers: </h2>
       <% @three_highest_sellers.each_with_index do |merchant, index| %>
-        <div>#<%= index+1 %> <%= merchant.name %></div>
+        <div class="item-info">#<%= index+1 %> <%= merchant.name %></div>
       <% end %>
     </div>
-    <div class="item-info">Best Selling Items: <br>
+    <div>
+      <h2 class="stats-header"> Best Selling Items: </h2>
       <% @three_highest_selling_items.each_with_index do |item, index| %>
-        <div>#<%= index+1 %> <%= item.name %></div>
+        <div class="item-info">#<%= index+1 %> <%= item.name %></div>
       <% end %>
     </div>
-    <div class="item-info">Fastest fulfilled:</div>
-    <div class="item-info">Slowest Shippers:</div>
+    <div class="stats-header">Fastest fulfilled:</div>
+    <div class="stats-header">Slowest Shippers:</div>
   </div>
 </main>
