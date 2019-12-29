@@ -8,7 +8,7 @@ Admin name-spacing gives admin users authorization, when authenticated, to have 
 
 ## Versions
 
-Ruby version: ``ruby '2.6.2'``
+Ruby version: ``ruby '2.4.5'``
 
 Rails version: ``'rails', '~> 5.1.7'`` (without Mini-test, Turbolinks & Spring)
 
