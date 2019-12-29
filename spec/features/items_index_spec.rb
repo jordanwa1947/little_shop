@@ -44,6 +44,21 @@ describe "items index page" do
     )
   end
 
+  it "should should show specific items if the search bar is used" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+    visit root_path
+
+    fill_in "search", with: 'Second'
+    click_on 'nav-search-bttn'
+
+    expect(current_path).to eq(search_path)
+    expect(page).to have_content(@item_2.name)
+    expect(page).to have_content(@item_2.user.name)
+
+    expect(page).to_not have_content(@item_1.price)
+    expect(page).to_not have_content(@item_1.name)
+  end
+
   it "should show all active items and details" do
 
     visit items_path

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root "welcome#show"
 
+  get '/search', to: 'items#index'
+
   resources :items, only: [:index, :show, :edit, :update]
 
   resource :cart, only: [:create, :show, :destroy, :update]
