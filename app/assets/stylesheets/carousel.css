@@ -1,0 +1,79 @@
+
+.carousel-container {
+  overflow: hidden;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.carousel {
+  transform-style: preserve-3d;
+}
+
+.carousel-image {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: auto;
+  padding: 1rem 4rem;
+  z-index: 100;
+  transition: transform .5s, opacity .5s, z-index .5s;
+}
+
+.carousel-image.initial,
+.carousel-image.active {
+  position: relative;
+  opacity: 1;
+  z-index: 900;
+}
+
+.carousel-image.prev,
+.carousel-image.next {
+  z-index: 800;
+}
+
+.carousel-image.prev {
+  transform: translateX(-100%);
+}
+.carousel-image.next {
+  transform: translateX(100%);
+}
+
+.carousel-prev-button,
+.carousel-next-button {
+  position: absolute;
+  top:50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: #FFF;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  border: 1px solid black;
+}
+
+.carousel-prev-button {
+  left: 65px;
+}
+
+.carousel-next-button {
+  right:0;
+}
+
+.carousel-prev-button::after,
+.carousel-next-button::after {
+  content: " ";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 54%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.carousel-next-button::after {
+  left: 47%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
