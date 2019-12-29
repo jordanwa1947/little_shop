@@ -11,7 +11,7 @@
   position: absolute;
   top: 124px;
   width: 0px;
-  height: 534px;
+  height: 85vh;
   background-color: #533557;
   overflow: hidden;
   z-index: 1;
@@ -22,9 +22,10 @@
   text-decoration: none;
   display: block;
   color: white;
-  text-align: center;
-  padding: 14px 16px;
+  text-align: left;
+  padding: 14px 30px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 #toggle {
