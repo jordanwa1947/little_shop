@@ -11,7 +11,7 @@ describe Item, type: :model do
     it { should validate_numericality_of(:price) }
     it { should validate_numericality_of(:inventory_count) }
     it { should validate_numericality_of(:inventory_count) }
-    
+
   end
   describe "relationships" do
     it { should belong_to(:user) }
@@ -39,5 +39,12 @@ describe Item, type: :model do
       sought_order_item = @item_2.order_item_sort(@order_2.id)
       expect(sought_order_item).to eq(@order_item_2)
     end
+
+    it 'finds specific items regardless of case and filter out disabled items' do
+      result = Item.search('Shovel', true)
+
+      expect(result[0]).to eq(@item_1)
+    end
   end
+
 end

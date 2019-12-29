@@ -23,4 +23,17 @@ class Item < ApplicationRecord
     .limit(3)
   end
 
+  def self.search(query, only_active)
+    if query && only_active
+      items = self.where("LOWER(name) LIKE :search", search: "%#{query.downcase}%");
+      items.where(status: :active);
+    elsif only_active
+      self.where(status: :active);
+    elsif query
+      self.where("LOWER(name) LIKE :search", search: "%#{query.downcase}%");
+    else
+      self.all();
+    end
+  end
+
 end
