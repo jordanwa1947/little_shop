@@ -25,14 +25,14 @@ class Item < ApplicationRecord
 
   def self.search(query, only_active)
     if query && only_active
-      items = self.where("LOWER(name) LIKE :search", search: "%#{query.downcase}%");
-      items.where(status: :active);
+      where("LOWER(name) LIKE :search", search: "%#{query.downcase}%")
+      .where(status: :active);
     elsif only_active
-      self.where(status: :active);
+      where(status: :active);
     elsif query
-      self.where("LOWER(name) LIKE :search", search: "%#{query.downcase}%");
+      where("LOWER(name) LIKE :search", search: "%#{query.downcase}%");
     else
-      self.all();
+      all();
     end
   end
 
