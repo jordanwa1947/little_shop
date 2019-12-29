@@ -1,51 +1,59 @@
-#item-head {
-  margin: 0px 20px;
-  font-size: 6em;
-  color: #EFD9CE;
+.right-col-text {
+  padding: 0px 30px;
 }
 
-#seller-info, #inventory-info, #price-tag {
-  margin: 0px 20px;
-  font-size: 2em;
-  color: #EFD9CE;
+.item-show {
+  display: flex;
+  width: 80%
 }
 
-#seller-name {
+.item-head {
+  margin-bottom: 20px;
+  font-size: 5em;
+}
+
+.item-text {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+.item-description {
+  font-size: 1.3em;
+  overflow: scroll;
+}
+
+.seller-name {
   text-decoration: none;
-
+  white-space: nowrap;
 }
 
-#add-link-wrapper {
-  margin: 20px;
-  padding: 5px;
-  border-radius: 5px;
-  background: darkgreen;
-  width: 180px;
-}
-
-#add-link {
-  /* padding: 10px; */
+.add-link {
   text-decoration: none;
-  font-size: 2em;
-  color: #EFD9CE;
+  font-size: 1.3em;
+  display: inline-block;
+  margin: 0px auto;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 4px;
+  width: 50%;
+  min-width: 180px;
+  height: 38px;
+  background-image: linear-gradient(#5E9CFE 60%, white 80%, #5E9CFE 100%);
+  cursor: pointer;
+  color: white;
+  padding-bottom: 10px;
 }
 
-
-#add-link-wrapper:hover {
-  background: green;
+.add-link:hover {
+  background-image: linear-gradient(#5E9CFE 80%, white 95%, #5E9CFE 100%);
+  padding-top: 10px;
+  padding-bottom: 0px;
 }
 
 .item-big-image {
   margin: 20px;
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   border-radius: 50%;
-  border: solid 5px #EFD9CE;
-}
-
-#description-text {
-  float: right;
-  margin-right: 20px;
-  font-size: 2em;
-  color: #EFD9CE;
+  border: solid 5px #25283D;
 }
